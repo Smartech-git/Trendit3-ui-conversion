@@ -17,7 +17,7 @@ const InputField = (
     }
 ) => {
     return (
-        <div className={className? className : 'flex items-center'}>
+        <div className={className? className : ''}>
             <Icons type={rightIcon} />
             <input type={type} placeholder={placeholder} onChange={onChange} className="border-none focus:outline-none w-11/12"/>
             <Icons type={leftIcon} />            

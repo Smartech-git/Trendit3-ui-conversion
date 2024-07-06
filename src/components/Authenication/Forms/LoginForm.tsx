@@ -27,11 +27,11 @@ const LoginForm = () => {
                 </p>
             </div>
             <div className="flex flex-col items-center gap-y-4 w-full">
-                <div className="w-10/12 sm:w-[440px] border-[1px] border-solid border-inputBorder py-2 rounded-md pl-4 text-medium">
-                    <InputField type="email" placeholder="Enter your email"/>
+                <div className="w-full flex justify-center">
+                    <InputField type="email" placeholder="Enter your email" className="w-10/12 sm:w-[440px] border-[1px] border-solid border-inputBorder py-2 rounded-md pl-4 text-medium"/>
                 </div>
-                <div className="w-10/12 sm:w-[440px] border-[1px] border-solid border-inputBorder py-2 rounded-md pl-4 text-medium">
-                    <InputField type="password" placeholder="Create password" leftIcon="invisible"/>
+                <div className="w-full flex justify-center">
+                    <InputField type="password" placeholder="Create password" leftIcon="invisible" className="w-10/12 sm:w-[440px] border-[1px] border-solid border-inputBorder py-2 rounded-md pl-4 text-medium flex items-center"/>
                 </div>
             </div>
             <div className="text-[#475467] text-[14px]">
