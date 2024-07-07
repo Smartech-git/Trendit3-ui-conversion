@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { NextUIProvider } from "@nextui-org/react";
 
 export default function App({ Component, pageProps }: AppProps) {
   return ( <>
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
           <link rel="icon" type="image/png" sizes="16x16" href="/android-chrome-512x512 .png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   </Head>
+  <NextUIProvider>
   <Component {...pageProps} />
+  </NextUIProvider>
   </>
   )
 }
