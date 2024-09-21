@@ -1,12 +1,14 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import EmailScreen from "@/components/onboarding/EmailScreen";
 import EmailConFrimationScreen from "@/components/onboarding/EmailConfirmationScreen";
 import AboutScreen from "@/components/onboarding/AboutScreen";
-import ProfileSetup from "@/components/onboarding/ProfileSetup";
+import ProfileSetupScreen from "@/components/onboarding/ProfileSetupScreen";
+import ReferalScreen0 from "@/components/onboarding/ReferalScreen0";
+import UseCase from "@/components/onboarding/UseCase";
 import { useRouter, usePathname } from "next/navigation";
 import Spinner from "@/components/loadingScreens/Spinner";
-import { signupPaths } from "@/types";
+import { signupPaths, signupFormTypes } from "@/types";
 
 export default function Page({ params }: { params: { id: string } }) {
   const router = useRouter();
@@ -27,7 +29,9 @@ export default function Page({ params }: { params: { id: string } }) {
           {pathname === "/signup/email" && <EmailScreen />}
           {pathname === "/signup/email-confirmation" && <EmailConFrimationScreen />}
           {pathname === "/signup/about" && <AboutScreen />}
-          {pathname === "/signup/profile-setup" && <ProfileSetup />}
+          {pathname === "/signup/profile-setup" && <ProfileSetupScreen />}
+          {pathname === "/signup/referal" && <ReferalScreen0 />}
+          {pathname === "/signup/use-case" && <UseCase />}
         </>
       ) : (
         <div className='sm:w-[520px] w-[90vw] min-h-[300px] h-fit bg-white flex flex-col gap-y-8 items-center justify-center rounded-xl px-6 py-12'>

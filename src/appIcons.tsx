@@ -45,3 +45,11 @@ export const User01 = ({ className }: { className: string }) => {
     </svg>
   );
 };
+
+export const ChevronDown = ({ className }: { className: string }) => {
+  return (
+    <svg className={className} xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'>
+      <path d='M5 8.40723L10 13.4072L15 8.40723' stroke='#98A2B3' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};

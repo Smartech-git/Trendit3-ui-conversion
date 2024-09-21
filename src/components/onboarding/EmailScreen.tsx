@@ -1,9 +1,28 @@
-import React , {useEffect} from "react";
+import React, { useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { SignupOnboardingContext } from "@/app/(onboarding)/signup/layout";
+import { signupFormTypes } from "@/types";
 
 export default function EmailScreen() {
-      
+  const { formData, setFormData } = useContext(SignupOnboardingContext);
+
+  const handleOnEmailChange = (e: any) => {
+    // ... functionalities yet to come
+    setFormData((prev: signupFormTypes) => ({
+      ...prev,
+      email: e.target.value,
+    }));
+  };
+
+  const handleOnRefCodeChange = (e: any) => {
+    // ... functionalities yet to come
+    setFormData((prev: signupFormTypes) => ({
+      ...prev,
+      refCode: e.target.value,
+    }));
+  };
   return (
     <div className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
@@ -12,12 +31,30 @@ export default function EmailScreen() {
       </div>
       <div className='w-full flex flex-col relative gap-y-6 items-center'>
         <div className='w-full flex relative items-center flex-col gap-y-4'>
-          <div className='w-full flex flex-col'>
-            <input autoComplete='off' placeholder={`Enter your email`} name='email' className={`!border-gray-300  focus:!border-primary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-sm px-4 h-11 shadow-main rounded-lg text-black font-medium sm:text-lg placeholder:font-normal  placeholder:text-gray-500`} type={"text"} />
-          </div>
-          <div className='w-full flex flex-col'>
-            <input autoComplete='off' placeholder={`Referral Code (optional)`} name='refCode' className={`!border-gray-300 focus:!border-primary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-sm px-4 h-11 shadow-main rounded-lg text-black font-medium sm:text-lg placeholder:font-normal  placeholder:text-gray-500`} type={"text"} />
-          </div>
+          <form className='w-full flex flex-col items-center gap-y-4 relative'>
+            <div className='w-full flex flex-col'>
+              <input
+                onChange={(e: any) => handleOnEmailChange(e)}
+                value={formData.email}
+                autoComplete='off'
+                placeholder={`Enter your email`}
+                name='email'
+                className={`!border-gray-300  focus:!border-primary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                type={"text"}
+              />
+            </div>
+            <div className='w-full flex flex-col'>
+              <input
+                onChange={(e: any) => handleOnRefCodeChange(e)}
+                value={formData.refCode}
+                autoComplete='off'
+                placeholder={`Referral Code (optional)`}
+                name='refCode'
+                className={`!border-gray-300 focus:!border-primary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                type={"text"}
+              />
+            </div>
+          </form>
           <Link href='/signup/email-confirmation' scroll={true} className='w-full transition-shadow bg-primary_fixed hover:shadow-lg rounded-lg h-11 flex items-center justify-center'>
             <span className='text-white font-bold text-base'>Get started</span>
           </Link>
