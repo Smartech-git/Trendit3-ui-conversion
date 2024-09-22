@@ -39,7 +39,7 @@ export default function EmailScreen() {
                 autoComplete='off'
                 placeholder={`Enter your email`}
                 name='email'
-                className={`!border-gray-300  focus:!border-primary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300  focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
                 type={"text"}
               />
             </div>
@@ -50,12 +50,12 @@ export default function EmailScreen() {
                 autoComplete='off'
                 placeholder={`Referral Code (optional)`}
                 name='refCode'
-                className={`!border-gray-300 focus:!border-primary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300 focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
                 type={"text"}
               />
             </div>
           </form>
-          <Link href='/signup/email-confirmation' scroll={true} className='w-full transition-shadow bg-primary_fixed hover:shadow-lg rounded-lg h-11 flex items-center justify-center'>
+          <Link href='/signup/email-confirmation' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
             <span className='text-white font-bold text-base'>Get started</span>
           </Link>
         </div>
@@ -65,15 +65,15 @@ export default function EmailScreen() {
           <hr className='w-full h-[1px] bg-gray-100'></hr>
         </div>
         <div className='w-full flex flex-col gap-y-3'>
-          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
+          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors animate-duration-300 rounded-lg h-11 flex items-center justify-center'>
             <Image src='/icons/google.svg' alt='Google' width={24} height={24} className='' />
             <span className='text-gray-700 font-bold text-base'>Sign up with Google</span>
           </button>
-          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
+          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors animate-duration-300 rounded-lg h-11 flex items-center justify-center'>
             <Image src='/icons/facebook.svg' alt='Google' width={24} height={24} className='' />
             <span className='text-gray-700 font-bold text-base'>Sign up with Facebook</span>
           </button>
-          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
+          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors animate-duration-300 rounded-lg h-11 flex items-center justify-center'>
             <Image src='/icons/tiktok.svg' alt='Google' width={24} height={24} className='' />
             <span className='text-gray-700 font-bold text-base'>Sign up with Tiktok</span>
           </button>
@@ -81,7 +81,7 @@ export default function EmailScreen() {
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>Already have an account?</span>
-        <span className='text-primary_fixed hover:opacity-80 animate-duration-300 transition-colors font-bold text-sm hover:underline cursor-pointer'>Log in</span>
+        <Link href='/login/0' scroll={true} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>Log in</Link>
       </div>
     </div>
   );

@@ -1,21 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import EmailScreen from "@/components/onboarding/EmailScreen";
-import EmailConFrimationScreen from "@/components/onboarding/EmailConfirmationScreen";
-import AboutScreen from "@/components/onboarding/AboutScreen";
-import ProfileSetupScreen from "@/components/onboarding/ProfileSetupScreen";
-import ReferalScreen0 from "@/components/onboarding/ReferalScreen0";
-import UseCase from "@/components/onboarding/UseCase";
+import EmailScreen from "@/components/onboardingScreens/signup/EmailScreen";
+import EmailConFrimationScreen from "@/components/onboardingScreens/signup/EmailConfirmationScreen";
+import AboutScreen from "@/components/onboardingScreens/signup/AboutScreen";
+import ProfileSetupScreen from "@/components/onboardingScreens/signup/ProfileSetupScreen";
+import ReferalScreen0 from "@/components/onboardingScreens/signup/ReferalScreen0";
+import UseCase from "@/components/onboardingScreens/signup/UseCase";
 import { useRouter, usePathname } from "next/navigation";
 import Spinner from "@/components/loadingScreens/Spinner";
-import { signupPaths, signupFormTypes } from "@/types";
+import { signupPaths, signupPathTypes } from "@/types";
 
-export default function Page({ params }: { params: { id: string } }) {
+export default function Page({ params }: { params: { stage: string } }) {
   const router = useRouter();
-  const pathname = usePathname();
+  const pathname = usePathname() as signupPathTypes;
 
   useEffect(() => {
-    console.log(pathname);
     window.scrollTo({
       top: 0,
       behavior: "smooth",
