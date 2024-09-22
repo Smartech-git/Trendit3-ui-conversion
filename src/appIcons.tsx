@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Eye = ({ className }: { className: string }) => {
+export const Eye = ({ className }: { className?: string }) => {
   return (
     <svg className={className} xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'>
       <path
@@ -16,7 +16,7 @@ export const Eye = ({ className }: { className: string }) => {
   );
 };
 
-export const EyeOff = ({ className }: { className: string }) => {
+export const EyeOff = ({ className }: { className?: string }) => {
   return (
     <svg className={className} xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'>
       <path
@@ -31,7 +31,7 @@ export const EyeOff = ({ className }: { className: string }) => {
   );
 };
 
-export const User01 = ({ className }: { className: string }) => {
+export const User01 = ({ className }: { className?: string }) => {
   return (
     <svg className={className} xmlns='http://www.w3.org/2000/svg' width='28' height='29' viewBox='0 0 28 29' fill='none'>
       <path
@@ -46,10 +46,33 @@ export const User01 = ({ className }: { className: string }) => {
   );
 };
 
-export const ChevronDown = ({ className }: { className: string }) => {
+export const ChevronDown = ({ className }: { className?: string }) => {
   return (
     <svg className={className} xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'>
       <path d='M5 8.40723L10 13.4072L15 8.40723' stroke='#98A2B3' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
+
+export const Check = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='28' height='27' viewBox='0 0 28 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M23 6.75L10.625 19.125L5 13.5' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
+
+export const InfoHexagon = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='28' height='27' viewBox='0 0 28 27' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path
+        d='M14 18V13.5M14 9H14.0113M2.75 9.58808V17.4119C2.75 17.6871 2.75 17.8247 2.78108 17.9541C2.80864 18.0689 2.8541 18.1787 2.91578 18.2793C2.98535 18.3929 3.08264 18.4901 3.27721 18.6847L8.81529 24.2228C9.00986 24.4174 9.10715 24.5146 9.22068 24.5842C9.32134 24.6459 9.43107 24.6914 9.54586 24.7189C9.67534 24.75 9.81292 24.75 10.0881 24.75H17.9119C18.1871 24.75 18.3247 24.75 18.4541 24.7189C18.5689 24.6914 18.6787 24.6459 18.7793 24.5842C18.8929 24.5146 18.9901 24.4174 19.1847 24.2228L24.7228 18.6847C24.9174 18.4901 25.0146 18.3929 25.0842 18.2793C25.1459 18.1787 25.1914 18.0689 25.2189 17.9541C25.25 17.8247 25.25 17.6871 25.25 17.4119V9.58808C25.25 9.31292 25.25 9.17534 25.2189 9.04586C25.1914 8.93107 25.1459 8.82134 25.0842 8.72068C25.0146 8.60715 24.9174 8.50986 24.7228 8.31529L19.1847 2.77721C18.9901 2.58264 18.8929 2.48535 18.7793 2.41578C18.6787 2.3541 18.5689 2.30864 18.4541 2.28108C18.3247 2.25 18.1871 2.25 17.9119 2.25H10.0881C9.81292 2.25 9.67534 2.25 9.54586 2.28108C9.43107 2.30864 9.32134 2.3541 9.22068 2.41578C9.10715 2.48535 9.00986 2.58264 8.81529 2.77721L3.27721 8.31529C3.08264 8.50986 2.98535 8.60715 2.91578 8.72068C2.8541 8.82134 2.80864 8.93107 2.78108 9.04586C2.75 9.17534 2.75 9.31292 2.75 9.58808Z'
+        stroke='white'
+        stroke-width='1.5'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        className={className}
+      />
     </svg>
   );
 };

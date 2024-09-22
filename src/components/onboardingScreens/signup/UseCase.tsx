@@ -7,17 +7,13 @@ import { label } from "framer-motion/client";
 const { format } = require("date-fns");
 
 const useCases = [
-    { label: 'Earner', desc: 'Engage in tasks and events that can earn me money.' },
-    { label: 'Advertise', desc: 'Create post and events to increase my reach on the internet.' },
-    { label: 'Both', desc: '' },
+  { label: "Earner", desc: "Engage in tasks and events that can earn me money." },
+  { label: "Advertise", desc: "Create post and events to increase my reach on the internet." },
+  { label: "Both", desc: "" },
 ];
 export default function UseCase() {
   const [dropDownStates, setDropDownMenuStates] = useState<{ [key: string]: boolean }>({ gender: false });
   const { formData, setFormData } = useContext(SignupOnboardingContext);
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
 
   const handleOnSelect = (value: string) => {
     setFormData((prev: signupFormTypes) => ({
@@ -48,8 +44,8 @@ export default function UseCase() {
                   label: "!text-gray-700 font-medium text-base",
                   wrapper: "!size-[20px] !mt-1 !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-primary_fixed",
                   base: "flex gap-x-3 -m-0 p-0 !items-start",
-                    control: "!size-3 !bg-primary_fixed",
-                  description: '!text-gray-600 !font-normal text-base'
+                  control: "!size-3 !bg-primary_fixed",
+                  description: "!text-gray-600 !font-normal text-base",
                 }}
                 value={item.label}
                 description={item.desc}
@@ -60,7 +56,7 @@ export default function UseCase() {
           })}
         </RadioGroup>
       </div>
-      <Link href='/home' scroll={true} className='w-full transition-shadow bg-primary_fixed hover:shadow-lg rounded-lg h-11 flex items-center justify-center'>
+      <Link href='/home' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
         <span className='text-white font-bold text-base'>Continue</span>
       </Link>
     </div>

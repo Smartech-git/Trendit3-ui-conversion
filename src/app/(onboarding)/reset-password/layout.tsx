@@ -1,9 +1,9 @@
 "use client";
 
 import React, { createContext, useState } from "react";
-import { signupFormTypes} from "@/types";
+import { resetPasswordFormTypes} from "@/types";
 
-export const SignupOnboardingContext = createContext<{formData: signupFormTypes, setFormData: React.Dispatch<React.SetStateAction<signupFormTypes>> }>({
+export const ResetpasswordContext = createContext<{formData: resetPasswordFormTypes, setFormData: React.Dispatch<React.SetStateAction<resetPasswordFormTypes>> }>({
   formData: {
     email: undefined,
     refCode: undefined,
@@ -24,8 +24,8 @@ export const SignupOnboardingContext = createContext<{formData: signupFormTypes,
   setFormData: () => {},
 });
 
-export default function signupOnboardinglayout({ children }: { children: React.ReactNode }) {
-  const [formData, setFormData] = useState<signupFormTypes>({
+export default function resetPasswordlayout({ children }: { children: React.ReactNode }) {
+  const [formData, setFormData] = useState<resetPasswordFormTypes>({
     email: undefined,
     refCode: undefined,
     OTP: undefined,
@@ -44,13 +44,13 @@ export default function signupOnboardinglayout({ children }: { children: React.R
   });
 
   return (
-    <SignupOnboardingContext.Provider
+    <ResetpasswordContext.Provider
       value={{
         formData,
         setFormData,
       }}
     >
       {children}
-    </SignupOnboardingContext.Provider>
+    </ResetpasswordContext.Provider>
   );
 }

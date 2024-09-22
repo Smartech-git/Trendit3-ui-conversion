@@ -42,7 +42,7 @@ export default function ProfileSetupScreen() {
         </div>
         <>
           <label htmlFor='image'>
-            <span className='text-primary_fixed font-semibold hover:underline text-base'>Upload photo</span>
+            <span className='text-primary_fixed font-semibold  text-base'>Upload photo</span>
           </label>
           <input type='file' id='image' accept='image/png, image/jpeg, image/jpg' className='hidden' />
         </>
@@ -138,12 +138,14 @@ export default function ProfileSetupScreen() {
           </div>
         </div>
       </div>
-      <Link href='/signup/referal' scroll={true} className='w-full transition-shadow bg-primary_fixed hover:shadow-lg rounded-lg h-11 flex items-center justify-center'>
+      <Link href='/signup/referal' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
         <span className='text-white font-bold text-base'>Continue</span>
       </Link>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>I will do this later</span>
-        <Link href='/home' className='text-primary_fixed font-bold text-sm hover:opacity-80 animate-duration-300 transition-colors hover:underline cursor-pointer'>Skip</Link>
+        <Link href='/home' className='text-primary_fixed font-bold text-sm hover:text-secondary_fixed animate-duration-300 transition-colors cursor-pointer'>
+          Skip
+        </Link>
       </div>
     </div>
   );

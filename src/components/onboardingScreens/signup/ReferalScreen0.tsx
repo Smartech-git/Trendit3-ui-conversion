@@ -55,7 +55,7 @@ export default function ReferalScreen0() {
           })}
         </RadioGroup>
       </div>
-      <Link href='/signup/use-case' scroll={true} className='w-full transition-shadow bg-primary_fixed hover:shadow-lg rounded-lg h-11 flex items-center justify-center'>
+      <Link href='/signup/use-case' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
         <span className='text-white font-bold text-base'>Continue</span>
       </Link>
     </div>
