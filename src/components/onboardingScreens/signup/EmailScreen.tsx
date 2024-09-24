@@ -2,11 +2,11 @@ import React, { useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { SignupOnboardingContext } from "@/app/(onboarding)/signup/layout";
+import { useSignupContext } from "@/context/SignupContext";
 import { signupFormTypes } from "@/types";
 
 export default function EmailScreen() {
-  const { formData, setFormData } = useContext(SignupOnboardingContext);
+  const { formData, setFormData } = useSignupContext();
 
   const handleOnEmailChange = (e: any) => {
     // ... functionalities yet to come

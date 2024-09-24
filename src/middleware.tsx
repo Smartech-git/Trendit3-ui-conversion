@@ -9,7 +9,7 @@ export async function middleware(request: NextRequest) {
 
   if (!user?.user) {
     if (request.nextUrl.pathname === `/`) {
-      return Response.redirect(new URL("signup/email", request.url));
+      return Response.redirect(new URL("login/0", request.url));
     }
   }
   if (request.nextUrl.pathname.startsWith(`/signup`)) {

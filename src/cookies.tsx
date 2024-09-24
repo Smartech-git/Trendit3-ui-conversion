@@ -49,7 +49,7 @@ export async function updateAuthCookies(request: NextRequest) {
 
 export async function getAuthCookies() {
   const session = cookies().get("a_c")?.value;
-  if (!session) return null;
+  if (!session) return undefined;
   return await decrypt(session);
 }
 
@@ -70,7 +70,7 @@ export async function createSession(formData: any) {
 
 export async function getSession() {
   const session = cookies().get("session")?.value;
-  if (!session) return null;
+  if (!session) return undefined;
   return await decrypt(session);
 }
 
@@ -79,7 +79,7 @@ export async function updateSession() {
   const payload = await decrypt(session);
 
   if (!session || !payload) {
-    return null;
+    return undefined;
   }
 
   const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);

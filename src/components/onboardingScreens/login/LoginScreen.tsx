@@ -1,12 +1,12 @@
 import React, { useEffect, useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { LoginOnboardingContext } from "@/app/(onboarding)/login/layout";
+import { useLoginContext } from "@/context/LoginContext";
 import { loginFormTypes } from "@/types";
 import { Eye, EyeOff } from "@/appIcons";
 
 export default function LoginScreen() {
-  const { formData, setFormData } = useContext(LoginOnboardingContext);
+  const { formData, setFormData } = useLoginContext();
   const [showPassword, setShowPassword] = useState({ main: false });
 
   const handleOnEmailChange = (e: any) => {
@@ -36,7 +36,7 @@ export default function LoginScreen() {
             <div className='w-full flex flex-col'>
               <input
                 onChange={(e: any) => handleOnEmailChange(e)}
-                value={formData.email}
+                value={formData.email as undefined | string}
                 autoComplete='off'
                 placeholder={`Enter your email`}
                 name='email'
@@ -48,7 +48,7 @@ export default function LoginScreen() {
               <div className='w-full flex relative'>
                 <input
                   onChange={(e) => handlePasswordChange(e)}
-                  value={formData.password}
+                  value={formData.password as undefined | string}
                   autoComplete='off'
                   placeholder={`Enter your password`}
                   name='password'

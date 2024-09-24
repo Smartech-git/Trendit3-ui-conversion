@@ -2,16 +2,16 @@ import React, { useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { resetPasswordFormTypes } from "@/types";
-import { ResetpasswordContext } from "@/app/(onboarding)/reset-password/layout";
+import { useResetPasswordContext } from "@/context/ResetPasswordContext";
 import { useGlobal } from "@/context/GlobalContext";
 
 export default function ResetPasswordScreen() {
-  const { formData, setFormData, } = useContext(ResetpasswordContext);
-  const { setToast } = useGlobal()
-  
+  const { formData, setFormData } = useResetPasswordContext();
+  const { setToast } = useGlobal();
+
   useEffect(() => {
-    setToast({open: true, state: 'success', content: "OTP Sent"})
-  }, [])
+    setToast({ open: true, state: "success", content: "OTP Sent" });
+  }, []);
 
   const handleOnChange = (e: any) => {
     // ... functionalities yet to come
@@ -20,7 +20,6 @@ export default function ResetPasswordScreen() {
       OTP: e.target.value,
     }));
   };
-
 
   return (
     <div className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
@@ -33,7 +32,7 @@ export default function ResetPasswordScreen() {
           <div className='w-full flex flex-col'>
             <input
               onChange={(e) => handleOnChange(e)}
-              value={formData.OTP}
+              value={formData.OTP as undefined | string}
               autoComplete='off'
               placeholder={`Past OTP`}
               name='OTP'
@@ -44,7 +43,7 @@ export default function ResetPasswordScreen() {
         </form>
       </div>
       <Link href='/login/1' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
-        <span  className='text-white font-bold text-base'>Continue</span>
+        <span className='text-white font-bold text-base'>Continue</span>
       </Link>
     </div>
   );

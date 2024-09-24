@@ -1,16 +1,21 @@
 import React, { useEffect, useContext } from "react";
 import { signupFormTypes } from "@/types";
-import { SignupOnboardingContext } from "@/app/(onboarding)/signup/layout";
+import { useSignupContext } from "@/context/SignupContext";
 import { useGlobal } from "@/context/GlobalContext";
 
 
 export default function EmailConFrimationScreen() {
-  const { formData, setFormData } = useContext(SignupOnboardingContext);
+  const { formData, setFormData } = useSignupContext();
   const { setToast } = useGlobal()
   
   useEffect(() => {
     setToast({open: true, state: 'success', content: "OTP Sent"})
   }, [])
+
+  const handleResendOTP = () => {
+    setToast({open: true, state: 'success', content: "OTP Sent"})
+
+  }
 
   const handleOnChange = (e: any) => {
     // ... functionalities yet to come
@@ -43,7 +48,7 @@ export default function EmailConFrimationScreen() {
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>{`Didn’t receive it?`}</span>
-        <span className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>Resend</span>
+        <span onClick={handleResendOTP} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>Resend</span>
       </div>
     </div>
   );
