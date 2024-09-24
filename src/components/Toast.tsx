@@ -13,7 +13,7 @@ export default function Toast() {
     if (toast.open) {
       if (toast.state === "success" || toast.state === "error") {
         ID = setTimeout(() => {
-          setToast({ open: false, state: null, content: null });
+          setToast({ open: false, state: undefined, content: undefined });
         }, 3500);
       }
     }

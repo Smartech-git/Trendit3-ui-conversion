@@ -2,12 +2,12 @@ import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Eye, EyeOff } from "@/appIcons";
-import { SignupOnboardingContext } from "@/app/(onboarding)/signup/layout";
+import { useSignupContext } from "@/context/SignupContext";
 import { signupFormTypes } from "@/types";
 
 export default function AboutScreen() {
   const [showPassword, setShowPassword] = useState({ main: false, confirm: false });
-  const { formData, setFormData } = useContext(SignupOnboardingContext);
+  const { formData, setFormData } = useSignupContext();
 
   const handlePasswordChange = (e: any) => {
     setFormData((prev: signupFormTypes) => ({

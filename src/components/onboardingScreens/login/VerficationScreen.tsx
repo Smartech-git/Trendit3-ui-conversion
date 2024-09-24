@@ -2,16 +2,16 @@ import React, { useEffect, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { loginFormTypes } from "@/types";
-import { LoginOnboardingContext } from "@/app/(onboarding)/login/layout";
+import { useLoginContext } from "@/context/LoginContext";
 import { useGlobal } from "@/context/GlobalContext";
 
 export default function VerificationScreen() {
-  const { formData, setFormData } = useContext(LoginOnboardingContext);
-  const { setToast } = useGlobal()
-  
+  const { formData, setFormData } = useLoginContext();
+  const { setToast } = useGlobal();
+
   useEffect(() => {
-    setToast({open: true, state: 'success', content: "OTP Sent"})
-  }, [])
+    setToast({ open: true, state: "success", content: "OTP Sent" });
+  }, []);
 
   const handleOnChange = (e: any) => {
     // ... functionalities yet to come
@@ -19,6 +19,10 @@ export default function VerificationScreen() {
       ...prev,
       OTP: e.target.value,
     }));
+  };
+
+  const handleResendOTP = () => {
+    setToast({ open: true, state: "success", content: "OTP Sent" });
   };
 
   return (
@@ -44,7 +48,7 @@ export default function VerificationScreen() {
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>{`Didn’t receive it?`}</span>
-        <span className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>Resend</span>
+        <span onClick={handleResendOTP} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>Resend</span>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import { RadioGroup, Radio } from "@nextui-org/react";
 import { signupFormTypes } from "@/types";
-import { SignupOnboardingContext } from "@/app/(onboarding)/signup/layout";
+import { useSignupContext } from "@/context/SignupContext";
 import { label } from "framer-motion/client";
 const { format } = require("date-fns");
 
@@ -10,7 +10,7 @@ const sociaMedia = ["Facebook", "X(Twitter)", "Instagram", "WhatsApp", "Telegram
 
 export default function ReferalScreen0() {
   const [dropDownStates, setDropDownMenuStates] = useState<{ [key: string]: boolean }>({ gender: false });
-  const { formData, setFormData } = useContext(SignupOnboardingContext);
+  const { formData, setFormData } = useSignupContext();
 
   useEffect(() => {
     console.log(formData);

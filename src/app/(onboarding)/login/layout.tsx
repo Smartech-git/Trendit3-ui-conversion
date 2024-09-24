@@ -1,38 +1,11 @@
 "use client";
 
-import React, { createContext, useState } from "react";
-import { loginFormTypes } from "@/types";
+import LoginProvider from "@/context/LoginContext";
 
-interface loginContext_Types {
-  formData: loginFormTypes,
-  setFormData: React.Dispatch<React.SetStateAction<loginFormTypes>>
-}
-
-export const LoginOnboardingContext = createContext<loginContext_Types>({
-  formData: {
-    email: undefined,
-    OTP: undefined,
-    password: undefined,
-  },
-  setFormData: () => { },
-});
-
-export default function loginOnboardinglayout({ children }: { children: React.ReactNode }) {
-  const [formData, setFormData] = useState<loginFormTypes>({
-    email: undefined,
-    OTP: undefined,
-    password: undefined,
-  });
-  const [type, setType] = useState<'default' | 'resetPassword'>('default')
-
-  return (
-    <LoginOnboardingContext.Provider
-      value={{
-        formData,
-        setFormData,
-      }}
-    >
+export default function LoginOnboardinglayout({ children }: { children: React.ReactNode }) {
+ return (
+    <LoginProvider>
       {children}
-    </LoginOnboardingContext.Provider>
+    </LoginProvider>
   );
 }

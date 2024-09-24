@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { User01, ChevronDown } from "@/appIcons";
 import { signupFormTypes } from "@/types";
-import { SignupOnboardingContext } from "@/app/(onboarding)/signup/layout";
+import { useSignupContext } from "@/context/SignupContext";
 import { Select, SelectSection, SelectItem } from "@nextui-org/select";
 import { DateInput } from "@nextui-org/react";
 import { CalendarDate, parseDate } from "@internationalized/date";
@@ -11,7 +11,7 @@ const { format } = require("date-fns");
 
 export default function ProfileSetupScreen() {
   const [dropDownStates, setDropDownMenuStates] = useState<{ [key: string]: boolean }>({ gender: false });
-  const { formData, setFormData } = useContext(SignupOnboardingContext);
+  const { formData, setFormData } = useSignupContext();
 
   useEffect(() => {
     console.log(formData);
@@ -70,7 +70,7 @@ export default function ProfileSetupScreen() {
               </div>
               <DateInput
                 onChange={(value) => handleOnDobChange(value)}
-                value={formData.dob ? new CalendarDate(Number(formData?.dob?.split("/")[2]), Number(formData?.dob?.split("/")[1]), Number(formData?.dob?.split("/")[0])) : null}
+                value={formData.dob ? new CalendarDate(Number(formData?.dob?.split("/")[2]), Number(formData?.dob?.split("/")[1]), Number(formData?.dob?.split("/")[0])) : undefined}
                 name='dob'
                 isInvalid={false}
                 variant='bordered'

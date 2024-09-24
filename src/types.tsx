@@ -7,16 +7,16 @@ export type loginPathTypes = (typeof loginPaths)[number];
 export const resetpasswordPaths = ["/reset-password/0"] as const;
 export type resetPasswordPathTypes = (typeof resetpasswordPaths)[number];
 
-export type toastTypes = { open: boolean; state: null | 'success' | 'error'; content: null | string | number };
+export type toastTypes = { open: boolean; state: undefined | "success" | "error"; content: undefined | string | number };
 
-export interface GlobalContextTypes {
+export type GlobalContextTypes = {
   appUser: any;
   setAppUser: React.Dispatch<React.SetStateAction<any>>;
-  toast: toastTypes
-  setToast: React.Dispatch<React.SetStateAction<toastTypes>>
-}
+  toast: toastTypes;
+  setToast: React.Dispatch<React.SetStateAction<toastTypes>>;
+};
 
-export interface signupFormTypes {
+export type signupFormTypes = {
   firstName: undefined | string;
   lastName: undefined | string;
   userName: undefined | string;
@@ -32,28 +32,14 @@ export interface signupFormTypes {
   LGA: string | undefined;
   referal: string | undefined;
   useCase: string | undefined;
-}
+};
 
-export interface resetPasswordFormTypes {
-  firstName: undefined | string;
-  lastName: undefined | string;
-  userName: undefined | string;
-  email: undefined | string;
-  password: undefined | string;
-  passwordConfirm: undefined | string;
+export type resetPasswordFormTypes = {
   OTP: string | undefined;
-  gender: string | undefined;
-  refCode: string | undefined;
-  dob: string | undefined;
-  state: string | undefined;
-  country: string | undefined;
-  LGA: string | undefined;
-  referal: string | undefined;
-  useCase: string | undefined;
-}
+};
 
-export interface loginFormTypes {
+export type loginFormTypes = {
   email: undefined | string;
   password: undefined | string;
   OTP: string | undefined;
-}
+};
