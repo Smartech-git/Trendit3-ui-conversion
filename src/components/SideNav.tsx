@@ -1,10 +1,16 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
-import { Search, Home_line } from "@/appIcons";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Search, Home_line, Wallet_02, Announcement_03, BarChatSquare_02, Gift_02, Settings_01, LifeBuoy_01 } from "@/appIcons";
 
 export default function SideNav() {
+  const pathname = usePathname();
+
   return (
-    <div className='w-full h-full bg-white py-8'>
+    <div className='w-full h-full flex flex-col overflow-x-hidden scrollbar-thin overflow-y-scroll justify-between gap-y-28 bg-white py-8'>
       <div className='flex flex-col gap-y-6'>
         <div className='w-full px-5'>
           <Image src='/logos/logo_default.svg' alt='App Logo' width={250} height={250} className='w-[132px] h-fit' />
@@ -17,10 +23,50 @@ export default function SideNav() {
             </div>
           </div>
         </div>
-        <div className="w-full px-[10px] h-10">
-          <div className="size-full flex items-center gap-x-3 hover:bg-gray-50 transition-colors cursor-pointer rounded-md px-[10px]">
-            <Home_line className='stroke-gray-500' />
-            <span className="text-gray-700 font-semibold text-base">Home</span>
+        <div className='w-full flex flex-col px-[10px] gap-y-1'>
+          <Link href={`/home`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/home" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <Home_line className={`stroke-gray-500 ${pathname === "/home" && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname === "/home" && "text-primary_fixed"}`}>Home</span>
+          </Link>
+          <Link href={`/earn`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/earn" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <Wallet_02 className={`stroke-gray-500 ${pathname === "/earn" && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname === "/earn" && "text-primary_fixed"}`}>Earn</span>
+          </Link>
+          <Link href={`/advertise`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/advertise" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <Announcement_03 className={`stroke-gray-500 ${pathname === "/advertise" && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname === "/advertise" && "text-primary_fixed"}`}>Advertise</span>
+          </Link>
+          <Link href={`/transactions`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/transactions" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <BarChatSquare_02 className={`stroke-gray-500 ${pathname === "/transactions" && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname === "/transactions" && "text-primary_fixed"}`}>Transactions</span>
+          </Link>
+          <Link href={`/refer-and-earn`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/refer-and-earn" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <Gift_02 className={`stroke-gray-500 ${pathname === "/refer-and-earn" && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname === "/refer-and-earn" && "text-primary_fixed"}`}>Refer and Earn</span>
+          </Link>
+        </div>
+      </div>
+      <div className='flex flex-col gap-y-6'>
+        <div className='w-full flex flex-col px-[10px] gap-y-1'>
+          <Link href={`/support`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/support" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <LifeBuoy_01 className={`stroke-gray-500 ${pathname === "/support" && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname === "/support" && "text-primary_fixed"}`}>Support</span>
+          </Link>
+          <Link href={`/settings`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/settings" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <Settings_01 className={`stroke-gray-500 ${pathname === "/settings" && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname === "/settings" && "text-primary_fixed"}`}>Settings</span>
+          </Link>
+        </div>
+        <div className='w-full px-[10px]'>
+          <div className='w-full flex flex-col gap-y-4 h-40 rounded-lg px-4 py-5 bg-gray-50'>
+            <div className='w-full flex flex-col'>
+              <h1 className='font-semibold text-sm text-on_surface'>{`Dont’t know where to start?`}</h1>
+              <p className='text-sm font-normal text-gray-600'>{`Get started using Trendit. We have put resources to assist you. Have fun! 🎉`}</p>
+            </div>
+            <div className='w-full flex gap-x-3'>
+              <span className='text-gray-600 transition-colors hover:text-black cursor-pointer font-semibold text-sm'>FAQ</span>
+              <span className='text-sm font-semibold cursor-pointer text-secondary_fixed hover:text-primary_fixed transition-colors'>Watch Tutorial</span>
+            </div>
           </div>
         </div>
       </div>
