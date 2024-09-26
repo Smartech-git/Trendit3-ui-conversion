@@ -26,7 +26,7 @@ export default function AboutScreen() {
   return (
     <div className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
-        <h1 className='text-2xl font-bold text-on_surface'>Tell us about you</h1>
+        <h1 className='text-2xl font-bold text-gray-900'>Tell us about you</h1>
         <p className='text-center w-72 max-w-[95%] text-base text-gray-600'>We need to know a few things to set up your account.</p>
       </div>
       <div className='w-full flex flex-col relative gap-y-6 items-center'>

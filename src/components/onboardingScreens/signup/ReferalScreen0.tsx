@@ -27,7 +27,7 @@ export default function ReferalScreen0() {
     <div className='sm:w-[520px] w-[90vw] relative h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1'>
         <span className='text-gray-600 text-base'>1/2</span>
-        <h1 className='text-2xl font-bold text-on_surface'>How did you find out about Trendit?</h1>
+        <h1 className='text-2xl font-bold text-gray-900'>How did you find out about Trendit?</h1>
       </div>
       <div className='flex w-full flex-col'>
         <RadioGroup

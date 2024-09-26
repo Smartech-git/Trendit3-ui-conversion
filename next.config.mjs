@@ -20,6 +20,11 @@ const nextConfig = {
 
     return config;
   },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "10mb",
+    },
+  },
   reactStrictMode: false,
 };
 
