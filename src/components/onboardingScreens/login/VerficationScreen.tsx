@@ -28,7 +28,7 @@ export default function VerificationScreen() {
   return (
     <div className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
-        <h1 className='text-2xl font-bold text-on_surface'>{`Confirm it’s you`}</h1>
+        <h1 className='text-2xl font-bold text-gray-900'>{`Confirm it’s you`}</h1>
         <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>We have sent an email with a code to adedamolamoses@gmail.com, please enter it below to login your Trendit account.</p>
       </div>
       <div className='w-full flex flex-col relative gap-y-6 items-center'>
@@ -48,7 +48,9 @@ export default function VerificationScreen() {
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>{`Didn’t receive it?`}</span>
-        <span onClick={handleResendOTP} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>Resend</span>
+        <span onClick={handleResendOTP} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>
+          Resend
+        </span>
       </div>
     </div>
   );

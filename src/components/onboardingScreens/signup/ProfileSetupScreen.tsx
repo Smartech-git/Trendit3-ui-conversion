@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { User01, ChevronDown } from "@/appIcons";
+import { User_01, ChevronDown } from "@/appIcons";
 import { signupFormTypes } from "@/types";
 import { useSignupContext } from "@/context/SignupContext";
 import { Select, SelectSection, SelectItem } from "@nextui-org/select";
@@ -33,12 +33,12 @@ export default function ProfileSetupScreen() {
   return (
     <div className='sm:w-[520px] w-[90vw] relative h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
-        <h1 className='text-2xl font-bold text-on_surface'>Welcome onboard!</h1>
+        <h1 className='text-2xl font-bold text-gray-900'>Welcome onboard!</h1>
         <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>Hi Damola, we are excited to have you onboard! Finish up your profile set up.</p>
       </div>
       <div className='w-full flex items-center gap-x-3 justify-center'>
         <div className=' flex items-center justify-center size-12 rounded-full bg-gray-100 border border-gray-200'>
-          <User01 className='size-7' />
+          <User_01 className='size-7' />
         </div>
         <>
           <label htmlFor='image'>

@@ -31,7 +31,7 @@ export const EyeOff = ({ className }: { className?: string }) => {
   );
 };
 
-export const User01 = ({ className }: { className?: string }) => {
+export const User_01 = ({ className }: { className?: string }) => {
   return (
     <svg className={className} xmlns='http://www.w3.org/2000/svg' width='28' height='29' viewBox='0 0 28 29' fill='none'>
       <path
@@ -187,6 +187,70 @@ export const Settings_01 = ({ className }: { className?: string }) => {
         stroke-linejoin='round'
         className={className}
       />
+    </svg>
+  );
+};
+
+export const LogIn_03 = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path
+        d='M5 14.1667C5 14.4594 5 14.6058 5.01306 14.7331C5.12146 15.7895 5.8855 16.6622 6.91838 16.9093C7.04279 16.939 7.18792 16.9584 7.47807 16.9971L12.9713 17.7295C14.535 17.938 15.3169 18.0423 15.9237 17.801C16.4565 17.5891 16.9002 17.2006 17.1806 16.7005C17.5 16.1309 17.5 15.3421 17.5 13.7646V6.23541C17.5 4.65787 17.5 3.8691 17.1806 3.2995C16.9002 2.7994 16.4565 2.41088 15.9237 2.19904C15.3169 1.95776 14.535 2.062 12.9713 2.2705L7.47807 3.00293C7.18788 3.04162 7.04279 3.06097 6.91838 3.09073C5.8855 3.33781 5.12145 4.21049 5.01306 5.26696C5 5.39421 5 5.54059 5 5.83334M10 6.66668L13.3333 10M13.3333 10L10 13.3333M13.3333 10H2.5'
+        stroke='#344054'
+        stroke-width='1.66667'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        className={className}
+      />
+    </svg>
+  );
+};
+
+export const Bell_01 = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path
+        d='M7.79515 17.5C8.38276 18.0187 9.15463 18.3334 10 18.3334C10.8454 18.3334 11.6172 18.0187 12.2049 17.5M15 6.66669C15 5.3406 14.4732 4.06884 13.5355 3.13115C12.5979 2.19347 11.3261 1.66669 10 1.66669C8.67392 1.66669 7.40215 2.19347 6.46447 3.13115C5.52678 4.06884 5 5.3406 5 6.66669C5 9.24184 4.35039 11.005 3.62472 12.1712C3.01261 13.1549 2.70655 13.6468 2.71777 13.784C2.7302 13.9359 2.76238 13.9939 2.88481 14.0847C2.99538 14.1667 3.49383 14.1667 4.49071 14.1667H15.5093C16.5062 14.1667 17.0046 14.1667 17.1152 14.0847C17.2376 13.9939 17.2698 13.9359 17.2822 13.784C17.2935 13.6468 16.9874 13.1549 16.3753 12.1712C15.6496 11.005 15 9.24184 15 6.66669Z'
+        stroke='#667085'
+        stroke-width='1.66667'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        className={className}
+      />
+    </svg>
+  );
+};
+
+export const Menu_01 = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='36' height='36' viewBox='0 0 36 36' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M4.5 18H31.5M4.5 9H31.5M4.5 27H31.5' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' />
+    </svg>
+  );
+};
+
+export const XClose = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M18 6L6 18M6 6L18 18' stroke='#98A2B3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
+
+export const DotsHorizontal = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='25' height='26' viewBox='0 0 25 26' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M12.5 14.0417C13.0753 14.0417 13.5416 13.5753 13.5416 13C13.5416 12.4247 13.0753 11.9584 12.5 11.9584C11.9247 11.9584 11.4583 12.4247 11.4583 13C11.4583 13.5753 11.9247 14.0417 12.5 14.0417Z' stroke='#B1B1B1' stroke-width='1.875' stroke-linecap='round' stroke-linejoin='round' className={className} />
+      <path d='M19.7916 14.0417C20.3669 14.0417 20.8333 13.5753 20.8333 13C20.8333 12.4247 20.3669 11.9584 19.7916 11.9584C19.2163 11.9584 18.75 12.4247 18.75 13C18.75 13.5753 19.2163 14.0417 19.7916 14.0417Z' stroke='#B1B1B1' stroke-width='1.875' stroke-linecap='round' stroke-linejoin='round' className={className} />
+      <path d='M5.20829 14.0417C5.78359 14.0417 6.24996 13.5753 6.24996 13C6.24996 12.4247 5.78359 11.9584 5.20829 11.9584C4.633 11.9584 4.16663 12.4247 4.16663 13C4.16663 13.5753 4.633 14.0417 5.20829 14.0417Z' stroke='#B1B1B1' stroke-width='1.875' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
+
+export const ArrowRight = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M4.16663 10H15M10.8333 5L15.244 9.41074C15.5695 9.73618 15.5695 10.2638 15.244 10.5893L10.8333 15' stroke='white' stroke-linecap='round' className={className} />
     </svg>
   );
 };

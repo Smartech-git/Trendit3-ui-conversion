@@ -26,7 +26,7 @@ export default function EmailScreen() {
   return (
     <div className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
-        <h1 className='text-2xl font-bold text-on_surface'>Create an account</h1>
+        <h1 className='text-2xl font-bold text-gray-900'>Create an account</h1>
         <p className='text-center w-72 max-w-[95%] text-base text-gray-600'>Turn Daily Social Tasks into Paychecks! Get Paid for your Engagements.</p>
       </div>
       <div className='w-full flex flex-col relative gap-y-6 items-center'>
@@ -81,7 +81,9 @@ export default function EmailScreen() {
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>Already have an account?</span>
-        <Link href='/login/0' scroll={true} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>Log in</Link>
+        <Link href='/login/0' scroll={true} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>
+          Log in
+        </Link>
       </div>
     </div>
   );

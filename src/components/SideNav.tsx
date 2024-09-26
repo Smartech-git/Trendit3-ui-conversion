@@ -4,16 +4,28 @@ import React from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import { Search, Home_line, Wallet_02, Announcement_03, BarChatSquare_02, Gift_02, Settings_01, LifeBuoy_01 } from "@/appIcons";
+import { Button } from "@nextui-org/button";
 
-export default function SideNav() {
+import { Search, Home_line, Wallet_02, Announcement_03, BarChatSquare_02, Gift_02, Settings_01, LifeBuoy_01, XClose } from "@/appIcons";
+
+interface sideNav_types {
+  openDrawer: boolean;
+  setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
   const pathname = usePathname();
 
   return (
-    <div className='w-full h-full flex flex-col overflow-x-hidden scrollbar-thin overflow-y-scroll justify-between gap-y-28 bg-white py-8'>
+    <div className='w-full h-full flex flex-col overflow-x-hidden scrollbar-thin overflow-y-scroll justify-between gap-y-28 bg-white 2xl:py-8 sm:py-6 py-4'>
       <div className='flex flex-col gap-y-6'>
-        <div className='w-full px-5'>
-          <Image src='/logos/logo_default.svg' alt='App Logo' width={250} height={250} className='w-[132px] h-fit' />
+        <div className='flex items-center justify-between px-5'>
+          <div className='w-full'>
+            <Image src='/logos/logo_default.svg' alt='App Logo' width={250} height={250} className='w-[132px] h-fit' />
+          </div>
+          <Button onClick={() => setOpenDrawer(false)} disableRipple className='bg-white outline-none !min-w-11 lg:hidden !w-11 !h-11 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
+            <XClose />
+          </Button>
         </div>
         <div className='w-full px-5'>
           <div className='w-full flex relative'>
@@ -60,7 +72,7 @@ export default function SideNav() {
         <div className='w-full px-[10px]'>
           <div className='w-full flex flex-col gap-y-4 h-40 rounded-lg px-4 py-5 bg-gray-50'>
             <div className='w-full flex flex-col'>
-              <h1 className='font-semibold text-sm text-on_surface'>{`Dont’t know where to start?`}</h1>
+              <h1 className='font-semibold text-sm text-gray-900'>{`Dont’t know where to start?`}</h1>
               <p className='text-sm font-normal text-gray-600'>{`Get started using Trendit. We have put resources to assist you. Have fun! 🎉`}</p>
             </div>
             <div className='w-full flex gap-x-3'>
