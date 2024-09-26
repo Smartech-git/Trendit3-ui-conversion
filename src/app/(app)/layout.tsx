@@ -5,7 +5,7 @@ import SideNav from "@/components/SideNav";
 import Header from "@/components/Header";
 import { Drawer, ThemeProvider } from "@material-tailwind/react";
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
