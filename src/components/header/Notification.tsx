@@ -29,12 +29,14 @@ interface notification_propTypes {
 export default function Notification({ setOpenNot }: notification_propTypes) {
   const [tab, setTab] = useState<"not" | "msg">("not");
   return (
-    <div className='max-h-[600px] h-[80svh] py-6 w-full flex flex-col gap-y-6'>
-      <div className='w-full flex items-end px-6 flex-col gap-y-1'>
-        <Button onClick={() => setOpenNot(false)} disableRipple className='!bg-transparent outline-none !min-w-9 !w-9 !h-9 rounded-lg lg:hidden transition-colors flex flex-none data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
-          <XClose className='stroke-gray-400 size-5' />
-        </Button>
-        <div className='w-full h-[38px] flex-none flex justify-between items-center'>
+    <div className='max-h-[600px] relative h-[80svh] py-6 w-full flex flex-col gap-y-6'>
+      <div className='w-full relative flex items-start px-6 flex-col gap-y-1'>
+        <div className='flex w-full justify-end'>
+          <Button onClick={() => setOpenNot(false)} disableRipple className='!bg-transparent outline-none !min-w-9 !w-9 !h-9 rounded-lg lg:hidden transition-colors flex flex-none data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
+            <XClose className='stroke-gray-400 size-5' />
+          </Button>
+        </div>
+        <div className='xs:!max-w-full xxs:max-w-[300px] max-w-[250px] overflow-x-scroll scrollbar-none h-[38px] relative gap-x-5 flex-none flex items-center'>
           <div className='flex gap-x-3'>
             <button onClick={() => setTab("not")} className={`outline-none text-gray-700 hover:text-black ${tab === "not" && "!text-primary_fixed hover:!text-primary_fixed"} transition-colors text-sm font-medium`}>
               Notification
@@ -43,7 +45,7 @@ export default function Notification({ setOpenNot }: notification_propTypes) {
               Messages
             </button>
           </div>
-          <button className={`outline-none text-gray hover:text-gray-400 transition-colors text-sm font-medium`}>Mark as read</button>
+          <button className={`outline-none text-nowrap text-gray hover:text-gray-400 transition-colors text-sm font-medium`}>Mark as read</button>
         </div>
       </div>
 

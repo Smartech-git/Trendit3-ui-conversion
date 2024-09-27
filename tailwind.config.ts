@@ -7,13 +7,6 @@ const withMT = require("@material-tailwind/react/utils/withMT");
 module.exports = withMT({
   content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}", "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}", "./node_modules/@nextui-org/theme/dist/components/(dropdown|menu|divider|popover|button|ripple|spinner).js"],
   theme: {
-    colors: {
-      gray: {
-        25: "#FCFCFD",
-        50: "#F9FAFB",
-        100: "red",
-      },
-    },
     extend: {
       colors: {
         ...colors,
@@ -23,6 +16,7 @@ module.exports = withMT({
         error: "#FF3D00",
         scrim: "#0C111D",
         outline_varient: "#E4E7EC",
+        outline: "#DADADA",
         illustration: "#1E1E1E",
         pink: {
           DEFAULT: "#FFD0FE",
@@ -32,6 +26,12 @@ module.exports = withMT({
           200: "#E9D7FE",
           500: "#9E77ED",
           700: "#6941C6",
+        },
+        blue: {
+          50: "#EFF8FF",
+          200: "#B2DDFF",
+          500: "#2E90FA",
+          700: "#175CD3",
         },
         gray: {
           DEFAULT: "#B1B1B1",
@@ -47,6 +47,9 @@ module.exports = withMT({
           900: "#101828",
           950: "#0C111D",
         },
+      },
+      fontSize: {
+        xxs: "9px",
       },
       screens: {
         "4kScreen": "2000px",

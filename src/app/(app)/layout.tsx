@@ -10,7 +10,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <div className='w-full relative 4kScreen:px-[22%] h-[100svh] bg-neutral-100 flex'>
+      <div className='w-full relative 4kScreen:px-[20%] h-[100svh] bg-neutral-100 flex'>
         <div className='w-[20%] max-w-[280px] xl:flex hidden relative flex-none bg-white border-r border-gray-200'>
           <SideNav openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
         </div>

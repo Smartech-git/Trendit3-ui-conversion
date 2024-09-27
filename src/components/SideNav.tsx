@@ -70,7 +70,7 @@ export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
           </Link>
         </div>
         <div className='w-full px-[10px]'>
-          <div className='w-full flex flex-col gap-y-4 h-40 rounded-lg px-4 py-5 bg-gray-50'>
+          <div className='w-full flex flex-col gap-y-4 rounded-lg px-4 py-5 bg-gray-50'>
             <div className='w-full flex flex-col'>
               <h1 className='font-semibold text-sm text-gray-900'>{`Dont’t know where to start?`}</h1>
               <p className='text-sm font-normal text-gray-600'>{`Get started using Trendit. We have put resources to assist you. Have fun! 🎉`}</p>

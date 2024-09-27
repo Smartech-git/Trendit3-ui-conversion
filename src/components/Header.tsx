@@ -35,7 +35,7 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
           <Button disableRipple className='bg-white !outline-none !min-w-fit w-10 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center p-2'>
             <Settings_01 className='stroke-gray-500 size-5' />
           </Button>
-          <Dropdown backdrop='opaque' isOpen={openNot} onOpenChange={(isOpen: boolean) => setOpenNot(isOpen)} radius='md' classNames={{ content: "!border !border-white sm:!min-w-[350px] !w-[300px] !p-0", backdrop: "!bg-gray-950/10" }}>
+          <Dropdown backdrop='opaque' isOpen={openNot} onOpenChange={(isOpen: boolean) => setOpenNot(isOpen)} radius='md' classNames={{ content: "!border !border-white xs:!w-[370px] xxs:w-[340px] !w-[300px] !min-w-[300px] !p-0", backdrop: "!bg-gray-950/10" }}>
             <DropdownTrigger>
               <Button disableRipple className='bg-white !outline-none !min-w-fit w-10 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center p-2'>
                 <Bell_01 className='stroke-gray-500 size-5' />

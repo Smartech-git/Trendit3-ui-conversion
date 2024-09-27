@@ -8,12 +8,12 @@ import {ScrollShadow} from "@nextui-org/react";
 
 export default function WhatsUp() {
   return (
-    <section className='rounded-xl flex flex-col gap-y-3 border border-outline_varient bg-white w-full py-6 max-h-fit'>
-      <div className='px-6'>
-        <h1 className='text-black font-normal text-sm'>{`What’s up`}</h1>
+    <section className='rounded-xl  flex flex-col gap-y-3 border border-outline_varient bg-white w-full py-6 max-h-fit'>
+      <div className='sm:px-6 px-3'>
+        <h1 className='text-black font-normal text-[15px]'>{`What’s up`}</h1>
       </div>
       <div className='flex flex-col '>
-        <div className='px-6 w-full'>
+        <div className='sm:px-6 px-3 w-full'>
           <div className=' group w-full py-1 px-3 h-[50px] cursor-pointer bg-tertiary_fixed rounded-md justify-between items-center flex'>
             <div className='flex flex-col '>
               <h1 className='text-white font-bold text-xs'>On-going tasks</h1>
@@ -25,7 +25,7 @@ export default function WhatsUp() {
           </div>
         </div>
 
-        <div className='flex flex-col p-3 gap-y-2'>
+        <div className='flex flex-col sm:p-3 p-[6px] gap-y-2'>
           <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full px-3 cursor-pointer gap-x-[10px] py-2 flex items-start rounded-lg hover:bg-gray-50 transition-colors'>
             <div className='size-7 flex-none flex items-center justify-center rounded-md bg-black'>
               <UserEdit />
