@@ -36,13 +36,13 @@ export default function ResetPasswordScreen() {
               autoComplete='off'
               placeholder={`Past OTP`}
               name='OTP'
-              className={`!border-gray-300 focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+              className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
               type={"text"}
             />
           </div>
         </form>
       </div>
-      <Link href='/login/1' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
+      <Link href='/login/1' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-brand-700 rounded-lg h-11 flex items-center justify-center'>
         <span className='text-white font-bold text-base'>Continue</span>
       </Link>
     </div>

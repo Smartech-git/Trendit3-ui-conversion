@@ -40,7 +40,7 @@ export default function LoginScreen() {
                 autoComplete='off'
                 placeholder={`Enter your email`}
                 name='email'
-                className={`!border-gray-300  focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300  focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
                 type={"text"}
               />
             </div>
@@ -52,7 +52,7 @@ export default function LoginScreen() {
                   autoComplete='off'
                   placeholder={`Enter your password`}
                   name='password'
-                  className={`!border-gray-300 focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 pr-6 h-11 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`}
+                  className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 pr-6 h-11 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`}
                   type={showPassword.main ? "text" : "password"}
                 />
                 <div className='grid place-items-center absolute text-blue-gray-500 top-[50%] right-4 -translate-y-2/4 size-fit'>
@@ -85,11 +85,11 @@ export default function LoginScreen() {
           </form>
           <div className='w-full flex justify-center gap-x-1 items-center'>
             <span className='text-gray-600 font-normal text-sm'>Forgot password?</span>
-            <Link href='/reset-password/0' className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>
+            <Link href='/reset-password/0' className='text-primary_fixed hover:text-brand-700 animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>
               Reset
             </Link>
           </div>
-          <Link href='/login/verification' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
+          <Link href='/login/verification' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-brand-700 rounded-lg h-11 flex items-center justify-center'>
             <span className='text-white font-bold text-base'>Continue</span>
           </Link>
         </div>
@@ -115,7 +115,7 @@ export default function LoginScreen() {
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>Don't have an account?</span>
-        <Link href='/signup/email' className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>
+        <Link href='/signup/email' className='text-primary_fixed hover:text-brand-700 animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>
           Sign in
         </Link>
       </div>

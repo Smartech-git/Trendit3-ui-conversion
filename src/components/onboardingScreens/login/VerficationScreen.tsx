@@ -34,21 +34,13 @@ export default function VerificationScreen() {
       <div className='w-full flex flex-col relative gap-y-6 items-center'>
         <form action={() => {}} className='w-full flex relative items-center flex-col gap-y-4'>
           <div className='w-full flex flex-col'>
-            <input
-              onChange={(e) => handleOnChange(e)}
-              value={formData.OTP}
-              autoComplete='off'
-              placeholder={`Past OTP`}
-              name='OTP'
-              className={`!border-gray-300 focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
-              type={"text"}
-            />
+            <input onChange={(e) => handleOnChange(e)} value={formData.OTP} autoComplete='off' placeholder={`Past OTP`} name='OTP' className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`} type={"text"} />
           </div>
         </form>
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>{`Didn’t receive it?`}</span>
-        <span onClick={handleResendOTP} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>
+        <span onClick={handleResendOTP} className='text-primary_fixed hover:text-brand-700 animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>
           Resend
         </span>
       </div>

@@ -39,7 +39,7 @@ export default function EmailScreen() {
                 autoComplete='off'
                 placeholder={`Enter your email`}
                 name='email'
-                className={`!border-gray-300  focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300  focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
                 type={"text"}
               />
             </div>
@@ -50,12 +50,12 @@ export default function EmailScreen() {
                 autoComplete='off'
                 placeholder={`Referral Code (optional)`}
                 name='refCode'
-                className={`!border-gray-300 focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
                 type={"text"}
               />
             </div>
           </form>
-          <Link href='/signup/email-confirmation' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
+          <Link href='/signup/email-confirmation' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-brand-700 rounded-lg h-11 flex items-center justify-center'>
             <span className='text-white font-bold text-base'>Get started</span>
           </Link>
         </div>
@@ -81,7 +81,7 @@ export default function EmailScreen() {
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>Already have an account?</span>
-        <Link href='/login/0' scroll={true} className='text-primary_fixed hover:text-secondary_fixed animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>
+        <Link href='/login/0' scroll={true} className='text-primary_fixed hover:text-brand-700 animate-duration-300 transition-colors font-bold text-sm  cursor-pointer'>
           Log in
         </Link>
       </div>

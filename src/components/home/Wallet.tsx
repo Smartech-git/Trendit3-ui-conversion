@@ -1,8 +1,10 @@
+"use client";
 import React from "react";
 import { Button } from "@nextui-org/button";
 import { DotsHorizontal, ArrowRight } from "@/appIcons";
 import { Earn, Advertise_01 } from "@/svgAssets";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Wallet() {
   return (
@@ -24,7 +26,7 @@ export default function Wallet() {
           </div>
         </div>
         <div className='w-full grid grid-cols-2 gap-3'>
-          <div className='w-full animate-fade-up animate-once animate-duration-[200ms] animate-delay-[300ms] rounded-xl border border-gray-300 flex justify-between gap-x-4 py-4 px-3 bg-white'>
+          <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{type:'spring' }} className='w-full rounded-xl border border-gray-300 flex justify-between gap-x-4 py-4 px-3 bg-white'>
             <div className='w-[210px] gap-y-3 h-full justify-between flex flex-col'>
               <div className='flex flex-col'>
                 <h1 className='text-gray-900 font-bold text-sm'>{`Engage a task`}</h1>
@@ -32,14 +34,15 @@ export default function Wallet() {
               </div>
               <Link href={`/earn`}>
                 <button className='flex group items-center gap-x-1 w-fit outline-none'>
-                  <span className='text-xs font-semibold text-primary_fixed group-hover:text-secondary_fixed transition-colors '>{`Get Started`}</span>
-                  <ArrowRight className='stroke-primary_fixed group-hover:stroke-secondary_fixed  group-hover:translate-x-0.5 transition-all  size-4' />
+                  <span className='text-xs font-semibold text-primary_fixed group-hover:text-brand-700 transition-colors '>{`Get Started`}</span>
+                  <ArrowRight className='stroke-primary_fixed group-hover:stroke-brand-700  group-hover:translate-x-0.5 transition-all  size-4' />
                 </button>
               </Link>
             </div>
             <Earn />
-          </div>
-          <div className='w-full animate-fade-up animate-once animate-duration-[200ms] animate-delay-[400ms]  rounded-xl border border-gray-300 flex justify-between gap-x-4 py-4 px-3 bg-white'>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{type:'spring', delay: 0.3 }} className='w-full rounded-xl border border-gray-300 flex justify-between gap-x-4 py-4 px-3 bg-white'>
             <div className='w-[210px] gap-y-3 h-full justify-between flex flex-col'>
               <div className='flex flex-col'>
                 <h1 className='text-gray-900 font-bold text-sm'>{`Create an Advert`}</h1>
@@ -47,13 +50,13 @@ export default function Wallet() {
               </div>
               <Link href={`/advertise`}>
                 <button className='flex group items-center gap-x-1 w-fit outline-none'>
-                  <span className='text-xs font-semibold text-primary_fixed group-hover:text-secondary_fixed transition-colors '>{`Get Started`}</span>
-                  <ArrowRight className='stroke-primary_fixed group-hover:stroke-secondary_fixed  group-hover:translate-x-0.5 transition-all  size-4' />
+                  <span className='text-xs font-semibold text-primary_fixed group-hover:text-brand-700 transition-colors '>{`Get Started`}</span>
+                  <ArrowRight className='stroke-primary_fixed group-hover:stroke-brand-700  group-hover:translate-x-0.5 transition-all  size-4' />
                 </button>
               </Link>
             </div>
             <Advertise_01 />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

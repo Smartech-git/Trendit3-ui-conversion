@@ -23,13 +23,13 @@ export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
           <div className='w-full'>
             <Image src='/logos/logo_default.svg' alt='App Logo' width={250} height={250} className='w-[132px] h-fit' />
           </div>
-          <Button onClick={() => setOpenDrawer(false)} disableRipple className='bg-white outline-none !min-w-11 lg:hidden !w-11 !h-11 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
+          <Button onClick={() => setOpenDrawer(false)} disableRipple className='bg-white outline-none !min-w-11 xl:hidden !w-11 !h-11 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
             <XClose />
           </Button>
         </div>
         <div className='w-full px-5'>
           <div className='w-full flex relative'>
-            <input autoComplete='off' placeholder={`Create password`} name='password' className={`!border-gray-300 focus:!border-secondary_fixed !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-9 pr-3 h-11 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`} type='text' />
+            <input autoComplete='off' placeholder={`Create password`} name='password' className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-9 pr-3 h-11 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`} type='text' />
             <div className='grid place-items-center absolute text-blue-gray-500 top-[50%] left-3 -translate-y-2/4 size-fit'>
               <Search className='stroke-gray-500 size-5' />
             </div>
@@ -77,7 +77,7 @@ export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
             </div>
             <div className='w-full flex gap-x-3'>
               <span className='text-gray-600 transition-colors hover:text-black cursor-pointer font-semibold text-sm'>FAQ</span>
-              <span className='text-sm font-semibold cursor-pointer text-secondary_fixed hover:text-primary_fixed transition-colors'>Watch Tutorial</span>
+              <span className='text-sm font-semibold cursor-pointer text-brand-700 hover:text-primary_fixed transition-colors'>Watch Tutorial</span>
             </div>
           </div>
         </div>

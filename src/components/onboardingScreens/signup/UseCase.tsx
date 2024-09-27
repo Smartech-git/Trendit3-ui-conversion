@@ -56,7 +56,7 @@ export default function UseCase() {
           })}
         </RadioGroup>
       </div>
-      <Link href='/home' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-secondary_fixed rounded-lg h-11 flex items-center justify-center'>
+      <Link href='/home' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-brand-700 rounded-lg h-11 flex items-center justify-center'>
         <span className='text-white font-bold text-base'>Continue</span>
       </Link>
     </div>
