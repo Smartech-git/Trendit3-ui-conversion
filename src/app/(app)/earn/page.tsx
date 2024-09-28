@@ -8,6 +8,12 @@ export default function Earn() {
       <div className='h-full 2xl:pb-8 sm:pb-8 pb-8 overflow-y-scroll scrollbar-none flex flex-col sm:gap-6 gap-4 relative 2xl:pt-[112px] sm:pt-[96px] pt-[72px] w-full'>
         <Hero />
         <Faq />
+        {
+          // Mobile rendering ...
+          <div className='lg:hidden flex flex-col sm:gap-6 gap-4'>
+            <Cta />
+          </div>
+        }
       </div>
       <div className='h-[100svh] relative scrollbar-none lg:flex hidden 2xl:pb-8 sm:pb-8 pb-8 overflow-y-scroll flex-col w-[45%] 2xl:pt-[112px] sm:pt-[96px] pt-[72px] max-w-[340px] 2xl:gap-8 sm:gap-6 gap-4'>
         <Cta />

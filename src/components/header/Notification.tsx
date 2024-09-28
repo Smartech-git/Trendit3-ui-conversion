@@ -7,7 +7,7 @@ import { Button } from "@nextui-org/button";
 
 const Not = ({ data }: any) => {
   return (
-    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full p-2 hover:bg-gray-50 flex gap-x-3 transition-colors rounded-lg relative'>
+    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full p-2 hover:bg-gray-50 flex gap-x-3 transition-colors cursor-pointer rounded-lg relative'>
       <div className='size-8 flex-none flex items-center justify-center rounded-full border border-black/[0.08] bg-gray-50'>
         <User_01 className='size-5' />
       </div>
@@ -29,13 +29,8 @@ interface notification_propTypes {
 export default function Notification({ setOpenNot }: notification_propTypes) {
   const [tab, setTab] = useState<"not" | "msg">("not");
   return (
-    <div className='max-h-[600px] relative h-[80svh] py-6 w-full flex flex-col gap-y-6'>
+    <div className='max-h-[600px] relative h-[80svh] lg:pt-6 pt-0 pb-6 w-full flex flex-col gap-y-6'>
       <div className='w-full relative flex items-start px-6 flex-col gap-y-1'>
-        <div className='flex w-full justify-end'>
-          <Button onClick={() => setOpenNot(false)} disableRipple className='!bg-transparent outline-none !min-w-9 !w-9 !h-9 rounded-lg lg:hidden transition-colors flex flex-none data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
-            <XClose className='stroke-gray-400 size-5' />
-          </Button>
-        </div>
         <div className='xs:!max-w-full xxs:max-w-[300px] max-w-[250px] overflow-x-scroll scrollbar-none h-[38px] relative gap-x-5 flex-none flex items-center'>
           <div className='flex gap-x-3'>
             <button onClick={() => setTab("not")} className={`outline-none text-gray-700 hover:text-black ${tab === "not" && "!text-primary_fixed hover:!text-primary_fixed"} transition-colors text-sm font-medium`}>
@@ -61,7 +56,7 @@ export default function Notification({ setOpenNot }: notification_propTypes) {
                 Just performed your 'Post advert on Facebook Page' task. Awaiting Approval <span className='text-primary_fixed cursor-pointer transition-colors hover:text-brand-700'>View</span>
               </p>
             </div>
-            <div className='size-[10px]  box-content absolute right-2 top-2 rounded-full bg-green-600 ' />
+            <div className='size-[10px] flex-none  box-content absolute right-2 top-2 rounded-full bg-green-600 ' />
           </motion.div>
           {new Array(5).fill("").map((item: any, index: number) => {
             return <Not key={index} />;

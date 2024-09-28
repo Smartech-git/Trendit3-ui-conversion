@@ -15,13 +15,13 @@ export default function Faq() {
   const defaultContent = "Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.";
 
   return (
-    <motion.section initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} layout className='w-full p-6 sm:rounded-xl rounded-none flex flex-col items-center justify-center flex-none h-fit border gap-y-8 border-outline_varient bg-white'>
+    <motion.section initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} layout className='w-full p-6 rounded-xl flex flex-col items-center justify-center flex-none h-fit border gap-y-8 border-outline_varient bg-white'>
       <div className='w-full flex flex-col items-center gap-y-3'>
         <h1 className='text-2xl font-semibold text-gray-900 text-center'>Frequently asked questions</h1>
         <h2 className='text-gray-600 font-medium text-lg max-w-[95%] text-center'>Everything you need to know about the product and billing.</h2>
       </div>
-      <div className='flex flex-col w-full px-8 gap-y-8'>
-        <Accordion dividerProps={{ className: "!bg-gray-200 !my-6" }} itemClasses={{ content: "!text-gray-600 font-medium text-sm", title: "text-gray-900 text-gray-900 font-medium", base: "!py-0", trigger: "!py-0" }} selectionMode='multiple' defaultExpandedKeys={["0", "1", "2", "3", "4", "5", "6"]}>
+      <div className='flex flex-col w-full sm:px-8 px-4 gap-y-8'>
+        <Accordion dividerProps={{ className: "!bg-gray-200 !my-6" }} itemClasses={{ content: "!text-gray-600 font-medium text-sm", title: "text-gray-900 text-gray-900 font-medium", base: "!py-0", trigger: "!py-0" }} selectionMode='multiple'>
           {faqs.map((item: { q: string }, index: number) => {
             return (
               <AccordionItem disableIndicatorAnimation indicator={({ isOpen }) => (isOpen ? <MinusCircle /> : <PlusCircle />)} key={index} aria-label={item.q} title={item.q}>
@@ -31,7 +31,7 @@ export default function Faq() {
           })}
         </Accordion>
       </div>
-      <div className='w-full px-8'>
+      <div className='w-full sm:px-8 px-4'>
         <div className='w-full h-fit bg-gray-50 gap-y-8 flex flex-col items-center p-8 rounded-2xl'>
           <div ref={avatarGroupRef} className='w-full justify-center flex'>
             <motion.div initial={{ opacity: 0, y: 12 }} animate={isAvatarGroupInView && { opacity: 1, y: 0 }} transition={{ type: "spring", duration: 2 }} className='relative flex items-center size-fit'>
@@ -51,7 +51,7 @@ export default function Faq() {
             <p className='text-center w-full text-gray-600 font-normal text-lg'>{`Can’t find the answer you’re looking for? Please chat to our friendly team.`}</p>
           </div>
           <Button disableRipple className='h-12 gap-x-[6px] !outline-none flex items-center px-[18px] py-3 !min-w-auto border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg'>
-            <span className='text-white sm:flex hidden text-base font-semibold'>Become a member</span>
+            <span className='text-white  text-base font-semibold'>Get in touch</span>
           </Button>
         </div>
       </div>

@@ -11,8 +11,8 @@ export default function Cta() {
   const isIPhoneMockupInView = useInView(iPhoneMockupRef, { amount: 0.2 });
 
   return (
-    <section className='rounded-xl sm:px-6 px-3 flex flex-col gap-y-3 border border-outline_varient bg-white w-full py-6 max-h-fit'>
-      <ScrollShadow className='flex flex-col gap-y-[15svh] h-[750px] w-full overflow-y-hidden overflow-x-hidden scrollbar-none'>
+    <section className='rounded-xl sm:px-6 px-3 flex flex-col gap-y-3 border border-outline_varient bg-white w-full py-6 h-fit'>
+      <ScrollShadow className='flex flex-col lg:gap-y-[15svh] gap-y-16 min-h-[750px] max-h-[80svh] h-fit w-full overflow-y-hidden overflow-x-hidden scrollbar-none'>
         <div className='flex flex-col w-full gap-y-4'>
           <div className='w-full h-fit rounded-md overflow-hidden bg-gray-50'>
             <Image src={`/images/videoThumbnail.png`} width={1000} height={500} className='w-full h-fit' alt='video thumbnail' />
@@ -40,7 +40,7 @@ export default function Cta() {
             <div className='size-fit absolute -z-10'>
               <Blob className='flex-none shrink-0 h-fit w-[300px]' />
             </div>
-            <motion.div initial={{ opacity: 0, y: 12 }} animate={isIPhoneMockupInView && { opacity: 1, y: 0 }} transition={{ type: "spring", duration: 2 }} className='size-fit'>
+            <motion.div initial={{ opacity: 0, y: 12 }} animate={isIPhoneMockupInView && { opacity: 1, y: 0 }} transition={{ type: "spring", duration: 2 }} className=''>
               <Image src={`/images/iPhoneMockup.png`} width={568} height={1157.74} className='w-full h-fit cursor-pointer' alt='mobileAppStoreBadge_apple' />
             </motion.div>
           </div>
