@@ -9,13 +9,13 @@ import { ScrollShadow } from "@nextui-org/react";
 import { Wallet_02, LayersTwo_01, ChevronDown } from "@/appIcons";
 
 const socials = [
-  { name: "Facebook", svg: <Facebook className='size-12' /> },
-  { name: "X", svg: <X className='size-12' /> },
-  { name: "TikTok", svg: <TikTok className='size-12' /> },
-  { name: "Instagram", svg: <Instagram className='size-12' /> },
-  { name: "Youtube", svg: <Youtube className='size-12' /> },
-  { name: "Telegram", svg: <Telegram className='size-12' /> },
-  { name: "Google", svg: <Google className='size-12' /> },
+  { name: "Facebook", svg: <Facebook className='size-10' /> },
+  { name: "X", svg: <X className='size-10' /> },
+  { name: "TikTok", svg: <TikTok className='size-10' /> },
+  { name: "Instagram", svg: <Instagram className='size-10' /> },
+  { name: "Youtube", svg: <Youtube className='size-10' /> },
+  { name: "Telegram", svg: <Telegram className='size-10' /> },
+  { name: "Google", svg: <Google className='size-10' /> },
 ];
 
 const BannerInfo = ({ open, setOpen }: { open: boolean; setOpen: React.Dispatch<React.SetStateAction<boolean>> }) => {

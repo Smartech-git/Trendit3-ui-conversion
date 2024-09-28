@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { User_01, LogIn_03, Settings_01, Bell_01, Menu_01 } from "@/appIcons";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 import Notification from "./header/Notification";
+import Link from "next/link";
 
 interface header_types {
   openDrawer: boolean;
