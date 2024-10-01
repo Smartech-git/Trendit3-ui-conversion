@@ -8,12 +8,17 @@ export const resetpasswordPaths = ["/reset-password/0"] as const;
 export type resetPasswordPathTypes = (typeof resetpasswordPaths)[number];
 
 export type toastTypes = { open: boolean; state: undefined | "success" | "error"; content: undefined | string | number };
+export type membershipApprovalTypes = 'approved' | 'pending' | 'false'
 
 export type GlobalContextTypes = {
   appUser: any;
   setAppUser: React.Dispatch<React.SetStateAction<any>>;
   toast: toastTypes;
   setToast: React.Dispatch<React.SetStateAction<toastTypes>>;
+  member: boolean,
+  setMember: React.Dispatch<React.SetStateAction<boolean>>
+  membershipApproved: membershipApprovalTypes,
+  setMembershipApproved:React.Dispatch<React.SetStateAction<membershipApprovalTypes>>
 };
 
 export type signupFormTypes = {
@@ -42,4 +47,9 @@ export type loginFormTypes = {
   email: undefined | string;
   password: undefined | string;
   OTP: string | undefined;
+};
+
+export type earnPageModalTypes = {
+  becomeMember: boolean;
+  selectPaymentMethod: boolean;
 };

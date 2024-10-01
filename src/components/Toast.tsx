@@ -33,14 +33,13 @@ export default function Toast() {
           )}
         </AnimatePresence> */}
         {toast.state === "success" && toast.open && (
-          <div className='sm:w-[340px] w-[300px] h-[43px] gap-x-[6px] py-2 px-3 bg-success flex items-center justify-center rounded-[4px] animate-fade-down animate-once animate-duration-300 z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
+          <div className='sm:w-[340px] w-[300px] h-[43px] gap-x-[6px] py-2 px-3 bg-success flex items-center justify-center rounded-[4px] animate-fade-down animate-once animate-duration-300 animate-delay-300 z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
             <Check /> <span className='text-white font-bold text-sm'>{toast.content}</span>
           </div>
-
         )}
 
-       {toast.state === "error" && toast.open && (
-          <div className='sm:w-[340px] w-[300px] h-[43px] gap-x-[6px] py-2 px-3 bg-error flex items-center justify-center rounded-[4px] animate-fade-down animate-once animate-duration-300 z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
+        {toast.state === "error" && toast.open && (
+          <div className='sm:w-[340px] w-[300px] h-[43px] gap-x-[6px] py-2 px-3 bg-error flex items-center justify-center rounded-[4px] animate-fade-down animate-once animate-duration-300 animate-delay-300 z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
             <InfoHexagon /> <span className='text-white font-bold text-sm'>{toast.content}</span>
           </div>
         )}

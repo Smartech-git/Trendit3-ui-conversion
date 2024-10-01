@@ -24,6 +24,7 @@ module.exports = withMT({
         brand: {
           50: "#F9F5FF",
           200: "#E9D7FE",
+          300: "#D6BBFB",
           500: "#9E77ED",
           700: "#6941C6",
         },
@@ -60,6 +61,7 @@ module.exports = withMT({
       boxShadow: {
         main: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
         "main-lg": "0 4px 6px -2px rgba(16, 24, 40, 0.03), 0 12px 16px -4px rgba(16, 24, 40, 0.08)",
+        "main-lg-reversed": "0 -4px 6px -2px rgba(16, 24, 40, 0.03), 0 -12px 16px -4px rgba(16, 24, 40, 0.08)",
       },
     },
   },

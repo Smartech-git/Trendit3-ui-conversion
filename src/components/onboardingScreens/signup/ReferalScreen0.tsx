@@ -3,8 +3,6 @@ import Link from "next/link";
 import { RadioGroup, Radio } from "@nextui-org/react";
 import { signupFormTypes } from "@/types";
 import { useSignupContext } from "@/context/SignupContext";
-import { label } from "framer-motion/client";
-const { format } = require("date-fns");
 
 const sociaMedia = ["Facebook", "X(Twitter)", "Instagram", "WhatsApp", "Telegram", "A friend"];
 
@@ -43,9 +41,9 @@ export default function ReferalScreen0() {
                 key={index}
                 classNames={{
                   label: "!text-gray-700 font-medium text-base",
-                  wrapper: "!size-[20px] !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-primary_fixed",
+                  wrapper: "!size-[24px] flex flex-none !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-brand-700",
                   base: "flex gap-x-3 -m-0 p-0",
-                  control: "!size-3 !bg-primary_fixed",
+                  control: "!size-3 !bg-brand-700",
                 }}
                 value={item}
               >

@@ -54,7 +54,7 @@ export default function ProfileSetupScreen() {
               selectedKeys={[formData.gender as any]}
               onChange={(e) => handleOnChange(e)}
               name='gender'
-              classNames={{ trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-primary_fixed !shadow-main", value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black", selectorIcon: "stroke-gray-400 size-5" }}
+              classNames={{ trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-brand-700 !shadow-main", value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black", selectorIcon: "stroke-gray-400 size-5" }}
               variant='bordered'
               placeholder='Gender'
               className='w-full'
@@ -88,7 +88,7 @@ export default function ProfileSetupScreen() {
               selectedKeys={[formData.country as any]}
               onChange={(e) => handleOnChange(e)}
               name='country'
-              classNames={{ trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-primary_fixed !shadow-main", value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black", selectorIcon: "stroke-gray-400 size-5" }}
+              classNames={{ trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-brand-700 !shadow-main", value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black", selectorIcon: "stroke-gray-400 size-5" }}
               variant='bordered'
               placeholder='Country'
               className='w-full'
@@ -103,7 +103,7 @@ export default function ProfileSetupScreen() {
                 selectedKeys={[formData.state as any]}
                 onChange={(e) => handleOnChange(e)}
                 name='state'
-                classNames={{ trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-primary_fixed !shadow-main", value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black", selectorIcon: "stroke-gray-400 size-5", popoverContent: "!min-w-[250px]" }}
+                classNames={{ trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-brand-700 !shadow-main", value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black", selectorIcon: "stroke-gray-400 size-5", popoverContent: "!min-w-[250px]" }}
                 variant='bordered'
                 placeholder='State'
                 className='w-full'
@@ -121,7 +121,7 @@ export default function ProfileSetupScreen() {
                 onChange={(e) => handleOnChange(e)}
                 name='LGA'
                 classNames={{
-                  trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-primary_fixed !shadow-main",
+                  trigger: "!h-11 !px-4 !rounded-lg border !border-gray-300 data-[open=true]:!border-brand-700 !shadow-main",
                   value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black",
                   selectorIcon: "stroke-gray-400 size-5 ",
                   popoverContent: "!min-w-[250px] relative sm:!right-0 xs:!right-[60px] xxs:!right-[100px] !right-[130px]",

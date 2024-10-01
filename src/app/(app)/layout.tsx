@@ -4,12 +4,14 @@ import React, { useState } from "react";
 import SideNav from "@/components/SideNav";
 import Header from "@/components/Header";
 import { Drawer, ThemeProvider } from "@material-tailwind/react";
+import Toast from "@/components/Toast";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
     <>
+      <Toast />
       <div className='w-full relative 4kScreen:px-[20%] h-[100svh] bg-neutral-100 flex'>
         <div className='w-[20%] max-w-[280px] xl:flex hidden relative flex-none bg-white border-r border-gray-200'>
           <SideNav openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
