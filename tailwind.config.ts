@@ -20,6 +20,7 @@ module.exports = withMT({
         illustration: "#1E1E1E",
         pink: {
           DEFAULT: "#FFD0FE",
+          200: '#FFBFFA'
         },
         brand: {
           50: "#F9F5FF",
@@ -29,6 +30,7 @@ module.exports = withMT({
           700: "#6941C6",
         },
         blue: {
+          DEFAULT: "#1877F2",
           50: "#EFF8FF",
           200: "#B2DDFF",
           500: "#2E90FA",
@@ -48,6 +50,12 @@ module.exports = withMT({
           900: "#101828",
           950: "#0C111D",
         },
+        warning: {
+          DEFAULT: '#FF3D00',
+          50: '#FFFAEB',
+          100: '#FEF0C7',
+          600: '#DC6803'
+        }
       },
       fontSize: {
         xxs: "9px",

@@ -1,24 +1,49 @@
-export const signupPaths = ["/signup/email", "/signup/email-confirmation", "/signup/about", "/signup/profile-setup", "/signup/referal", "/signup/use-case"] as const;
+export const signupPaths: Array<string> = ["/signup/email", "/signup/email-confirmation", "/signup/about", "/signup/profile-setup", "/signup/referal", "/signup/use-case"] as const;
 export type signupPathTypes = (typeof signupPaths)[number];
 
-export const loginPaths = ["/login/0", "/login/1", "/login/verification"] as const;
+export const loginPaths: Array<string> = ["/login/0", "/login/1", "/login/verification"] as const;
 export type loginPathTypes = (typeof loginPaths)[number];
 
-export const resetpasswordPaths = ["/reset-password/0"] as const;
+export const resetpasswordPaths: Array<string> = ["/reset-password/0"] as const;
 export type resetPasswordPathTypes = (typeof resetpasswordPaths)[number];
 
+export const earnPageDynamicPaths: Array<string> = ["/earn/create-facebook", "/earn/create-X", "/earn/create-tiktok", "/earn/create-instagram", "/earn/create-youtube", "/earn/create-telegram"] as const;
+export type earnPageDynamicPathTypes = (typeof earnPageDynamicPaths)[number];
+
 export type toastTypes = { open: boolean; state: undefined | "success" | "error"; content: undefined | string | number };
-export type membershipApprovalTypes = 'approved' | 'pending' | 'false'
+export type membershipApprovalTypes = "approved" | "pending" | "false";
+export const default_notoficationBannerProps = {
+  open: false,
+  mainContent: null,
+  description: null,
+  action: null,
+  actionCallback: () => {},
+  timer: false,
+};
+export type notificationBannerTypes = {
+  open: boolean;
+  mainContent: string | null;
+  description?: string | null;
+  action?: string | null;
+  actionCallback?: () => void;
+  timer?: boolean;
+};
 
 export type GlobalContextTypes = {
   appUser: any;
   setAppUser: React.Dispatch<React.SetStateAction<any>>;
   toast: toastTypes;
   setToast: React.Dispatch<React.SetStateAction<toastTypes>>;
-  member: boolean,
-  setMember: React.Dispatch<React.SetStateAction<boolean>>
-  membershipApproved: membershipApprovalTypes,
-  setMembershipApproved:React.Dispatch<React.SetStateAction<membershipApprovalTypes>>
+  member: boolean;
+  setMember: React.Dispatch<React.SetStateAction<boolean>>;
+  membershipApproved: membershipApprovalTypes;
+  setMembershipApproved: React.Dispatch<React.SetStateAction<membershipApprovalTypes>>;
+  activeTask: boolean;
+  setActiveTask: React.Dispatch<React.SetStateAction<boolean>>;
+  taskTimerActive: boolean;
+  setTaskTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
+  notificationBanner: notificationBannerTypes;
+  setNotificationBanner: React.Dispatch<React.SetStateAction<notificationBannerTypes>>;
 };
 
 export type signupFormTypes = {
@@ -50,6 +75,8 @@ export type loginFormTypes = {
 };
 
 export type earnPageModalTypes = {
-  becomeMember: boolean;
-  selectPaymentMethod: boolean;
+  becomeMember?: boolean;
+  selectPaymentMethod?: boolean;
+  generate?: boolean;
+  submit?: boolean;
 };

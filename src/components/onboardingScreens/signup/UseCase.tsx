@@ -44,7 +44,7 @@ export default function UseCase() {
                   label: "!text-gray-700 font-medium text-base",
                   wrapper: "!size-[24px] !mt-1 !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-brand-700",
                   base: "flex gap-x-3 -m-0 p-0 !items-start",
-                  control: "!size-3 !bg-brand-700",
+                  control: "!size-[12px] !bg-brand-700",
                   description: "!text-gray-600 !font-normal text-base",
                 }}
                 value={item.label}

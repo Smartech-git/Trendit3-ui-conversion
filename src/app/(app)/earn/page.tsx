@@ -4,8 +4,8 @@ import Hero from "@/components/earn/Hero";
 import Faq from "@/components/earn/Faq";
 import Cta from "@/components/earn/Cta";
 import { earnPageModalTypes } from "@/types";
-import BecomeMember from "@/components/earn/modals/BecomeMember";
-import SelectPaymentMethod from "@/components/earn/modals/SelectPaymentMethod";
+import BecomeMember from "@/components/modals/BecomeMember";
+import SelectPaymentMethod from "@/components/modals/SelectPaymentMethod";
 import Tasks from "@/components/earn/Tasks";
 import { useGlobal } from "@/context/GlobalContext";
 

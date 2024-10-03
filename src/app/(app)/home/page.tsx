@@ -3,6 +3,7 @@ import Wallet from "@/components/home/Wallet";
 import WhatsUp from "@/components/home/WhatsUp";
 import Tasks from "@/components/home/Tasks";
 import GlobalActivities from "@/components/home/GlobalActivities";
+import Header from "@/components/Header";
 
 export default function Home() {
   return (

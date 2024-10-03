@@ -5,10 +5,10 @@ import SideNav from "@/components/SideNav";
 import Header from "@/components/Header";
 import { Drawer, ThemeProvider } from "@material-tailwind/react";
 import Toast from "@/components/Toast";
+import { useGlobal } from "@/context/GlobalContext";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
-  const [openDrawer, setOpenDrawer] = useState(false);
-
+  const [openDrawer, setOpenDrawer] = useState(false)
   return (
     <>
       <Toast />

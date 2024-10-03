@@ -161,3 +161,53 @@ export const Blob = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+export const BackgroundPatternDecorative = () => {
+  return (
+    <svg width='480' height='480' viewBox='0 0 480 480' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <mask id='mask0_180_241' style={{ maskType: "alpha" }} maskUnits='userSpaceOnUse' x='0' y='0' width='480' height='480'>
+        <rect width='480' height='480' rx='12' fill='url(#paint0_radial_180_241)' />
+      </mask>
+      <g mask='url(#mask0_180_241)'>
+        <rect x='183.344' y='203.907' width='95' height='95' rx='11.5' transform='rotate(-12.5 183.344 203.907)' stroke='#E4E7EC' />
+        <rect x='145.178' y='179.592' width='159' height='159' rx='11.5' transform='rotate(-12.5 145.178 179.592)' stroke='#E4E7EC' />
+        <rect x='107.01' y='155.276' width='223' height='223' rx='11.5' transform='rotate(-12.5 107.01 155.276)' stroke='#E4E7EC' />
+        <rect x='68.8425' y='130.961' width='287' height='287' rx='11.5' transform='rotate(-12.5 68.8425 130.961)' stroke='#E4E7EC' />
+        <rect x='30.6745' y='106.646' width='351' height='351' rx='11.5' transform='rotate(-12.5 30.6745 106.646)' stroke='#E4E7EC' />
+        <rect x='-7.49348' y='82.3301' width='415' height='415' rx='11.5' transform='rotate(-12.5 -7.49348 82.3301)' stroke='#E4E7EC' />
+        <rect x='-45.6595' y='58.0147' width='479' height='479' rx='11.5' transform='rotate(-12.5 -45.6595 58.0147)' stroke='#E4E7EC' />
+      </g>
+      <defs>
+        <radialGradient id='paint0_radial_180_241' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(240 240) rotate(90) scale(240 240)'>
+          <stop />
+          <stop offset='1' stop-opacity='0' />
+        </radialGradient>
+      </defs>
+    </svg>
+  );
+};
+
+export const BackgroundPatternDecorative_02 = () => {
+  return (
+    <svg width='216' height='216' viewBox='0 0 216 216' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <mask id='mask0_25_81296' style={{ maskType: "alpha" }} maskUnits='userSpaceOnUse' x='-120' y='-120' width='336' height='336'>
+        <rect width='336' height='336' transform='translate(-120 -120)' fill='url(#paint0_radial_25_81296)' />
+      </mask>
+      <g mask='url(#mask0_25_81296)'>
+        <circle cx='48' cy='48' r='47.5' stroke='#E4E7EC' />
+        <circle cx='48' cy='48' r='47.5' stroke='#E4E7EC' />
+        <circle cx='48' cy='48' r='71.5' stroke='#E4E7EC' />
+        <circle cx='48' cy='48' r='95.5' stroke='#E4E7EC' />
+        <circle cx='48' cy='48' r='119.5' stroke='#E4E7EC' />
+        <circle cx='48' cy='48' r='143.5' stroke='#E4E7EC' />
+        <circle cx='48' cy='48' r='167.5' stroke='#E4E7EC' />
+      </g>
+      <defs>
+        <radialGradient id='paint0_radial_25_81296' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(168 168) rotate(90) scale(168 168)'>
+          <stop />
+          <stop offset='1' stop-opacity='0' />
+        </radialGradient>
+      </defs>
+    </svg>
+  );
+};

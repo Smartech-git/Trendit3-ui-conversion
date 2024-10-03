@@ -40,9 +40,9 @@ export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
             <Home_line className={`stroke-gray-500 ${pathname === "/home" && "stroke-primary_fixed"}`} />
             <span className={`text-gray-700 font-semibold text-base ${pathname === "/home" && "text-primary_fixed"}`}>Home</span>
           </Link>
-          <Link href={`/earn`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/earn" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <Wallet_02 className={`stroke-gray-500 ${pathname === "/earn" && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname === "/earn" && "text-primary_fixed"}`}>Earn</span>
+          <Link href={`/earn`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname.startsWith("/earn") && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+            <Wallet_02 className={`stroke-gray-500 ${pathname.startsWith("/earn") && "stroke-primary_fixed"}`} />
+            <span className={`text-gray-700 font-semibold text-base ${pathname.startsWith("/earn") && "text-primary_fixed"}`}>Earn</span>
           </Link>
           <Link href={`/advertise`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/advertise" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
             <Announcement_03 className={`stroke-gray-500 ${pathname === "/advertise" && "stroke-primary_fixed"}`} />

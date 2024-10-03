@@ -73,7 +73,7 @@ export default function SelectPaymentMethod({ openModals, setOpenModals }: selec
                           label: "!text-gray-700 font-medium text-base",
                           wrapper: "!size-[24px] rounded-full !mt-1 !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-brand-700",
                           base: "flex gap-x-3 -m-0 p-0 !items-start",
-                          control: "!size-3 rounded-full !bg-brand-700",
+                          control: "!size-[12px] flex-none rounded-full !bg-brand-700",
                           description: "!text-gray-600 !font-normal text-base",
                         }}
                         value={item.method}

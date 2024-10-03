@@ -8,6 +8,7 @@ import { Facebook, X, TikTok, Instagram, Youtube, Telegram, Google } from "@/svg
 import { ScrollShadow } from "@nextui-org/react";
 import { Wallet_02, LayersTwo_01, ChevronDown, ClockFastForward } from "@/appIcons";
 import { Tabs, Tab } from "@nextui-org/tabs";
+import Link from "next/link";
 
 const socials = [
   { name: "Facebook", svg: <Facebook className='size-10' /> },
@@ -36,35 +37,34 @@ const BannerInfo = ({ open, setOpen }: { open: boolean; setOpen: React.Dispatch<
 
 const Task = ({ data }: { data: any }) => {
   return (
-    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full p-4 cursor-pointer gap-x-4 flex items-start rounded border border-neutral-100 shadow-main hover:bg-gray-50 transition-colors'>
-      <div className='w-12 h-full flex-none relative flex items-center flex-col'>
-        <div className='size-fit flex-none'>{socials?.find((item: any) => item?.name === data?.social)?.svg}</div>
-      </div>
-      <div className='flex gap-y-1 flex-col'>
-        <div className='w-full flex items-center justify-between'>
-          <h1 className='text-gray-900 w-fit font-semibold sm:text-[15px] text-sm'>{`Post adverts on your Facebook page`}</h1>
+    <Link href={`/earn/create-${data.social.toLowerCase()}?id=123343434`}>
+      <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full p-4 cursor-pointer gap-x-4 flex items-start rounded border border-neutral-100 shadow-main hover:bg-gray-50 transition-colors'>
+        <div className='w-12 h-full flex-none relative flex items-center flex-col'>
+          <div className='size-fit flex-none'>{socials?.find((item: any) => item?.name === data?.social)?.svg}</div>
         </div>
-        <p className='text-gray-600 font-normal text-xs'>{`Post adverts of various businesses and top brands on your Facebook Page and earn ₦110 per advert past.`}</p>
-        <div className='flex w-full flex-wrap gap-1'>
-          <div className='py-0.5 px-1 rounded-full border border-brand-200 bg-brand-50 flex gap-x-1 items-center'>
-            <Wallet_02 className='stroke-brand-500 size-3' />
-            <span className='text-xs font-medium text-brand-700'>₦110 per post</span>
+        <div className='flex gap-y-1 flex-col'>
+          <div className='w-full flex items-center justify-between'>
+            <h1 className='text-gray-900 w-fit font-semibold sm:text-[15px] text-sm'>{`Post adverts on your Facebook page`}</h1>
           </div>
-          <div className='py-0.5 px-1 rounded-full border border-blue-200 bg-blue-50 flex gap-x-1 items-center'>
-            <LayersTwo_01 className='stroke-blue-500 size-3' />
-            <span className='text-xs font-medium text-blue-700'>342 task available</span>
+          <p className='text-gray-600 font-normal text-xs'>{`Post adverts of various businesses and top brands on your Facebook Page and earn ₦110 per advert past.`}</p>
+          <div className='flex w-full flex-wrap gap-1'>
+            <div className='py-0.5 px-1 rounded-full border border-brand-200 bg-brand-50 flex gap-x-1 items-center'>
+              <Wallet_02 className='stroke-brand-500 size-3' />
+              <span className='text-xs font-medium text-brand-700'>₦110 per post</span>
+            </div>
+            <div className='py-0.5 px-1 rounded-full border border-blue-200 bg-blue-50 flex gap-x-1 items-center'>
+              <LayersTwo_01 className='stroke-blue-500 size-3' />
+              <span className='text-xs font-medium text-blue-700'>342 task available</span>
+            </div>
           </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 
 export default function Tasks() {
   const [tasks, setTasks] = useState<any>([
-    {
-      social: "Google",
-    },
     {
       social: "Facebook",
     },
@@ -92,7 +92,7 @@ export default function Tasks() {
   ]);
   const [taskMobile, setTaskMobile] = useState([
     {
-      social: "Google",
+      social: "Instagram",
     },
     {
       social: "Facebook",
@@ -139,10 +139,11 @@ export default function Tasks() {
             <Tab
               className='absolute w-fit right-0'
               key={"history"}
+              href="/earn/history"
               title={
                 <>
                   <ClockFastForward className={`${activeTab === "history" && "!stroke-primary_fixed"}`} />
-                  <span className="xs:flex hidden">History</span>
+                  <span className='xs:flex hidden'>History</span>
                 </>
               }
             />
@@ -168,8 +169,6 @@ export default function Tasks() {
         )}
         {activeTab === "history" && <ScrollShadow className='w-full min-h-[300px] h-fit overflow-y-scroll scrollbar-none flex gap-y-3 flex-col'></ScrollShadow>}
       </motion.section>
-
-     
     </>
   );
 }

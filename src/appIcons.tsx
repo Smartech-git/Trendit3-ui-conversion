@@ -369,3 +369,82 @@ export const ClockFastForward = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+export const ChevronLeft = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M6.59753 11.1422C5.99353 10.5004 5.99353 9.4994 6.59753 8.85765L12.7267 2.34545C13.0421 2.01031 13.5695 1.99432 13.9046 2.30975C14.2398 2.62518 14.2558 3.15258 13.9403 3.48773L7.8112 9.99992L13.9403 16.5121C14.2558 16.8473 14.2398 17.3747 13.9046 17.6901C13.5695 18.0055 13.0421 17.9895 12.7267 17.6544L6.59753 11.1422Z' fill='#667185' className={className} />
+    </svg>
+  );
+};
+
+export const FilterAlt = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M2.66699 3.99992C2.66699 3.63173 2.96547 3.33325 3.33366 3.33325H12.667C13.0352 3.33325 13.3337 3.63173 13.3337 3.99992C13.3337 4.36811 13.0352 4.66659 12.667 4.66659H3.33366C2.96547 4.66659 2.66699 4.36811 2.66699 3.99992Z' fill='#667185' className={className} />
+      <path d='M4.00033 7.99992C4.00033 7.63173 4.2988 7.33325 4.66699 7.33325H11.3337C11.7018 7.33325 12.0003 7.63173 12.0003 7.99992C12.0003 8.36811 11.7018 8.66659 11.3337 8.66659H4.66699C4.2988 8.66659 4.00033 8.36811 4.00033 7.99992Z' fill='#667185' className={className} />
+      <path d='M6.00033 11.3333C5.63214 11.3333 5.33366 11.6317 5.33366 11.9999C5.33366 12.3681 5.63214 12.6666 6.00033 12.6666H10.0003C10.3685 12.6666 10.667 12.3681 10.667 11.9999C10.667 11.6317 10.3685 11.3333 10.0003 11.3333H6.00033Z' fill='#667185' className={className} />
+    </svg>
+  );
+};
+
+export const Plus = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='21' height='20' viewBox='0 0 21 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M10.5003 4.1665V15.8332M4.66699 9.99984H16.3337' stroke='white' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
+
+export const LinkExternal_02 = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path
+        d='M17.5 8.00001L17.5 3.00001M17.5 3.00001H12.5M17.5 3.00001L10 10.5M8.33333 3H6.5C5.09987 3 4.3998 3 3.86502 3.27248C3.39462 3.51217 3.01217 3.89462 2.77248 4.36502C2.5 4.8998 2.5 5.59987 2.5 7V14C2.5 15.4001 2.5 16.1002 2.77248 16.635C3.01217 17.1054 3.39462 17.4878 3.86502 17.7275C4.3998 18 5.09987 18 6.5 18H13.5C14.9001 18 15.6002 18 16.135 17.7275C16.6054 17.4878 16.9878 17.1054 17.2275 16.635C17.5 16.1002 17.5 15.4001 17.5 14V12.1667'
+        stroke='#CB29BE'
+        stroke-width='1.66667'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        className={className}
+      />
+    </svg>
+  );
+};
+
+export const ImagePlus = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='28' height='29' viewBox='0 0 28 29' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path
+        d='M14.5833 3.99992H9.1C7.13982 3.99992 6.15972 3.99992 5.41103 4.3814C4.75247 4.71695 4.21703 5.25238 3.88148 5.91095C3.5 6.65964 3.5 7.63973 3.5 9.59992V19.3999C3.5 21.3601 3.5 22.3402 3.88148 23.0889C4.21703 23.7475 4.75247 24.2829 5.41103 24.6184C6.15972 24.9999 7.13982 24.9999 9.1 24.9999H19.8333C20.9183 24.9999 21.4608 24.9999 21.9059 24.8807C23.1137 24.557 24.0571 23.6136 24.3807 22.4058C24.5 21.9607 24.5 21.4182 24.5 20.3333M22.1667 9.83325V2.83325M18.6667 6.33325H25.6667M12.25 10.4166C12.25 11.7052 11.2053 12.7499 9.91667 12.7499C8.628 12.7499 7.58333 11.7052 7.58333 10.4166C7.58333 9.12792 8.628 8.08325 9.91667 8.08325C11.2053 8.08325 12.25 9.12792 12.25 10.4166ZM17.4884 14.4044L7.61967 23.376C7.06459 23.8806 6.78705 24.1329 6.7625 24.3515C6.74122 24.5409 6.81386 24.7288 6.95705 24.8547C7.12224 24.9999 7.49733 24.9999 8.2475 24.9999H19.1986C20.8777 24.9999 21.7172 24.9999 22.3766 24.7178C23.2043 24.3637 23.8638 23.7043 24.2179 22.8765C24.5 22.2171 24.5 21.3776 24.5 19.6986C24.5 19.1336 24.5 18.8512 24.4382 18.5881C24.3606 18.2575 24.2118 17.9478 24.0021 17.6807C23.8353 17.4682 23.6147 17.2917 23.1736 16.9388L19.9101 14.328C19.4686 13.9748 19.2479 13.7982 19.0048 13.7359C18.7905 13.6809 18.565 13.6881 18.3546 13.7564C18.1159 13.8339 17.9067 14.0241 17.4884 14.4044Z'
+        stroke='#344054'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        className={className}
+      />
+    </svg>
+  );
+};
+
+export const Upload_01 = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path
+        d='M18 13V14C18 15.4001 18 16.1002 17.7275 16.635C17.4878 17.1054 17.1054 17.4878 16.635 17.7275C16.1002 18 15.4001 18 14 18H7C5.59987 18 4.8998 18 4.36502 17.7275C3.89462 17.4878 3.51217 17.1054 3.27248 16.635C3 16.1002 3 15.4001 3 14V13M14.6667 7.16667L10.5 3M10.5 3L6.33333 7.16667M10.5 3V13'
+        stroke='#CB29BE'
+        stroke-width='1.66667'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        className={className}
+      />
+    </svg>
+  );
+};
+
+export const InfoCircle = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M12 16V12M12 8H12.01M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z' stroke='#DC6803' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
