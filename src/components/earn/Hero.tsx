@@ -26,7 +26,7 @@ export default function Hero({ setOpenModals }: hero_propTypes) {
 
   return (
     <motion.section initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} layout className='w-full sm:px-6 py-6 px-3 gap-y-6 rounded-xl flex flex-col items-center justify-center flex-none h-fit border border-outline_varient bg-white'>
-      {membershipApproved && <NotificationBanner />}
+      {membershipApproved !== 'false' && <NotificationBanner />}
       <div className='sm:my-10 py-0 flex flex-col mt-6 h-full w-full justify-center items-center gap-y-6'>
         <Earn className='size-[220px]' />
         <h1 className='text-black text-center font-bold text-[32px]'>{`Earn on Trendit just got easier 🎉`}</h1>
