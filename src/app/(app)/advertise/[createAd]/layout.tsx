@@ -2,26 +2,18 @@
 
 import React, { useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { earnPageDynamicPathTypes, earnPageDynamicPaths } from "@/types";
-import { useGlobal } from "@/context/GlobalContext";
+import { advertisePageDynamicPathTypes, advertisePageDynamicPaths } from "@/types";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname() as earnPageDynamicPathTypes;
+  const pathname = usePathname() as advertisePageDynamicPathTypes;
   const router = useRouter();
-  const { activeTask } = useGlobal();
 
   useEffect(() => {
-    if (![...earnPageDynamicPaths].includes(pathname)) {
+    if (![...advertisePageDynamicPaths].includes(pathname)) {
       router.back();
     }
   }, [pathname]);
 
-  useEffect(() => {
-    const scrollableDiv: any = document?.getElementById("taskLayout");
-    if (scrollableDiv) {
-      scrollableDiv.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top
-    }
-  }, [activeTask]);
 
   return (
     <div className='w-full 2xl:gap-8 overflow-x-visible sm:gap-6 gap-4 flex 2xl:px-8 sm:px-6 px-4 relative h-[100svh]'>

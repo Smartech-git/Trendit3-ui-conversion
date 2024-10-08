@@ -1,7 +1,7 @@
 "use client";
 
 import React, { SetStateAction, Dispatch, useState } from "react";
-import { earnPageModalTypes } from "@/types";
+import { modalTypes } from "@/types";
 import { Button } from "@nextui-org/button";
 import { XClose } from "@/appIcons";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
@@ -11,8 +11,8 @@ import { useGlobal } from "@/context/GlobalContext";
 const numeral = require("numeral");
 
 interface becomeMember_propTypes {
-  setOpenModals: Dispatch<SetStateAction<earnPageModalTypes>>;
-  openModals: earnPageModalTypes;
+  setOpenModals: Dispatch<SetStateAction<modalTypes>>;
+  openModals: modalTypes;
 }
 export default function GenerateTask({ openModals, setOpenModals }: becomeMember_propTypes) {
   const { setActiveTask } = useGlobal();
@@ -36,7 +36,7 @@ export default function GenerateTask({ openModals, setOpenModals }: becomeMember
           <XClose />
         </Button>
       }
-      onClose={() => setOpenModals((prev: earnPageModalTypes) => ({ ...prev, generate: false }))}
+      onClose={() => setOpenModals((prev: modalTypes) => ({ ...prev, generate: false }))}
     >
       <ModalContent>
         {(onClose) => (
@@ -55,7 +55,7 @@ export default function GenerateTask({ openModals, setOpenModals }: becomeMember
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button onPress={() => setOpenModals((prev: earnPageModalTypes) => ({ ...prev, generate: false }))} disableRipple className='h-11 gap-x-[6px] !outline-none sm:!w-fit w-full shadow-main flex flex-none items-center px-[18px] py-3 bg-white !min-w-auto border border-gray-300   rounded-lg'>
+              <Button onPress={() => setOpenModals((prev: modalTypes) => ({ ...prev, generate: false }))} disableRipple className='h-11 gap-x-[6px] !outline-none sm:!w-fit w-full shadow-main flex flex-none items-center px-[18px] py-3 bg-white !min-w-auto border border-gray-300   rounded-lg'>
                 <span className='text-gray-700 text-base font-semibold'>Cancel</span>
               </Button>
               <Button onPress={() => setActiveTask(true)} disableRipple className='h-11 gap-x-[6px] !outline-none sm:!w-fit w-full shadow-main flex flex-none items-center px-[18px] py-3 !min-w-auto border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg '>

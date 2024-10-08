@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Key, useState } from "react";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 import { Facebook, X, TikTok, Instagram, Youtube, Telegram, Google } from "@/svgAssets";
 import { ScrollShadow } from "@nextui-org/react";
 import { Wallet_02, LayersTwo_01, ChevronDown, ClockFastForward } from "@/appIcons";
@@ -24,7 +24,7 @@ const tabs = ["Post advert", "Engagement task"] as const;
 
 const Task = ({ data }: { data: any }) => {
   return (
-    <Link href={`/earn/create-${data.social.toLowerCase()}?id=123343434`}>
+    <Link href={`/advertise/create-${data.social.toLowerCase()}?id=123343434`}>
       <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full p-4 cursor-pointer gap-x-4 flex items-start rounded border border-neutral-100 shadow-main hover:bg-gray-50 transition-colors'>
         <div className='w-12 h-full flex-none relative flex items-center flex-col'>
           <div className='size-fit flex-none'>{socials?.find((item: any) => item?.name === data?.social)?.svg}</div>
@@ -38,10 +38,6 @@ const Task = ({ data }: { data: any }) => {
             <div className='py-0.5 px-1 rounded-full border border-brand-200 bg-brand-50 flex gap-x-1 items-center'>
               <Wallet_02 className='stroke-brand-500 size-3' />
               <span className='text-xs font-medium text-brand-700'>₦110 per post</span>
-            </div>
-            <div className='py-0.5 px-1 rounded-full border border-blue-200 bg-blue-50 flex gap-x-1 items-center'>
-              <LayersTwo_01 className='stroke-blue-500 size-3' />
-              <span className='text-xs font-medium text-blue-700'>342 task available</span>
             </div>
           </div>
         </div>
@@ -123,7 +119,6 @@ export default function Tasks() {
     ]);
   };
 
-
   const router = useRouter();
 
   return (
@@ -132,8 +127,7 @@ export default function Tasks() {
       <motion.section id='earnPageTasks' layoutScroll className='rounded-xl flex relative flex-col gap-y-[10px] border border-outline_varient bg-white w-full sm:p-6 p-3 h-fit'>
         {/* {openBanner && <BannerInfo open={openBanner} setOpen={setOpenBanner} />} */}
         <div className='w-full flex items-center py-2 justify-between'>
-          <h1 className='text-base font-normal text-black'>{`Available Tasks for you`}</h1>
-          <button className='text-primary_fixed  lg:flex hidden outline-none transition-colors hover:text-brand-700 text-xs font-semibold'>View all</button>
+          <h1 className='text-base font-normal text-black'>{`Create an Advert`}</h1>
         </div>
         <div className='flex items-center relative w-full justify-between'>
           <Tabs onSelectionChange={setActiveTab as (key: Key) => void} classNames={{ tab: "p-3", tabList: "gap-0 p-0", tabContent: "group-data-[selected=true]:text-primary_fixed text-sm font-semibold text-gray-700 flex items-center gap-x-2", cursor: "bg-primary_fixed" }} size='sm' variant='underlined' aria-label='Tabs variants'>
@@ -141,7 +135,7 @@ export default function Tasks() {
               return <Tab key={tab} title={tab} />;
             })}
           </Tabs>
-          <Link href={"earn/history"} className='group flex items-center gap-x-2'>
+          <Link href={"advertise/history"} className='group flex items-center gap-x-2'>
             <ClockFastForward className={`group-hover:opacity-70 transition-opacity`} />
             <span className='xs:flex hidden transition-opacity group-hover:opacity-70 text-sm font-semibold text-gray-700'>History</span>
           </Link>

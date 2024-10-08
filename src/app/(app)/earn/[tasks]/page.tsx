@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from "react";
 import Task from "@/components/earn/Task";
 import { useRouter, usePathname } from "next/navigation";
 import Spinner from "@/components/loadingScreens/Spinner";
-import { earnPageDynamicPathTypes, earnPageDynamicPaths, earnPageModalTypes } from "@/types";
+import { earnPageDynamicPathTypes, earnPageDynamicPaths, modalTypes } from "@/types";
 import NotificationBanner from "@/components/NotificationBanner";
 import { motion } from "framer-motion";
 import NoPendingTasks from "@/components/earn/NoPendingTasks";
@@ -15,7 +15,7 @@ import TaskSubmission from "@/components/TaskSubmission";
 export default function Page({ params }: { params: { stage: string } }) {
   const pathname = usePathname() as earnPageDynamicPathTypes;
   const [socialMediaHandleVerified, setSocialMediaHandleVerified] = useState(false);
-  const [openModals, setOpenModals] = useState<earnPageModalTypes>({ generate: false });
+  const [openModals, setOpenModals] = useState<modalTypes>({ generate: false });
   const { activeTask, setNotificationBanner } = useGlobal();
 
   useEffect(() => {

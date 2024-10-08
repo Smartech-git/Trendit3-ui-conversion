@@ -39,7 +39,7 @@ export default function AboutScreen() {
                 autoComplete='off'
                 placeholder={`First Name`}
                 name='firstName'
-                className={`!border-gray-300 capitalize !inline-block  focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300 capitalize !inline-block  focus:!border-brand-700 focus:!border-2 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
                 type={"text"}
               />
             </div>
@@ -50,7 +50,7 @@ export default function AboutScreen() {
                 autoComplete='off'
                 placeholder={`Last Name`}
                 name='lastName'
-                className={`!border-gray-300 capitalize !inline-block  focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300 capitalize !inline-block focus:!border-brand-700 focus:!border-2 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
                 type={"text"}
               />
             </div>
@@ -62,7 +62,7 @@ export default function AboutScreen() {
               autoComplete='off'
               placeholder={`Username`}
               name='userName'
-              className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal placeholder:text-gray-500`}
+              className={`!border-gray-300 focus:!border-brand-700 focus:!border-2 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal placeholder:text-gray-500`}
               type={"text"}
             />
           </div>
@@ -74,7 +74,7 @@ export default function AboutScreen() {
                 autoComplete='off'
                 placeholder={`Create password`}
                 name='password'
-                className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 pr-6 h-11 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300 focus:!border-brand-700 focus:!border-2 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 pr-6 h-11 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`}
                 type={showPassword.main ? "text" : "password"}
               />
               <div className='grid place-items-center absolute text-blue-gray-500 top-[50%] right-4 -translate-y-2/4 size-fit'>
@@ -113,7 +113,7 @@ export default function AboutScreen() {
                 autoComplete='off'
                 placeholder={`Confirm password`}
                 name='passwordConfirm'
-                className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 pr-6 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`}
+                className={`!border-gray-300 focus:!border-brand-700 focus:!border-2 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 pr-6 shadow-main rounded-lg text-black font-medium  placeholder:font-normal  placeholder:text-gray-500`}
                 type={showPassword.confirm ? "text" : "password"}
               />
               <div className='grid place-items-center absolute text-blue-gray-500 top-[50%] right-4 -translate-y-2/4 size-fit'>
@@ -137,7 +137,7 @@ export default function AboutScreen() {
                       }))
                     }
                   >
-                    <EyeOff className='stroke-gray-400 size-5 ' />
+                    <EyeOff className='stroke-gray-400 size-5' />
                   </div>
                 )}
               </div>

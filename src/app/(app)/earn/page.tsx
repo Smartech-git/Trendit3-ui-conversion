@@ -1,17 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Hero from "@/components/earn/Hero";
-import Faq from "@/components/earn/Faq";
-import Cta from "@/components/earn/Cta";
-import { earnPageModalTypes } from "@/types";
+import Faq from "@/components/Faq";
+import Cta from "@/components/Cta";
+import { modalTypes } from "@/types";
 import BecomeMember from "@/components/modals/BecomeMember";
 import SelectPaymentMethod from "@/components/modals/SelectPaymentMethod";
 import Tasks from "@/components/earn/Tasks";
 import { useGlobal } from "@/context/GlobalContext";
 
 export default function Earn() {
-  const [openModals, setOpenModals] = useState<earnPageModalTypes>({ becomeMember: false, selectPaymentMethod: false });
-  const { membershipApproved } = useGlobal();
+  const [openModals, setOpenModals] = useState<modalTypes>({ becomeMember: false, selectPaymentMethod: false });
+  const { membershipApproved, setMembershipApproved, setToast } = useGlobal();
+
+  const handleContinue = useCallback(() => {
+    setOpenModals((prev: modalTypes) => ({ ...prev, selectPaymentMethod: false }));
+    setMembershipApproved("approved");
+    setToast({ open: true, state: "success", content: "Success!" });
+  }, []);
 
   return (
     <>
@@ -36,7 +42,7 @@ export default function Earn() {
         // modals....
         <>
           <BecomeMember openModals={openModals} setOpenModals={setOpenModals} />
-          <SelectPaymentMethod openModals={openModals} setOpenModals={setOpenModals} />
+          <SelectPaymentMethod openModals={openModals} setOpenModals={setOpenModals} action={handleContinue} />
         </>
       }
     </>

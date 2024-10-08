@@ -4,10 +4,10 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@nextui-org/button";
 import SubmiteTask from "./modals/SubmitTask";
-import { earnPageModalTypes } from "@/types";
+import { modalTypes } from "@/types";
 
 export default function TaskSubmission() {
-  const [openModals, setOpenModals] = useState<earnPageModalTypes>({ submit: false });
+  const [openModals, setOpenModals] = useState<modalTypes>({ submit: false });
   return (
     <>
       <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }} transition={{ type: "spring", delay: 1 }} className='w-full px-1 sticky z-40 bottom-2'>

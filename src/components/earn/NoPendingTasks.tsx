@@ -4,20 +4,20 @@ import { motion, useScroll } from "framer-motion";
 import { BackgroundPatternDecorative } from "@/svgAssets";
 import { Search, Plus } from "@/appIcons";
 import { Button } from "@nextui-org/button";
-import { earnPageModalTypes } from "@/types";
+import { modalTypes } from "@/types";
 import GenerateTask from "../modals/GenerateTask";
 
 interface noPendingTasks_propTypes {
   socialMediaHandleVerified: boolean;
-  openModals: earnPageModalTypes;
-  setOpenModals: Dispatch<SetStateAction<earnPageModalTypes>>;
+  openModals: modalTypes;
+  setOpenModals: Dispatch<SetStateAction<modalTypes>>;
 }
 
 export default function NoPendingTasks({ socialMediaHandleVerified, openModals, setOpenModals }: noPendingTasks_propTypes) {
   const handleScrollIntoView = () => {
-    const scrollableDivVirtual: any = document?.getElementById("taskLayout");
-    if (scrollableDivVirtual) {
-      scrollableDivVirtual.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top
+    const scrollableDiv: any = document?.getElementById("taskLayout");
+    if (scrollableDiv) {
+      scrollableDiv.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -36,7 +36,7 @@ export default function NoPendingTasks({ socialMediaHandleVerified, openModals, 
                 <p className='text-gray-600 text-center text-sm font-normal'>Earn steady income by posting adverts of businesses and top brands on your social media page. To post adverts on Facebook, Instagram, Twitter or Tiktok, you MUST have atleast 1,000 Followers on your social media account.</p>
               </div>
               {socialMediaHandleVerified ? (
-                <Button onPress={() => setOpenModals((prev: earnPageModalTypes) => ({ ...prev, generate: true }))} disableRipple className='h-11 gap-x-[6px] !outline-none shadow-main flex flex-none items-center px-[18px] py-3 !min-w-fit !w-fit border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg'>
+                <Button onPress={() => setOpenModals((prev: modalTypes) => ({ ...prev, generate: true }))} disableRipple className='h-11 gap-x-[6px] !outline-none shadow-main flex flex-none items-center px-[18px] py-3 !min-w-fit !w-fit border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg'>
                   <Plus />
                   <span className='text-white text-base font-semibold'>Generate new task</span>
                 </Button>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { User_01, LogIn_03, Settings_01, Bell_01, Menu_01, XClose, ChevronLeft, Search, FilterAlt } from "@/appIcons";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 import Notification from "./header/Notification";
-import { earnPageDynamicPaths } from "@/types";
+import { earnPageDynamicPaths, advertisePageDynamicPathTypes, advertisePageDynamicPaths } from "@/types";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 
@@ -12,12 +12,12 @@ interface header_types {
   setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const subHeadingBreadCrumbRootPaths: Array<string> = [...earnPageDynamicPaths];
+const subHeadingBreadCrumbRootPaths: Array<string> = [...earnPageDynamicPaths, ...advertisePageDynamicPaths];
 
 export default function Header({ openDrawer, setOpenDrawer }: header_types) {
   const [openNot, setOpenNot] = useState(false);
   const pathname = usePathname();
-  const pathnameSegments = usePathname().split("/").slice(1);
+  const pathnameSegments = usePathname().split("/").slice(1, 3);
   const [currentPage, setCurrentPage] = useState("music");
   const router = useRouter();
 

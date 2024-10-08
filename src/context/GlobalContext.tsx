@@ -25,7 +25,7 @@ export default function AppProvider({ children }: any) {
   const [appUser, setAppUser] = useState(undefined);
   const [toast, setToast] = useState<toastTypes>({ open: true, state: undefined, content: undefined });
   const [member, setMember] = useState(false);
-  const [membershipApproved, setMembershipApproved] = useState<membershipApprovalTypes>('false');
+  const [membershipApproved, setMembershipApproved] = useState<membershipApprovalTypes>('pending');
   const [activeTask, setActiveTask] = useState(false)
   const [taskTimerActive, setTaskTimerActive] = useState(false)
   const [notificationBanner, setNotificationBanner] = useState<notificationBannerTypes>(default_notoficationBannerProps)

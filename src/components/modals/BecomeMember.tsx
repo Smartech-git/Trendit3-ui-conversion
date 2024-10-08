@@ -1,7 +1,7 @@
 "use client";
 
 import React, { SetStateAction, Dispatch, useState } from "react";
-import { earnPageModalTypes } from "@/types";
+import { modalTypes } from "@/types";
 import { Button } from "@nextui-org/button";
 import { XClose } from "@/appIcons";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
@@ -12,8 +12,8 @@ import { useGlobal } from "@/context/GlobalContext";
 const numeral = require("numeral");
 
 interface becomeMember_propTypes {
-  setOpenModals: Dispatch<SetStateAction<earnPageModalTypes>>;
-  openModals: earnPageModalTypes;
+  setOpenModals: Dispatch<SetStateAction<modalTypes>>;
+  openModals: modalTypes;
 }
 export default function BecomeMember({ openModals, setOpenModals }: becomeMember_propTypes) {
   const [membershipFee, setMembershipFee] = useState<string>("1000.00");
@@ -34,7 +34,7 @@ export default function BecomeMember({ openModals, setOpenModals }: becomeMember
         base: "rounded-xl",
         closeButton: "data-[hover=true]:!bg-gray-50 !opacity-100 !p-0 right-2 top-2 !outline-none size-fit bg-white !min-w-10 !h-10 !p-0 !rounded-md",
         footer: ` ${membershipApproved === "false" ? "bg-gray-50 shadow-main-lg-reversed" : "shadow-none bg-white"} rounded-b-xl px-8 !pt-0 pb-6 flex flex-col gap-y-3`,
-        body: "pb-4 px-8",
+        body: "pb-4 px-8 !pt-0",
         header: "pb-9",
       }}
       closeButton={
@@ -42,7 +42,7 @@ export default function BecomeMember({ openModals, setOpenModals }: becomeMember
           <XClose />
         </Button>
       }
-      onClose={() => setOpenModals((prev: earnPageModalTypes) => ({ ...prev, becomeMember: false }))}
+      onClose={() => setOpenModals((prev: modalTypes) => ({ ...prev, becomeMember: false }))}
     >
       <ModalContent>
         {(onClose) => (
@@ -96,11 +96,11 @@ export default function BecomeMember({ openModals, setOpenModals }: becomeMember
                         } else return;
                       }}
                       classNames={{
-                        inputWrapper: "!h-11 !px-4 !rounded-l-lg !rounded-r-none border !border-gray-300 !transition-colors data-[hover=true]:border-gray-400 group-data-[focus=true]:!border-brand-700 !shadow-main",
+                        inputWrapper: "!h-11 !px-4 !rounded-l-lg !rounded-r-none border !border-gray-300 !transition-colors data-[hover=true]:border-gray-400 group-data-[focus=true]:!border-brand-700 group-data-[focus=true]:!border-2 !shadow-main",
                         input: "!text-base overflow-hidden placeholder:!text-gray-500 !font-bold !text-black [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
                       }}
                     />
-                    <Button onPress={() => setOpenModals((prev: earnPageModalTypes) => ({ becomeMember: false, selectPaymentMethod: true }))} disableRipple className='h-11 gap-x-[6px] !outline-none shadow-main flex flex-none items-center px-[18px] py-3 !min-w-auto border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-r-lg rounded-l-none'>
+                    <Button onPress={() => setOpenModals((prev: modalTypes) => ({ becomeMember: false, selectPaymentMethod: true }))} disableRipple className='h-11 gap-x-[6px] !outline-none shadow-main flex flex-none items-center px-[18px] py-3 !min-w-auto border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-r-lg rounded-l-none'>
                       <span className='text-white  text-base font-semibold'>Continue</span>
                     </Button>
                   </div>

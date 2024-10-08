@@ -9,7 +9,7 @@ import { Input } from "@nextui-org/input";
 export default function TaskProof() {
   return (
     <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", delay: 0.3 }} className='w-full flex relative h-fit overflow-hidden rounded-xl justify-center border border-gray-200 bg-gray-50'>
-      <div className='absolute size-fit -top-[150px] '>
+      <div className='absolute size-fit -top-[155px] '>
         <BackgroundPatternDecorative />
       </div>
       <div className='w-full relative z-20 h-fit px-[30px] pb-[20px] pt-[60px] flex flex-col items-center'>

@@ -29,7 +29,7 @@ const Task = ({ data }: { data: any }) => {
         <div className='w-12 h-full flex-none relative flex items-center flex-col'>
           <div className='size-fit flex-none'>{socials?.find((item: any) => item?.name === data?.social)?.svg}</div>
         </div>
-        <div className='flex gap-y-1 flex-col'>
+        <div className='flex gap-y-[6px] flex-col'>
           <div className='w-full flex items-center justify-between'>
             <h1 className='text-gray-900 w-fit font-semibold sm:text-[15px] text-sm'>{`Post adverts on your Facebook page`}</h1>
           </div>

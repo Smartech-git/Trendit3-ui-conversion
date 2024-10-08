@@ -26,7 +26,7 @@ export default function Task({ data, socialMediaHandleVerified, setSocialMediaHa
       <div className='w-full px-3 py-4 gap-x-4 flex items-start'>
         <div className='w-12 h-full flex-none relative flex items-center flex-col'>
           <div className='size-fit flex-none'>
-            <Facebook className='size-10' />{" "}
+            <Facebook className='size-10' />
           </div>
         </div>
         <div className='flex gap-y-1 flex-col'>

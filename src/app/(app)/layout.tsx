@@ -5,7 +5,6 @@ import SideNav from "@/components/SideNav";
 import Header from "@/components/Header";
 import { Drawer, ThemeProvider } from "@material-tailwind/react";
 import Toast from "@/components/Toast";
-import { useGlobal } from "@/context/GlobalContext";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [openDrawer, setOpenDrawer] = useState(false)
@@ -25,7 +24,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       {/* Overlay components */}
       <ThemeProvider value={{ drawer: { styles: { base: { overlay: { backgroundOpacity: "bg-opacity-70", backdropBlur: "backdrop-blur-none", backgroundColor: "bg-gray-950" } } } } }}>
         <Drawer open={openDrawer} onClose={() => setOpenDrawer(false)} className='p-0 !w-[280px]'>
-          <div className='w-full flex h-full flex-none bg-white border-r border-gray-200'>
+          <div className='w-full flex h-[100svh] relative flex-none bg-white border-r border-gray-200'>
             <SideNav openDrawer={openDrawer} setOpenDrawer={setOpenDrawer} />
           </div>
         </Drawer>

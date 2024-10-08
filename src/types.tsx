@@ -7,8 +7,10 @@ export type loginPathTypes = (typeof loginPaths)[number];
 export const resetpasswordPaths: Array<string> = ["/reset-password/0"] as const;
 export type resetPasswordPathTypes = (typeof resetpasswordPaths)[number];
 
-export const earnPageDynamicPaths: Array<string> = ["/earn/create-facebook", "/earn/create-X", "/earn/create-tiktok", "/earn/create-instagram", "/earn/create-youtube", "/earn/create-telegram"] as const;
+export const earnPageDynamicPaths: Array<string> = ["/earn/history", "/earn/create-facebook", "/earn/create-X", "/earn/create-tiktok", "/earn/create-instagram", "/earn/create-youtube", "/earn/create-telegram"] as const;
 export type earnPageDynamicPathTypes = (typeof earnPageDynamicPaths)[number];
+export const advertisePageDynamicPaths: Array<string> = ["/advertise/history", "/advertise/create-facebook", "/advertise/create-X", "/advertise/create-tiktok", "/advertise/create-instagram", "/advertise/create-youtube", "/advertise/create-telegram"] as const;
+export type advertisePageDynamicPathTypes = (typeof earnPageDynamicPaths)[number];
 
 export type toastTypes = { open: boolean; state: undefined | "success" | "error"; content: undefined | string | number };
 export type membershipApprovalTypes = "approved" | "pending" | "false";
@@ -74,9 +76,20 @@ export type loginFormTypes = {
   OTP: string | undefined;
 };
 
-export type earnPageModalTypes = {
+export type modalTypes = {
   becomeMember?: boolean;
   selectPaymentMethod?: boolean;
   generate?: boolean;
   submit?: boolean;
+  orderSummary?: boolean
+};
+
+export type createAdFormTypes = {
+  platform: string | undefined;
+  location: string | undefined;
+  state: string | undefined;
+  noOfPosts: number | undefined;
+  gender: string | undefined;
+  religion: string | undefined;
+  images: Array<any>;
 };

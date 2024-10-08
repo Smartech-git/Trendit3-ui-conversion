@@ -1,7 +1,7 @@
 "use client";
 
 import React, { SetStateAction, Dispatch, useState, useEffect } from "react";
-import { earnPageModalTypes } from "@/types";
+import { modalTypes } from "@/types";
 import { Button } from "@nextui-org/button";
 import { XClose, InfoCircle } from "@/appIcons";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
@@ -11,8 +11,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 interface becomeMember_propTypes {
-  setOpenModals: Dispatch<SetStateAction<earnPageModalTypes>>;
-  openModals: earnPageModalTypes;
+  setOpenModals: Dispatch<SetStateAction<modalTypes>>;
+  openModals: modalTypes;
 }
 export default function SubmiteTask({ openModals, setOpenModals }: becomeMember_propTypes) {
   const { setActiveTask, setToast } = useGlobal();
@@ -46,7 +46,7 @@ export default function SubmiteTask({ openModals, setOpenModals }: becomeMember_
           <XClose />
         </Button>
       }
-      onClose={() => setOpenModals((prev: earnPageModalTypes) => ({ ...prev, submit: false }))}
+      onClose={() => setOpenModals((prev: modalTypes) => ({ ...prev, submit: false }))}
     >
       <ModalContent>
         {(onClose) => (
@@ -69,7 +69,7 @@ export default function SubmiteTask({ openModals, setOpenModals }: becomeMember_
               </div>
             </ModalBody>
             <ModalFooter>
-              <Button onPress={() => setOpenModals((prev: earnPageModalTypes) => ({ ...prev, submit: false }))} disableRipple className='h-11 gap-x-[6px] !outline-none sm:!w-fit w-full shadow-main flex flex-none items-center px-[18px] py-3 bg-white !min-w-auto border border-gray-300   rounded-lg'>
+              <Button onPress={() => setOpenModals((prev: modalTypes) => ({ ...prev, submit: false }))} disableRipple className='h-11 gap-x-[6px] !outline-none sm:!w-fit w-full shadow-main flex flex-none items-center px-[18px] py-3 bg-white !min-w-auto border border-gray-300   rounded-lg'>
                 <span className='text-gray-700 text-base font-semibold'>Cancel</span>
               </Button>
 

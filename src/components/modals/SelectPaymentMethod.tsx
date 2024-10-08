@@ -1,7 +1,7 @@
 "use client";
 
 import React, { SetStateAction, Dispatch, useState } from "react";
-import { earnPageModalTypes } from "@/types";
+import { modalTypes } from "@/types";
 import { Button } from "@nextui-org/button";
 import { XClose } from "@/appIcons";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter } from "@nextui-org/modal";
@@ -17,17 +17,19 @@ const paymentMethods = [
 ];
 
 interface selectPaymentMethod_propTypes {
-  setOpenModals: Dispatch<SetStateAction<earnPageModalTypes>>;
-  openModals: earnPageModalTypes;
+  setOpenModals: Dispatch<SetStateAction<modalTypes>>;
+  openModals: modalTypes;
+  action?: () => void;
 }
-export default function SelectPaymentMethod({ openModals, setOpenModals }: selectPaymentMethod_propTypes) {
+
+export default function SelectPaymentMethod({ openModals, setOpenModals, action }: selectPaymentMethod_propTypes) {
   const [walletBal] = useState("10000.78");
   const [paymentMethod, setPaymentMethod] = useState<any>();
   const { setMembershipApproved, setToast } = useGlobal();
 
   const handleContinue = () => {
-    setOpenModals((prev: earnPageModalTypes) => ({ ...prev, selectPaymentMethod: false }));
-    setMembershipApproved('approved');
+    setOpenModals((prev: modalTypes) => ({ ...prev, selectPaymentMethod: false }));
+    setMembershipApproved("approved");
     setToast({ open: true, state: "success", content: "Success!" });
   };
   return (
@@ -40,16 +42,16 @@ export default function SelectPaymentMethod({ openModals, setOpenModals }: selec
         backdrop: "!bg-gray-950/70",
         base: "rounded-xl",
         closeButton: "data-[hover=true]:!bg-gray-50 !opacity-100 !p-0 right-2 top-2 !outline-none size-fit bg-white !min-w-10 !h-10 !p-0 !rounded-md",
-        footer: "shadow-none bg-white rounded-b-xl px-[40px] pt-8 pb-12",
-        body: "px-[40px] flex flex-col gap-y-8",
-        header: "pb-9",
+        footer: "shadow-none bg-white rounded-b-xl px-8 pt-8 pb-8",
+        body: "px-8 flex flex-col gap-y-8",
+        header: "pb-8",
       }}
       closeButton={
         <Button disableRipple className='bg-white outline-none !min-w-11 !w-11 !h-11 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
           <XClose />
         </Button>
       }
-      onClose={() => setOpenModals((prev: earnPageModalTypes) => ({ ...prev, selectPaymentMethod: false }))}
+      onClose={() => setOpenModals((prev: modalTypes) => ({ ...prev, selectPaymentMethod: false }))}
     >
       <ModalContent>
         {(onClose) => (
@@ -92,7 +94,7 @@ export default function SelectPaymentMethod({ openModals, setOpenModals }: selec
             </ModalBody>
             <ModalFooter>
               <div className='w-full flex relative'>
-                <Button onPress={handleContinue} disableRipple className='h-11 gap-x-[6px] !outline-none shadow-main flex flex-none items-center px-[18px] py-3 !min-w-full border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg'>
+                <Button onPress={action} disableRipple className='h-11 gap-x-[6px] !outline-none shadow-main flex flex-none items-center px-[18px] py-3 !min-w-full border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg'>
                   <span className='text-white  text-base font-semibold'>Continue</span>
                 </Button>
               </div>

@@ -34,7 +34,15 @@ export default function VerificationScreen() {
       <div className='w-full flex flex-col relative gap-y-6 items-center'>
         <form action={() => {}} className='w-full flex relative items-center flex-col gap-y-4'>
           <div className='w-full flex flex-col'>
-            <input onChange={(e) => handleOnChange(e)} value={formData.OTP} autoComplete='off' placeholder={`Past OTP`} name='OTP' className={`!border-gray-300 focus:!border-brand-700 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`} type={"text"} />
+            <input
+              onChange={(e) => handleOnChange(e)}
+              value={formData.OTP}
+              autoComplete='off'
+              placeholder={`Past OTP`}
+              name='OTP'
+              className={`!border-gray-300 focus:!border-brand-700 focus:!border-2 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
+              type={"text"}
+            />
           </div>
         </form>
       </div>
