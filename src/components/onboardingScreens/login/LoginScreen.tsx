@@ -22,6 +22,10 @@ export default function LoginScreen() {
   const { setToast, setAppUser } = useGlobal();
   const router = useRouter();
 
+  useEffect(() => {
+    router.prefetch(pathsEnum.home)
+  }, [])
+
   const handleOnChange = (e: any) => {
     setFormData((prev: loginFormTypes) => ({
       ...prev,
