@@ -54,7 +54,6 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     const fetchUserProfile = async () => {
       const { user }: { user: cookiesType } = await getSession();
       const result = await apiRequest("profile", "GET", null, {
-        Token: user?.access_token as "HeadersInit | undefined",
         'Authorization': `Bearer ${user?.access_token}`
       });
       console.log(result);

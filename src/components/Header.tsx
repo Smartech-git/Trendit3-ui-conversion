@@ -28,7 +28,7 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
   const handleLogout = async () => {
     const session: { user: cookiesType } = await getSession();
     const result = await apiRequest("login", "POST", null, {
-      token: session.user.access_token as "HeadersInit | undefined",
+      'Authorization': `Bearer ${session.user.access_token}`
     });
     console.log(result);
     if (result?.error) {
