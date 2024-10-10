@@ -23,7 +23,7 @@ const GlobalContext = createContext<GlobalContextTypes>({
 
 export default function AppProvider({ children }: any) {
   const [appUser, setAppUser] = useState(undefined);
-  const [toast, setToast] = useState<toastTypes>({ open: true, state: undefined, content: undefined });
+  const [toast, setToast] = useState<toastTypes>({ open: false, state: undefined, content: undefined });
   const [member, setMember] = useState(false);
   const [membershipApproved, setMembershipApproved] = useState<membershipApprovalTypes>('pending');
   const [activeTask, setActiveTask] = useState(false)

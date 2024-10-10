@@ -3,9 +3,13 @@ import React, { useState } from "react";
 import { User_01, LogIn_03, Settings_01, Bell_01, Menu_01, XClose, ChevronLeft, Search, FilterAlt } from "@/appIcons";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
 import Notification from "./header/Notification";
-import { earnPageDynamicPaths, advertisePageDynamicPathTypes, advertisePageDynamicPaths } from "@/types";
+import { earnPageDynamicPaths, advertisePageDynamicPathTypes, advertisePageDynamicPaths, cookiesType, pathsEnum } from "@/types";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { useGlobal } from "@/context/GlobalContext";
+import ProfileSkeletonLoader from "./loadingScreens/skeletonLoaders";
+import { apiRequest } from "@/lib/serverRequest";
+import { getSession, logout } from "@/cookies";
 
 interface header_types {
   openDrawer: boolean;
@@ -18,8 +22,32 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
   const [openNot, setOpenNot] = useState(false);
   const pathname = usePathname();
   const pathnameSegments = usePathname().split("/").slice(1, 3);
-  const [currentPage, setCurrentPage] = useState("music");
+  const { appUser, setToast } = useGlobal();
   const router = useRouter();
+
+  const handleLogout = async () => {
+    const session: { user: cookiesType } = await getSession();
+    const result = await apiRequest("login", "POST", null, {
+      token: session.user.access_token as "HeadersInit | undefined",
+    });
+    console.log(result);
+    if (result?.error) {
+      setToast({ open: true, state: "error", content: "check your network connection" });
+    } else if (result?.status === "success") {
+      setToast({ open: true, state: "success", content: result?.message });
+      const navigate = async () => {
+        await logout();
+        router.replace(pathsEnum.login);
+      };
+      navigate();
+    } else {
+      const navigate = async () => {
+        await logout();
+        router.replace(pathsEnum.login);
+      };
+      navigate();
+    }
+  };
 
   return (
     <header className={`${subHeadingBreadCrumbRootPaths.includes(pathname) && "!pb-0"} w-full flex flex-col gap-y-3 absolute z-50 backdrop-blur-lg backdrop-saturate-150 bg-neutral-100/70 top-0 2xl:px-8 sm:px-6 2xl:py-8 sm:py-6 px-4 py-4`}>
@@ -28,18 +56,22 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
           <div onClick={() => setOpenDrawer(true)} className='xl:hidden cursor-pointer flex'>
             <Menu_01 className='stroke-black' />
           </div>
-          <div className='h-full cursor-pointer items-center flex gap-x-3'>
-            <div className='sm:size-12 size-10 relative'>
-              <div className='size-full flex items-center justify-center rounded-full border border-black/[0.08] bg-gray-100'>
-                <User_01 className='sm:size-7 size-5' />
+          {!appUser ? (
+            <ProfileSkeletonLoader />
+          ) : (
+            <div className='h-full cursor-pointer items-center flex gap-x-3'>
+              <div className='sm:size-12 size-10 relative'>
+                <div className='size-full flex items-center justify-center rounded-full border border-black/[0.08] bg-gray-100'>
+                  <User_01 className='sm:size-7 size-5' />
+                </div>
+                <div className='sm:size-3 size-[10px]  box-content absolute right-0 bottom-0 rounded-full border-1.5 bg-green-600 border-white' />
               </div>
-              <div className='sm:size-3 size-[10px]  box-content absolute right-0 bottom-0 rounded-full border-1.5 bg-green-600 border-white' />
+              <div className='sm:flex hidden flex-col'>
+                <h1 className='text-base font-semibold text-gray-700'>{appUser?.full_name}</h1>
+                  <h2 className='text-base font-normal text-gray-600'>{ appUser?.email}</h2>
+              </div>
             </div>
-            <div className='sm:flex hidden flex-col'>
-              <h1 className='text-base font-semibold text-gray-700'>Olivia Rhye</h1>
-              <h2 className='text-base font-normal text-gray-600'>olivia@trendit.ng</h2>
-            </div>
-          </div>
+          )}
         </div>
         <div className='h-full gap-x-4 flex items-center'>
           <div className='flex gap-x-1 h-9'>
@@ -79,7 +111,7 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
             </PopoverContent>
           </Popover> */}
           </div>
-          <Button disableRipple className='h-10 gap-x-[6px] !outline-none flex items-center px-[14px] py-[10px] !min-w-auto border border-gray-300 bg-white data-[hover=true]:!bg-gray-50 !opacity-100 transition-colors rounded-lg shadow-main'>
+          <Button onPress={handleLogout} disableRipple className='h-10 gap-x-[6px] !outline-none flex items-center px-[14px] py-[10px] !min-w-auto border border-gray-300 bg-white data-[hover=true]:!bg-gray-50 !opacity-100 transition-colors rounded-lg shadow-main'>
             <LogIn_03 />
             <span className='text-gray-700 sm:flex hidden text-base font-semibold'>Logout</span>
           </Button>
@@ -102,7 +134,7 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
               {pathnameSegments.map((segment: any, index: number) => {
                 return (
                   <BreadcrumbItem onPress={() => router.push(index === 0 ? `/${segment}` : `/earn/${segment}`)} classNames={{ item: `text-gray-500 capitalize data-[current=true]:text-primary_fixed font-medium text-sm` }} key={index === 0 ? `/${segment}` : `/earn/${segment}`}>
-                    {segment.split('-').join(' ')}
+                    {segment.split("-").join(" ")}
                   </BreadcrumbItem>
                 );
               })}

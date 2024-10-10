@@ -8,14 +8,14 @@ import { Select, SelectSection, SelectItem } from "@nextui-org/select";
 import { DateInput } from "@nextui-org/react";
 import { CalendarDate, parseDate } from "@internationalized/date";
 const { format } = require("date-fns");
+import { apiRequest } from "@/lib/serverRequest";
+import { useRouter } from "next/navigation";
+import { clearPaths } from "@/cookies";
 
 export default function ProfileSetupScreen() {
   const [dropDownStates, setDropDownMenuStates] = useState<{ [key: string]: boolean }>({ gender: false });
   const { formData, setFormData } = useSignupContext();
-
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
+  const router = useRouter();
 
   const handleOnChange = (e: any) => {
     setFormData((prev: signupFormTypes) => ({
@@ -30,6 +30,11 @@ export default function ProfileSetupScreen() {
       dob: `${value.month}/${value.day}/${value.year}`,
     }));
   };
+
+  const handleskip = async () => {
+    clearPaths();
+  };
+
   return (
     <div className='sm:w-[520px] w-[90vw] relative h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
@@ -142,7 +147,7 @@ export default function ProfileSetupScreen() {
       </Link>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>I will do this later</span>
-        <Link href='/home' className='text-primary_fixed font-bold text-sm hover:text-brand-700 animate-duration-300 transition-colors cursor-pointer'>
+        <Link href='/home' onClick={handleskip} className='text-primary_fixed font-bold text-sm hover:text-brand-700 animate-duration-300 transition-colors cursor-pointer'>
           Skip
         </Link>
       </div>

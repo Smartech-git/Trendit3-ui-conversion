@@ -22,74 +22,59 @@ export async function decrypt(input: string): Promise<any> {
   }
 }
 
-// cookies authorizations
-export async function authCookies(data: { type: "all" | "optional" }) {
-  const expires = new Date(Date.now() + 365 * 60 * 60 * 24 * 1000);
-  const session = await encrypt({ data, expires });
-  cookies().set("a_c", session, { expires, httpOnly: true });
-
-  return;
-}
-
-export async function updateAuthCookies(request: NextRequest) {
-  const session = request.cookies.get("a_c")?.value;
-  if (!session) return;
-  // Refresh the session so it doesn't expire
-  const parsed = await decrypt(session);
-  parsed.expires = new Date(Date.now() + 365 * 60 * 60 * 24 * 1000);
-  const res = NextResponse.next();
-  res.cookies.set({
-    name: "a_c",
-    value: await encrypt(parsed),
-    httpOnly: true,
-    expires: parsed.expires,
-  });
-  return res;
-}
-
-export async function getAuthCookies() {
-  const session = cookies().get("a_c")?.value;
+// route tracking - auth, onboarding
+export async function getPaths() {
+  const session = cookies().get("paths")?.value;
   if (!session) return undefined;
   return await decrypt(session);
 }
 
-// sessions control
-export async function createSession(formData: any) {
-  // Verify credentials && get the user
-  const user = formData;
-
-  // Create the session
-  const expires = new Date(Date.now() + 60 * 60 * 24 * 7 * 1000);
-  const session = await encrypt({ user, expires });
-
-  // Save the session in a cookie
-  cookies().set("session", session, { expires, httpOnly: true });
-
+export async function setPaths(path: string) {
+  const activePath = await getPaths();
+  const data = activePath?.data ? [...new Set([...activePath.data, path])] : [path];
+  const expires = new Date(Date.now() + 60 * 60 * 24 * 1 * 1000);
+  const session = await encrypt({ data, expires });
+  cookies().set("paths", session, { expires, httpOnly: true });
   return;
 }
 
+export async function clearPaths() {
+  cookies().set("paths", "", { expires: new Date(0) });
+}
+
+// sessions control
 export async function getSession() {
   const session = cookies().get("session")?.value;
   if (!session) return undefined;
   return await decrypt(session);
 }
 
-export async function updateSession() {
-  const session: any = cookies().get("session")?.value;
-  const payload = await decrypt(session);
+export async function createSession(data: any) {
+  const activeSession = await getSession();
+  const user = activeSession?.user ? { ...activeSession.user, ...data } : data;
+  const expires = new Date(Date.now() + 60 * 60 * 24 * 7 * 1000);
+  const session = await encrypt({ user, expires });
 
-  if (!session || !payload) {
-    return undefined;
-  }
+  cookies().set("session", session, { expires, httpOnly: true });
+  return;
+}
 
-  const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  cookies().set("session", session, {
+export async function updateSession(request: NextRequest) {
+  const session = request.cookies.get("session")?.value;
+  if (!session) return;
+
+  // Refresh the session so it doesn't expire
+  const parsed = await decrypt(session);
+
+  parsed.expires = new Date(Date.now() + 60 * 60 * 24 * 7 * 1000);
+  const res = NextResponse.next();
+  res.cookies.set({
+    name: "session",
+    value: await encrypt(parsed),
     httpOnly: true,
-    secure: true,
-    expires: expires,
-    sameSite: "lax",
-    path: "/",
+    expires: parsed.expires,
   });
+  return res;
 }
 
 export async function logout() {

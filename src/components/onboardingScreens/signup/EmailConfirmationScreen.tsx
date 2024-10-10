@@ -1,55 +1,141 @@
-import React, { useEffect, useContext } from "react";
-import { signupFormTypes } from "@/types";
+import React, { useEffect, useState } from "react";
+import { signupFormTypes, cookiesType, pathsEnum } from "@/types";
 import { useSignupContext } from "@/context/SignupContext";
 import { useGlobal } from "@/context/GlobalContext";
+import { Input } from "@nextui-org/input";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import Spinner from "@/components/loadingScreens/Spinner";
+import { useDebouncedCallback } from "use-debounce";
+import { getSession, createSession, setPaths } from "@/cookies";
+import { apiRequest } from "@/lib/serverRequest";
 
 export default function EmailConFrimationScreen() {
   const { formData, setFormData } = useSignupContext();
+  const [error, setError] = useState<{ OTP: string | undefined }>({ OTP: undefined });
+  const [isFetching, setIsFetching] = useState(false);
   const { setToast } = useGlobal();
+  const [session, setSession] = useState<cookiesType>();
+  const router = useRouter();
 
   useEffect(() => {
-    setToast({ open: true, state: "success", content: "OTP Sent" });
+    const getUserSession = async () => {
+      const session = await getSession();
+      if (session) {
+        setSession(session.user);
+        setFormData((prev: signupFormTypes) => ({
+          ...prev,
+          email: session.user.email,
+        }));
+      }
+    };
+    getUserSession();
+    // setToast({ open: true, state: "success", content: "OTP Sent" });
   }, []);
 
-  const handleResendOTP = () => {
-    setToast({ open: true, state: "success", content: "OTP Sent" });
+  const handleResendOTP = async () => {
+    const result = await apiRequest("resend-code", "POST", {
+      signup_token: session?.signup_token,
+    });
+    console.log(result);
+    if (result?.error) {
+      setToast({ open: true, state: "error", content: "check your network connection" });
+    } else if (result?.status === "success") {
+      setToast({ open: true, state: "success", content: result?.message });
+    } else {
+      setToast({ open: true, state: "error", content: result?.message });
+    }
   };
 
   const handleOnChange = (e: any) => {
-    // ... functionalities yet to come
     setFormData((prev: signupFormTypes) => ({
       ...prev,
-      OTP: e.target.value,
+      [e.target.name]: e.target.value,
     }));
   };
 
+  const validateOTP = useDebouncedCallback(async (e) => {
+    if (e.target.value.length === 6) {
+      setIsFetching(true);
+      const result = await apiRequest("verify-email", "POST", {
+        entered_code: Number(e.target.value),
+        signup_token: session?.signup_token,
+      });
+      setIsFetching(false);
+      console.log(result);
+      if (result?.error) {
+        setToast({ open: true, state: "error", content: "check your network connection" });
+      } else if (result?.status === "success") {
+        setToast({ open: true, state: "success", content: result?.message });
+        createSession(result?.user_data);
+        const navigate = async () => {
+          await setPaths(pathsEnum.about);
+          router.push(pathsEnum.about);
+        };
+        navigate();
+      } else {
+        setError((prev) => ({
+          ...prev,
+          OTP: result?.message,
+        }));
+      }
+    } else {
+    }
+  }, 400);
+
   return (
-    <div className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
-      <div className='flex flex-col relative w-full gap-y-1 items-center'>
-        <h1 className='text-2xl font-bold text-gray-900'>Confirm your email</h1>
-        <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>We have sent an email with a code to adedamolamoses@gmail.com, please enter it below to create your Trendit account. </p>
-      </div>
-      <div className='w-full flex flex-col relative gap-y-6 items-center'>
-        <form action={() => {}} className='w-full flex relative items-center flex-col gap-y-4'>
-          <div className='w-full flex flex-col'>
-            <input
-              onChange={(e) => handleOnChange(e)}
-              value={formData.OTP}
-              autoComplete='off'
-              placeholder={`Past OTP`}
-              name='OTP'
-              className={`!border-gray-300 focus:!border-brand-700 focus:!border-2 !ring-0 w-full bg-white outline outline-0 focus:outline-0 transition-all border text-base px-4 h-11 shadow-main rounded-lg text-black font-medium placeholder:font-normal  placeholder:text-gray-500`}
-              type={"text"}
-            />
+    <>
+      {session ? (
+        <motion.div layout initial={{ opacity: 0, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6  py-12'>
+          <div className='flex flex-col relative w-full gap-y-1 items-center'>
+            <h1 className='text-2xl font-bold text-gray-900'>Confirm your email</h1>
+            <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>{`We have sent an email with a code to ${formData.email}, please enter it below to create your Trendit account.`}</p>
           </div>
-        </form>
-      </div>
-      <div className='w-full flex justify-center gap-x-1 items-center'>
-        <span className='text-gray-600 font-normal text-sm'>{`Didn’t receive it?`}</span>
-        <span onClick={handleResendOTP} className='text-primary_fixed hover:text-brand-700 animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>
-          Resend
-        </span>
-      </div>
-    </div>
+          <div className='w-full flex flex-col relative gap-y-6 items-center'>
+            <form action={() => {}} className='w-full flex relative items-center flex-col gap-y-4'>
+              <div className='w-full flex flex-col'>
+                <Input
+                  onChange={(e) => {
+                    handleOnChange(e);
+                    validateOTP(e);
+                  }}
+                  value={formData.OTP}
+                  autoComplete='off'
+                  placeholder={`Paste OTP`}
+                  name='OTP'
+                  variant='bordered'
+                  type='number'
+                  endContent={
+                    isFetching && (
+                      <div className='size-5'>
+                        <Spinner className='text-gray-100' />
+                      </div>
+                    )
+                  }
+                  isInvalid={error.OTP ? true : false}
+                  errorMessage={error.OTP}
+                  isDisabled={isFetching ? true : false}
+                  classNames={{
+                    base: "!opacity-[100%]",
+                    inputWrapper: "!h-11 !px-4 !rounded-lg  border !transition-all data-[hover=true]:border-gray-300 group-data-[focus=true]:!border-brand-700 group-data-[invalid=true]:border-error group-data-[focus=true]:!border-2 !shadow-main",
+                    input: "!text-base overflow-hidden !font-medium placeholder:!font-normal placeholder:!text-gray-500  !text-black [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
+                  }}
+                />
+              </div>
+            </form>
+          </div>
+          <div className='w-full flex justify-center gap-x-1 items-center'>
+            <span className='text-gray-600 font-normal text-sm'>{`Didn’t receive it?`}</span>
+            <span onClick={handleResendOTP} className='text-primary_fixed hover:text-brand-700 animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>
+              Resend
+            </span>
+          </div>
+        </motion.div>
+      ) : (
+        <div className='sm:w-[520px] w-[90vw] min-h-[300px] h-fit bg-white flex flex-col gap-y-8 items-center justify-center rounded-xl px-6 py-12'>
+          <Spinner />
+        </div>
+      )}
+    </>
   );
 }

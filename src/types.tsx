@@ -1,6 +1,20 @@
 export const signupPaths: Array<string> = ["/signup/email", "/signup/email-confirmation", "/signup/about", "/signup/profile-setup", "/signup/referal", "/signup/use-case"] as const;
 export type signupPathTypes = (typeof signupPaths)[number];
 
+
+export enum pathsEnum {
+  login = "/login/0",
+  verification = "/login/verification",
+  resetPassword = "/login/1",
+  email = "/signup/email",
+  emailConfirmation = "/signup/email-confirmation",
+  about = "/signup/about",
+  profileSetup = "/signup/profile-setup",
+  referal = "/signup/referal",
+  useCase = "/signup/use-case",
+  home = "/home",
+}
+
 export const loginPaths: Array<string> = ["/login/0", "/login/1", "/login/verification"] as const;
 export type loginPathTypes = (typeof loginPaths)[number];
 
@@ -13,7 +27,9 @@ export const advertisePageDynamicPaths: Array<string> = ["/advertise/history", "
 export type advertisePageDynamicPathTypes = (typeof earnPageDynamicPaths)[number];
 
 export type toastTypes = { open: boolean; state: undefined | "success" | "error"; content: undefined | string | number };
+
 export type membershipApprovalTypes = "approved" | "pending" | "false";
+
 export const default_notoficationBannerProps = {
   open: false,
   mainContent: null,
@@ -81,7 +97,7 @@ export type modalTypes = {
   selectPaymentMethod?: boolean;
   generate?: boolean;
   submit?: boolean;
-  orderSummary?: boolean
+  orderSummary?: boolean;
 };
 
 export type createAdFormTypes = {
@@ -92,4 +108,13 @@ export type createAdFormTypes = {
   gender: string | undefined;
   religion: string | undefined;
   images: Array<any>;
+};
+
+export type cookiesType = {
+  signup_token?: string | undefined;
+  email?: string | undefined;
+  id?: number | undefined;
+  expires?: string | undefined;
+  date_joined?: string | undefined;
+  access_token?: string | undefined;
 };
