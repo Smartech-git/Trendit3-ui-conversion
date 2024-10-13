@@ -1,6 +1,7 @@
+import { DateValue } from "@nextui-org/react";
+
 export const signupPaths: Array<string> = ["/signup/email", "/signup/email-confirmation", "/signup/about", "/signup/profile-setup", "/signup/referal", "/signup/use-case"] as const;
 export type signupPathTypes = (typeof signupPaths)[number];
-
 
 export enum pathsEnum {
   login = "/login/0",
@@ -38,6 +39,7 @@ export const default_notoficationBannerProps = {
   actionCallback: () => {},
   timer: false,
 };
+
 export type notificationBannerTypes = {
   open: boolean;
   mainContent: string | null;
@@ -72,9 +74,10 @@ export type signupFormTypes = {
   password: undefined | string;
   passwordConfirm: undefined | string;
   OTP: string | undefined;
+  profilePicture: File | undefined;
   gender: string | undefined;
   refCode: string | undefined;
-  dob: string | undefined;
+  dob: DateValue | undefined;
   state: string | undefined;
   country: string | undefined;
   LGA: string | undefined;
@@ -83,13 +86,27 @@ export type signupFormTypes = {
 };
 
 export type resetPasswordFormTypes = {
-  OTP: string | undefined;
+  email: string | undefined;
 };
 
 export type loginFormTypes = {
   email: undefined | string;
   password: undefined | string;
   OTP: string | undefined;
+};
+
+export type signupContextTypes = {
+  formData: signupFormTypes;
+  setFormData: React.Dispatch<React.SetStateAction<signupFormTypes>>;
+  pathsTrack: Array<string>;
+  setPathsTrack: React.Dispatch<React.SetStateAction<Array<string>>>;
+};
+
+export type loginContextTypes = {
+  formData: loginFormTypes;
+  setFormData: React.Dispatch<React.SetStateAction<loginFormTypes>>;
+  pathsTrack: Array<string>;
+  setPathsTrack: React.Dispatch<React.SetStateAction<Array<string>>>;
 };
 
 export type modalTypes = {
@@ -117,4 +134,6 @@ export type cookiesType = {
   expires?: string | undefined;
   date_joined?: string | undefined;
   access_token?: string | undefined;
+  lastname?: string | undefined;
+  firstname?: string | undefined;
 };

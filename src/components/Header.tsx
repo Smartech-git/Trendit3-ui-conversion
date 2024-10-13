@@ -10,6 +10,7 @@ import { useGlobal } from "@/context/GlobalContext";
 import ProfileSkeletonLoader from "./loadingScreens/skeletonLoaders";
 import { apiRequest } from "@/lib/serverRequest";
 import { getSession, logout } from "@/cookies";
+import Image from "next/image";
 
 interface header_types {
   openDrawer: boolean;
@@ -27,10 +28,9 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
 
   const handleLogout = async () => {
     const session: { user: cookiesType } = await getSession();
-    const result = await apiRequest("login", "POST", null, {
+    const result = await apiRequest("logout", "DELETE", null, {
       'Authorization': `Bearer ${session.user.access_token}`
     });
-    console.log(result);
     if (result?.error) {
       setToast({ open: true, state: "error", content: "check your network connection" });
     } else if (result?.status === "success") {
@@ -61,13 +61,15 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
           ) : (
             <div className='h-full cursor-pointer items-center flex gap-x-3'>
               <div className='sm:size-12 size-10 relative'>
-                <div className='size-full flex items-center justify-center rounded-full border border-black/[0.08] bg-gray-100'>
-                  <User_01 className='sm:size-7 size-5' />
+                <div className='size-full flex items-center relative justify-center overflow-hidden rounded-full border border-black/[0.08] bg-gray-100'>
+                    {
+                      appUser?.profile_picture ? <Image src={appUser?.profile_picture} width={500} height={500} className='absolute inset-0 w-full h-full object-cover' alt='profilePicture' /> : <User_01 className='sm:size-7 size-5' />
+                    }
                 </div>
                 <div className='sm:size-3 size-[10px]  box-content absolute right-0 bottom-0 rounded-full border-1.5 bg-green-600 border-white' />
               </div>
               <div className='sm:flex hidden flex-col'>
-                <h1 className='text-base font-semibold text-gray-700'>{appUser?.full_name}</h1>
+                <h1 className='text-base font-semibold capitalize text-gray-700'>{appUser?.full_name}</h1>
                   <h2 className='text-base font-normal text-gray-600'>{ appUser?.email}</h2>
               </div>
             </div>

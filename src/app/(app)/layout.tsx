@@ -63,8 +63,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       } else if (result?.status === "success") {
         setAppUser(result?.user_profile);
       } else {
-        // await logout();
-        // router.replace(pathsEnum.login);
+        await logout();
+        router.replace(pathsEnum.login);
       }
     };
 

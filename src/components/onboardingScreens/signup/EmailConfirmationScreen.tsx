@@ -7,13 +7,14 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Spinner from "@/components/loadingScreens/Spinner";
 import { useDebouncedCallback } from "use-debounce";
-import { getSession, createSession, setPaths } from "@/cookies";
+import { getSession, createSession, setPathsCookies } from "@/cookies";
 import { apiRequest } from "@/lib/serverRequest";
 
 export default function EmailConFrimationScreen() {
-  const { formData, setFormData } = useSignupContext();
+  const { formData, setFormData, setPathsTrack } = useSignupContext();
   const [error, setError] = useState<{ OTP: string | undefined }>({ OTP: undefined });
   const [isFetching, setIsFetching] = useState(false);
+  const [isFetchingNewOTP, setIsFetchingNewOTP] = useState(false);
   const { setToast } = useGlobal();
   const [session, setSession] = useState<cookiesType>();
   const router = useRouter();
@@ -27,6 +28,8 @@ export default function EmailConFrimationScreen() {
           ...prev,
           email: session.user.email,
         }));
+      } else {
+        router.replace(pathsEnum.email);
       }
     };
     getUserSession();
@@ -34,10 +37,11 @@ export default function EmailConFrimationScreen() {
   }, []);
 
   const handleResendOTP = async () => {
+    setIsFetchingNewOTP(true);
     const result = await apiRequest("resend-code", "POST", {
       signup_token: session?.signup_token,
     });
-    console.log(result);
+    setIsFetchingNewOTP(false);
     if (result?.error) {
       setToast({ open: true, state: "error", content: "check your network connection" });
     } else if (result?.status === "success") {
@@ -51,6 +55,10 @@ export default function EmailConFrimationScreen() {
     setFormData((prev: signupFormTypes) => ({
       ...prev,
       [e.target.name]: e.target.value,
+    }));
+    setError((prev) => ({
+      ...prev,
+      [e.target.name]: undefined,
     }));
   };
 
@@ -69,7 +77,6 @@ export default function EmailConFrimationScreen() {
         setToast({ open: true, state: "success", content: result?.message });
         createSession(result?.user_data);
         const navigate = async () => {
-          await setPaths(pathsEnum.about);
           router.push(pathsEnum.about);
         };
         navigate();
@@ -81,7 +88,7 @@ export default function EmailConFrimationScreen() {
       }
     } else {
     }
-  }, 400);
+  }, 500);
 
   return (
     <>
@@ -89,7 +96,7 @@ export default function EmailConFrimationScreen() {
         <motion.div layout initial={{ opacity: 0, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6  py-12'>
           <div className='flex flex-col relative w-full gap-y-1 items-center'>
             <h1 className='text-2xl font-bold text-gray-900'>Confirm your email</h1>
-            <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>{`We have sent an email with a code to ${formData.email}, please enter it below to create your Trendit account.`}</p>
+            <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>{`We have sent an email with a code to ${session.email}, please enter it below to create your Trendit account.`}</p>
           </div>
           <div className='w-full flex flex-col relative gap-y-6 items-center'>
             <form action={() => {}} className='w-full flex relative items-center flex-col gap-y-4'>
@@ -124,11 +131,16 @@ export default function EmailConFrimationScreen() {
               </div>
             </form>
           </div>
-          <div className='w-full flex justify-center gap-x-1 items-center'>
+          <div className='w-fit flex justify-center items-center gap-x-1'>
             <span className='text-gray-600 font-normal text-sm'>{`Didn’t receive it?`}</span>
             <span onClick={handleResendOTP} className='text-primary_fixed hover:text-brand-700 animate-duration-300 transition-colors  font-bold text-sm  cursor-pointer'>
               Resend
             </span>
+            {isFetchingNewOTP && (
+              <div className='size-4 ml-1'>
+                <Spinner className='text-gray-100' />
+              </div>
+            )}
           </div>
         </motion.div>
       ) : (

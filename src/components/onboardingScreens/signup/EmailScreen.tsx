@@ -10,12 +10,12 @@ import { useDebouncedCallback } from "use-debounce";
 import { apiRequest } from "@/lib/serverRequest";
 import Spinner from "@/components/loadingScreens/Spinner";
 import { useGlobal } from "@/context/GlobalContext";
-import { createSession, setPaths, getPaths } from "@/cookies";
+import { createSession, setPathsCookies } from "@/cookies";
 import { useRouter } from "next/navigation";
 import { emailRegrex } from "@/lib/constants";
 
 export default function EmailScreen() {
-  const { formData, setFormData } = useSignupContext();
+  const { formData, setFormData, setPathsTrack } = useSignupContext();
   const [error, setError] = useState<{ email: string | undefined; refCode: string | undefined }>({ email: undefined, refCode: undefined });
   const [isFetching, setIsFetching] = useState(false);
   const { setToast } = useGlobal();
@@ -23,7 +23,6 @@ export default function EmailScreen() {
 
   useEffect(() => {
     router.prefetch(pathsEnum.emailConfirmation);
-    setPaths(pathsEnum.email);
   }, []);
 
   const handleOnChange = (e: any) => {
@@ -58,7 +57,7 @@ export default function EmailScreen() {
         };
       });
     }
-  }, 2000);
+  }, 1000);
 
   const handleGetStarted = async () => {
     if ([formData.email].some((value) => !value?.length)) {
@@ -66,7 +65,7 @@ export default function EmailScreen() {
         ...prev,
         email: "Email is required",
       }));
-    } else {
+    } else if([error.email].every((value) => value === undefined)) {
       setIsFetching(true);
       const result = await apiRequest(
         "signup",
@@ -91,7 +90,6 @@ export default function EmailScreen() {
         };
         createSession(session);
         const navigate = async () => {
-          await setPaths(pathsEnum.emailConfirmation);
           router.push(pathsEnum.emailConfirmation);
         };
         navigate();

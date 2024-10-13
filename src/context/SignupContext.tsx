@@ -1,9 +1,9 @@
 "use client";
 
 import React, { createContext, useState, useContext } from "react";
-import { signupFormTypes } from "@/types";
+import { signupFormTypes, signupContextTypes, pathsEnum } from "@/types";
 
-const SignupOnboardingContext = createContext<{ formData: signupFormTypes; setFormData: React.Dispatch<React.SetStateAction<signupFormTypes>> } | never>({
+const SignupOnboardingContext = createContext<signupContextTypes | never>({
   formData: {
     email: undefined,
     refCode: undefined,
@@ -13,6 +13,7 @@ const SignupOnboardingContext = createContext<{ formData: signupFormTypes; setFo
     userName: undefined,
     password: undefined,
     passwordConfirm: undefined,
+    profilePicture: undefined,
     gender: undefined,
     dob: undefined,
     state: undefined,
@@ -22,6 +23,8 @@ const SignupOnboardingContext = createContext<{ formData: signupFormTypes; setFo
     useCase: undefined,
   },
   setFormData: () => {},
+  pathsTrack: [pathsEnum.email],
+  setPathsTrack: () => {},
 });
 
 export default function SignupProvider({ children }: { children: React.ReactNode }) {
@@ -34,6 +37,7 @@ export default function SignupProvider({ children }: { children: React.ReactNode
     userName: undefined,
     password: undefined,
     passwordConfirm: undefined,
+    profilePicture: undefined,
     gender: undefined,
     dob: undefined,
     state: undefined,
@@ -42,12 +46,15 @@ export default function SignupProvider({ children }: { children: React.ReactNode
     referal: undefined,
     useCase: undefined,
   });
+  const [pathsTrack, setPathsTrack] = useState<Array<string>>([pathsEnum.email]);
 
   return (
     <SignupOnboardingContext.Provider
       value={{
         formData,
         setFormData,
+        pathsTrack,
+        setPathsTrack,
       }}
     >
       {children}
@@ -56,4 +63,3 @@ export default function SignupProvider({ children }: { children: React.ReactNode
 }
 
 export const useSignupContext = () => useContext(SignupOnboardingContext);
-

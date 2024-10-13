@@ -9,10 +9,12 @@ import UseCase from "@/components/onboardingScreens/signup/UseCase";
 import { useRouter, usePathname } from "next/navigation";
 import Spinner from "@/components/loadingScreens/Spinner";
 import { signupPaths, signupPathTypes } from "@/types";
+import { useSignupContext } from "@/context/SignupContext";
 
 export default function Page({ params }: { params: { stage: string } }) {
   const router = useRouter();
   const pathname = usePathname() as signupPathTypes;
+  const { formData } = useSignupContext();
 
   useEffect(() => {
     window.scrollTo({

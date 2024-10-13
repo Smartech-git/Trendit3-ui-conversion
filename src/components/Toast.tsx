@@ -22,28 +22,19 @@ export default function Toast() {
     };
   }, [toast.open, toast.state]);
 
-  if (toast.open) {
-    return (
-      <>
-        {/* <AnimatePresence>
-          {true && (
-            <motion.div key={toast.state} className='sm:w-[340px] w-[300px] h-[43px] gap-x-[6px] py-2 px-3 bg-success flex items-center justify-center rounded-[4px]  z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8' animate={{ opacity: 1, y: 0 }} exit={{ y: 20 }} transition={{duration: 0.3, ease: 'easeInOut',}}>
-              <Check /> <span className='text-white font-bold text-sm'>{toast.content}</span>
-            </motion.div>
-          )}
-        </AnimatePresence> */}
-        {toast.state === "success" && toast.open && (
-          <div className='sm:w-[340px] w-[300px] h-[43px] gap-x-[6px] py-2 px-3 bg-success flex items-center justify-center rounded-[4px] animate-fade-down animate-once animate-duration-300 animate-delay-300 z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
-            <Check /> <span className='text-white font-bold text-sm'>{toast.content}</span>
-          </div>
-        )}
+  return (
+    <AnimatePresence>
+      {toast.state === "success" && toast.open && (
+        <motion.div key={"success"} initial={{ opacity: 0, y: -12 }} exit={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='sm:w-[340px] w-[300px] min-h-[43px] gap-x-[6px] py-2 px-3 bg-success flex items-start justify-center rounded-[4px] z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
+          <Check className='flex-none' /> <span className='text-white font-bold mt-1 text-sm'>{toast.content}</span>
+        </motion.div>
+      )}
 
-        {toast.state === "error" && toast.open && (
-          <div className='sm:w-[340px] w-[300px] h-[43px] gap-x-[6px] py-2 px-3 bg-error flex items-center justify-center rounded-[4px] animate-fade-down animate-once animate-duration-300 animate-delay-300 z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
-            <InfoHexagon /> <span className='text-white font-bold text-sm'>{toast.content}</span>
-          </div>
-        )}
-      </>
-    );
-  }
+      {toast.state === "error" && toast.open && (
+        <motion.div key={"error"} initial={{ opacity: 0, y: -12 }} exit={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='sm:w-[340px] w-[300px] min-h-[43px] gap-x-[6px] py-2 px-3 bg-error flex items-start justify-center rounded-[4px] z-[9999] shadow-main-lg  overflow-hidden mx-auto left-0 right-0 fixed sm:top-8 top-8'>
+          <InfoHexagon className='flex-none' /> <span className='text-white font-bold mt-1 text-sm'>{toast.content}</span>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
 }

@@ -1,11 +1,11 @@
+
 import axios, { InternalAxiosRequestConfig } from "axios";
-import { access } from "fs";
 
 type IMethod = "GET" | "POST" | "PATCH" | "DELETE" | "PUT";
 
 export const useAxios = (useAjax: boolean = false) => {
   let params: any = {
-    baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
+    baseURL: process.env.BASE_URL,
   };
 
   useAjax &&
@@ -43,23 +43,19 @@ export const useAxios = (useAjax: boolean = false) => {
     }
   );
 
-  const requestApi = async (path: string | undefined, method: IMethod, body?: object, headers?: object, cancelToken?: any) => {
+  const requestApi = async (path: string | undefined, method: IMethod, body?: object, headers?: object) => {
     try {
       const apiData = await api.request({
         url: path,
         method: method,
         data: body,
-        cancelToken: cancelToken,
+        headers: {
+          ...headers
+        }
       });
-      return { status: true, data: apiData.data };
+      return { status: true, data: apiData.data }
     } catch (e) {
-      if (axios.isCancel(e)) {
-        return {
-          status: false,
-          data: "Request canceled",
-        };
-      }
-      return { status: false, data: e };
+      return { status: false, data: e }
     }
   };
 

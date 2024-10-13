@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useLoginContext } from "@/context/LoginContext";
 import { loginFormTypes } from "@/types";
 import { Eye, EyeOff } from "@/appIcons";
+import { motion } from "framer-motion";
+import { Button } from "@nextui-org/button";
 
 export default function LoginScreen1() {
   const { formData, setFormData } = useLoginContext();
@@ -25,7 +27,7 @@ export default function LoginScreen1() {
   };
 
   return (
-    <div className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
+    <motion.div layout initial={{ opacity: 0, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
         <h1 className='text-2xl font-bold text-gray-900'>Login to account</h1>
         <p className='text-center w-72 max-w-[95%] text-base text-gray-600'>Turn Daily Social Tasks into Paychecks! Get Paid for your Engagements.</p>
@@ -119,6 +121,6 @@ export default function LoginScreen1() {
           Log in
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,30 +1,33 @@
 import { NextResponse, NextRequest } from "next/server";
-import { getSession, updateSession, getPaths } from "./cookies";
+import { getSession, updateSession, getPathsCookies } from "./cookies";
 import { cookiesType, pathsEnum } from "./types";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
   await updateSession(request);
   const session = await getSession();
-  const paths = await getPaths();
-  console.log(paths);
-  if (!session?.user?.access_token) {
-    if (!request.nextUrl.pathname.startsWith("/signup") && !request.nextUrl.pathname.startsWith("/reset-password") && !request.nextUrl.pathname.startsWith("/login")) {
-      return Response.redirect(new URL("login/0", request.url));
-    }
-  } else if (request.nextUrl.pathname !== `/home` && !request.nextUrl.pathname.startsWith("/signup") && !request.nextUrl.pathname.startsWith("/reset-password") && !request.nextUrl.pathname.startsWith("/login")) {
-    return NextResponse.redirect(new URL("/home", request.url));
-  }
+  const paths = await getPathsCookies();
+  // console.log(session);
+
+  // if (!session?.user?.access_token) {
+  //   if (!request.nextUrl.pathname.startsWith("/signup") && !request.nextUrl.pathname.startsWith("/reset-password") && !request.nextUrl.pathname.startsWith("/login")) {
+  //     return Response.redirect(new URL("login/0", request.url));
+  //   }
+  // } else if (request.nextUrl.pathname !== `/home` && !request.nextUrl.pathname.startsWith("/signup") && !request.nextUrl.pathname.startsWith("/reset-password") && !request.nextUrl.pathname.startsWith("/login")) {
+  //   return NextResponse.redirect(new URL("/home", request.url));
+  // }
 
   // if (request.nextUrl.pathname.startsWith(`/signup`)) {
   //   if (paths?.data) {
   //     if (!paths.data.includes(request.nextUrl.pathname)) {
-  //       return NextResponse.redirect(new URL(paths.data.at(-1), request.url), 308);
+  //       const response = NextResponse.redirect(new URL(paths.data.at(-1), request.url), 303);
+  //       response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+  //       return response;
   //     }
-  //   } else {
-  //     if (request.nextUrl.pathname !== pathsEnum.email) {
-  //       return NextResponse.redirect(new URL(pathsEnum.email, request.url), 308);
-  //     }
+  //   } else if (request.nextUrl.pathname !== pathsEnum.email) {
+  //     const response = NextResponse.redirect(new URL(pathsEnum.email, request.url), 303);
+  //     response.headers.set("Cache-Control", "no-store, no-cache, must-revalidate");
+  //     return response;
   //   }
   // }
 

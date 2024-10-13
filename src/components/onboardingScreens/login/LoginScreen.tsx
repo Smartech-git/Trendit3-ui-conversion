@@ -18,13 +18,13 @@ export default function LoginScreen() {
   const { formData, setFormData } = useLoginContext();
   const [showPassword, setShowPassword] = useState({ main: false });
   const [error, setError] = useState<{ email: string | undefined; password: string | undefined }>({ email: undefined, password: undefined });
-  const [isFetching, setIsFetching] = useState(false);
+  const [isFetching, setIsFetching] = useState<{ gg: boolean; fb: boolean; tt: boolean; login: boolean }>({ gg: false, fb: false, tt: false, login: false });
   const { setToast, setAppUser } = useGlobal();
   const router = useRouter();
 
   useEffect(() => {
-    router.prefetch(pathsEnum.home)
-  }, [])
+    router.prefetch(pathsEnum.home);
+  }, []);
 
   const handleOnChange = (e: any) => {
     setFormData((prev: loginFormTypes) => ({
@@ -48,19 +48,21 @@ export default function LoginScreen() {
         }));
       });
     } else {
-      setIsFetching(true);
+      setIsFetching((prev) => ({ ...prev, login: true }));
       const result = await apiRequest("login", "POST", {
         email_username: formData.email,
         password: formData.password,
       });
       console.log(result);
-      setIsFetching(false);
+      setIsFetching((prev) => ({ ...prev, login: false }));
       if (result?.error) {
         setToast({ open: true, state: "error", content: "check your network connection" });
       } else if (result?.status === "success") {
         setToast({ open: true, state: "success", content: result?.message });
         const session: cookiesType = {
           access_token: result?.access_token,
+          firstname: result?.user_data?.firstname,
+          lastname: result?.user_data?.lastname,
         };
         setAppUser(result?.user_data);
         const navigate = async () => {
@@ -84,6 +86,28 @@ export default function LoginScreen() {
       }
     }
   };
+
+  const handleSocialsLogin = async (type: "gg" | "fb" | "tt", path: "gg_login" | "facebook_login" | "tt_login") => {
+    setIsFetching((prev) => ({ ...prev, [type]: true }));
+    const result = await apiRequest(path, "GET");
+    console.log(result);
+    setIsFetching((prev) => ({ ...prev, [type]: false }));
+    if (result?.error) {
+      setToast({ open: true, state: "error", content: "check your network connection" });
+    } else if (result?.status === "success") {
+      window.open(result.authorization_url, "_blank");
+    } else {
+      setToast({ open: true, state: "error", content: result?.message });
+    }
+  };
+
+  useEffect(() => {
+    // const x = async () => {
+    //   const result = await apiRequest('gg_login_callback', "GET");
+    //   console.log(result);
+    // };
+    // x();
+  }, []);
 
   return (
     <motion.div layout initial={{ opacity: 0, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 py-12'>
@@ -174,7 +198,7 @@ export default function LoginScreen() {
                 <Spinner className='text-white' />
               </div>
             }
-            isLoading={isFetching}
+            isLoading={isFetching.login}
             onPress={handleLogin}
             disableRipple
             className='h-11 gap-x-[6px] w-full !outline-none shadow-main flex justify-center flex-none items-center px-[18px] py-3 !min-w-auto border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg '
@@ -188,17 +212,32 @@ export default function LoginScreen() {
           <hr className='w-full h-[1px] bg-gray-100'></hr>
         </div>
         <div className='w-full flex flex-col gap-y-3'>
-          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors animate-duration-300 rounded-lg h-11 flex items-center justify-center'>
+          <button onClick={() => handleSocialsLogin("gg", "gg_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
             <Image src='/icons/google.svg' alt='Google' width={24} height={24} className='' />
             <span className='text-gray-700 font-bold text-base'>Sign up with Google</span>
+            {isFetching.gg && (
+              <div className='size-4 ml-1'>
+                <Spinner className='text-gray-100' />
+              </div>
+            )}
           </button>
-          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors animate-duration-300 rounded-lg h-11 flex items-center justify-center'>
+          <button onClick={() => handleSocialsLogin("fb", "facebook_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors  rounded-lg h-11 flex items-center justify-center'>
             <Image src='/icons/facebook.svg' alt='Google' width={24} height={24} className='' />
             <span className='text-gray-700 font-bold text-base'>Sign up with Facebook</span>
+            {isFetching.fb && (
+              <div className='size-4 ml-1'>
+                <Spinner className='text-gray-100' />
+              </div>
+            )}
           </button>
-          <button className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors animate-duration-300 rounded-lg h-11 flex items-center justify-center'>
+          <button onClick={() => handleSocialsLogin("tt", "tt_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
             <Image src='/icons/tiktok.svg' alt='Google' width={24} height={24} className='' />
             <span className='text-gray-700 font-bold text-base'>Sign up with Tiktok</span>
+            {isFetching.tt && (
+              <div className='size-4 ml-1'>
+                <Spinner className='text-gray-100' />
+              </div>
+            )}
           </button>
         </div>
       </div>

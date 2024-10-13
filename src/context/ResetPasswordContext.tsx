@@ -5,14 +5,14 @@ import { resetPasswordFormTypes } from "@/types";
 
 const ResetpasswordContext = createContext<{ formData: resetPasswordFormTypes; setFormData: React.Dispatch<React.SetStateAction<resetPasswordFormTypes>> } | never>({
   formData: {
-    OTP: undefined,
+    email: undefined,
   },
   setFormData: () => {},
 });
 
 export default function ResetPasswordProvider({ children }: { children: React.ReactNode }) {
   const [formData, setFormData] = useState<resetPasswordFormTypes>({
-    OTP: undefined,
+    email: undefined,
   });
 
   return (

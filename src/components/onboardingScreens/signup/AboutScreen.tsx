@@ -14,11 +14,11 @@ import { useGlobal } from "@/context/GlobalContext";
 import { useRouter } from "next/navigation";
 import { apiRequest } from "@/lib/serverRequest";
 import { passwordRegrex } from "@/lib/constants";
-import { createSession, setPaths, getSession } from "@/cookies";
+import { createSession, setPathsCookies, getSession } from "@/cookies";
 
 export default function AboutScreen() {
   const [showPassword, setShowPassword] = useState({ main: false, confirm: false });
-  const { formData, setFormData } = useSignupContext();
+  const { formData, setFormData, setPathsTrack } = useSignupContext();
   const [error, setError] = useState<{ firstName: string | undefined; lastName: string | undefined; userName: string | undefined; password: string | undefined; passwordConfirm: string | undefined }>({
     firstName: undefined,
     lastName: undefined,
@@ -67,7 +67,7 @@ export default function AboutScreen() {
         }));
       }
     }
-  }, 2000);
+  }, 1000);
 
   const validatePassword = useDebouncedCallback(async (e) => {
     setError((prev) => {
@@ -84,7 +84,7 @@ export default function AboutScreen() {
         };
       });
     }
-  }, 2000);
+  }, 1000);
 
   const validatePasswordConfirm = useDebouncedCallback(async (e) => {
     if (typeof formData?.password === "string" && formData.password.length > 0) {
@@ -95,7 +95,7 @@ export default function AboutScreen() {
         };
       });
     }
-  }, 2000);
+  }, 1000);
 
   const handleContinue = async () => {
     const interestedObj: any = extractData(formData, ["firstName", "lastName", "userName", "password", "passwordConfirm"]);
@@ -107,7 +107,7 @@ export default function AboutScreen() {
           [value]: getRequiredErrorMessage(value as any),
         }));
       });
-    } else {
+    } else if (Object.values(error).every((value: any) => value === undefined)) {
       setIsFetching(true);
       const result = await apiRequest("complete-registration", "POST", {
         user_id: session?.id,
@@ -123,11 +123,12 @@ export default function AboutScreen() {
         setToast({ open: true, state: "success", content: result?.message });
         const session: cookiesType = {
           access_token: result?.access_token,
+          firstname: result?.user_data?.firstname,
+          lastname: result?.user_data?.lastname,
         };
         setAppUser(result?.user_data);
         createSession(session);
         const navigate = async () => {
-          await setPaths(pathsEnum.profileSetup);
           router.replace(pathsEnum.profileSetup);
         };
         navigate();

@@ -3,8 +3,8 @@ import Link from "next/link";
 import { RadioGroup, Radio } from "@nextui-org/react";
 import { signupFormTypes } from "@/types";
 import { useSignupContext } from "@/context/SignupContext";
-import { label } from "framer-motion/client";
-const { format } = require("date-fns");
+import { motion } from "framer-motion";
+import { Button } from "@nextui-org/button";
 
 const useCases = [
   { label: "Earner", desc: "Engage in tasks and events that can earn me money." },
@@ -23,7 +23,7 @@ export default function UseCase() {
   };
 
   return (
-    <div className='sm:w-[520px] w-[90vw] relative h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
+    <motion.div layout initial={{ opacity: 0, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='sm:w-[520px] w-[90vw] relative h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1'>
         <span className='text-gray-600 text-base'>2/2</span>
         <h1 className='text-2xl font-bold text-gray-900'>What best describes your primary use of Trendit?</h1>
@@ -56,9 +56,21 @@ export default function UseCase() {
           })}
         </RadioGroup>
       </div>
-      <Link href='/home' scroll={true} className='w-full transition-colors animate-duration-300 bg-primary_fixed hover:bg-brand-700 rounded-lg h-11 flex items-center justify-center'>
-        <span className='text-white font-bold text-base'>Continue</span>
+      <Link href='/home' className='w-full'>
+        <Button
+          // spinner={
+          //   <div className='size-5'>
+          //     <Spinner className='text-white' />
+          //   </div>
+          // }
+          // isLoading={isFetching}
+          // onPress={handleContinue}
+          disableRipple
+          className='h-11 gap-x-[6px] w-full !outline-none shadow-main flex justify-center flex-none items-center px-[18px] py-3 !min-w-auto border-none bg-primary_fixed data-[hover=true]:!bg-brand-700 !opacity-100 transition-colors rounded-lg '
+        >
+          <span className='text-white  text-base font-semibold'>Continue</span>
+        </Button>
       </Link>
-    </div>
+    </motion.div>
   );
 }

@@ -1,3 +1,5 @@
+import { setPathsCookies } from "@/cookies";
+
 type requiredErrorMessage_types = "firstName" | "lastName" | "email" | "userName" | "password" | "passwordConfirm" | "OTP" | "gender" | "refCode" | "dob" | "state" | "country" | "LGA" | "referal" | "useCase";
 
 export const extractData = (obj: Record<string, any>, keysToExtract: string[]): Record<string, any> => {
@@ -22,5 +24,15 @@ export const getRequiredErrorMessage = (key: requiredErrorMessage_types): string
     return "Password is required";
   } else if (key === "email") {
     return "Email is required";
+  } else if (key === "dob") {
+    return "Birthday is required";
+  } else if (key === "gender") {
+    return "Gender is required";
+  } else if (key === "country") {
+    return "Country is required";
+  } else if (key === "state") {
+    return "State is required";
+  } else if (key === "LGA") {
+    return "LGA is required";
   }
 };

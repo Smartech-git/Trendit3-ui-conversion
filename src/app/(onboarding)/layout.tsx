@@ -10,12 +10,6 @@ export default function OnBoardingLayout({ children }: { children: React.ReactNo
   const pathname = usePathname() as loginPathTypes | signupPathTypes | resetPasswordPathTypes;
   const router = useRouter();
 
-  useEffect(() => {
-    if (![...signupPaths, ...loginPaths, ...resetpasswordPaths].includes(pathname)) {
-      router.back();
-    }
-  }, [pathname]);
-
   return (
     <>
       <Toast/>

@@ -23,14 +23,14 @@ export async function decrypt(input: string): Promise<any> {
 }
 
 // route tracking - auth, onboarding
-export async function getPaths() {
+export async function getPathsCookies() {
   const session = cookies().get("paths")?.value;
   if (!session) return undefined;
   return await decrypt(session);
 }
 
-export async function setPaths(path: string) {
-  const activePath = await getPaths();
+export async function setPathsCookies(path: string) {
+  const activePath = await getPathsCookies();
   const data = activePath?.data ? [...new Set([...activePath.data, path])] : [path];
   const expires = new Date(Date.now() + 60 * 60 * 24 * 1 * 1000);
   const session = await encrypt({ data, expires });
