@@ -546,3 +546,27 @@ export const ArrowDown = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+export const Dot = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='8' height='8' viewBox='0 0 8 8' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <circle cx='4' cy='4' r='3' fill='#667085' />
+    </svg>
+  );
+};
+
+export const ReverseLeft = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M2 3.5H7C8.65685 3.5 10 4.84315 10 6.5C10 8.15685 8.65685 9.5 7 9.5H2M2 3.5L4 1.5M2 3.5L4 5.5' stroke='#667085' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
+
+export const X = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M8.5 3.5L3.5 8.5M3.5 3.5L8.5 8.5' stroke='#F04438' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};

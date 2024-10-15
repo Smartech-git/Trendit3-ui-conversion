@@ -5,7 +5,7 @@ import getSymbolFromCurrency from "currency-symbol-map";
 import Spinner from "../loadingScreens/Spinner";
 import { Facebook } from "@/svgAssets";
 import { ArrowDown } from "@/appIcons";
-import { desc } from "framer-motion/client";
+import StatusChip from "../macroComponents/StatusChip";
 
 const rows = [
   {
@@ -14,7 +14,7 @@ const rows = [
     type: "engagement",
     amount: `${getSymbolFromCurrency("NGN")} 100`,
     date: "Jan 13, 2024",
-    status: "Active",
+    status: "Pending",
   },
   {
     key: "2",
@@ -22,7 +22,7 @@ const rows = [
     type: "engagement",
     amount: `${getSymbolFromCurrency("NGN")} 100`,
     date: "Jan 13, 2024",
-    status: "Paused",
+    status: "Cancelled",
   },
   {
     key: "3",
@@ -30,7 +30,7 @@ const rows = [
     type: "engagement",
     amount: `${getSymbolFromCurrency("NGN")} 100`,
     date: "Jan 13, 2024",
-    status: "Active",
+    status: "Completed",
   },
   {
     key: "4",
@@ -38,7 +38,7 @@ const rows = [
     type: "engagement",
     amount: `${getSymbolFromCurrency("NGN")} 100`,
     date: "Jan 13, 2024",
-    status: "Vacation",
+    status: "Refunded",
   },
 ];
 
@@ -79,6 +79,7 @@ export default function TasksTable({ type }: table_propsTypes) {
     column: "date",
     direction: "descending",
   });
+
   const BottomContent = useMemo(() => {
     return (
       <div className='h-16 py-4 md:px-6 px-3 w-full flex items-center justify-between'>
@@ -95,7 +96,7 @@ export default function TasksTable({ type }: table_propsTypes) {
     );
   }, []);
 
-  const renderCell = React.useCallback((task: any, columnKey: Key) => {
+  const renderCell = React.useCallback((task: any, columnKey: Key, type: string | undefined) => {
     const cellValue = task[columnKey.toString()];
 
     switch (columnKey) {
@@ -128,11 +129,7 @@ export default function TasksTable({ type }: table_propsTypes) {
           </div>
         );
       case "status":
-        return (
-          <div>
-            <span className='text-sm text-gray-600 font-medium'>{cellValue}</span>
-          </div>
-        );
+        return <StatusChip status={cellValue} />;
       default:
         return;
     }
@@ -176,7 +173,7 @@ export default function TasksTable({ type }: table_propsTypes) {
         // isLoading
         items={rows}
       >
-        {(item: any) => <TableRow key={item?.key}>{(columnKey) => <TableCell className={`${(columnKey === "amount" || columnKey === "date") && "md:table-cell hidden"}`}>{renderCell(item, columnKey)}</TableCell>}</TableRow>}
+        {(item: any) => <TableRow key={item?.key}>{(columnKey) => <TableCell className={`${(columnKey === "amount" || columnKey === "date") && "md:table-cell hidden"}`}>{renderCell(item, columnKey, type)}</TableCell>}</TableRow>}
       </TableBody>
     </Table>
   );
