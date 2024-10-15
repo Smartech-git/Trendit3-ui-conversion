@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Facebook, X, TikTok, Instagram, Youtube, Telegram, Google } from "@/svgAssets";
 import { ScrollShadow } from "@nextui-org/react";
 import { Wallet_02, LayersTwo_01, ChevronDown } from "@/appIcons";
-import NotificationBanner from "../NotificationBanner";
+import NotificationBanner from "../alert/NotificationBanner";
 import Link from "next/link";
 import { useGlobal } from "@/context/GlobalContext";
 import { useRouter } from "next/navigation";

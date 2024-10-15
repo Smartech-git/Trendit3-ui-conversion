@@ -538,3 +538,11 @@ export const Trash_01 = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+export const ArrowDown = ({ className }: { className?: string }) => {
+  return (
+    <svg className={className} width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M7.99967 3.3335V12.6668M7.99967 12.6668L12.6663 8.00016M7.99967 12.6668L3.33301 8.00016' stroke='#475467' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};

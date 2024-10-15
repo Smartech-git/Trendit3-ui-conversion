@@ -29,7 +29,7 @@ export default function LoginScreen1() {
   return (
     <motion.div layout initial={{ opacity: 0, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 animate-fade-left animate-delay-300 animate-duration-300 animate-ease-in-out py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
-        <h1 className='text-2xl font-bold text-gray-900'>Login to account</h1>
+        <h1 className='text-2xl font-bold text-gray-900'>Login to your account</h1>
         <p className='text-center w-72 max-w-[95%] text-base text-gray-600'>Turn Daily Social Tasks into Paychecks! Get Paid for your Engagements.</p>
       </div>
       <div className='w-full flex flex-col relative gap-y-6 items-center'>

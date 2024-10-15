@@ -9,13 +9,13 @@ export async function middleware(request: NextRequest) {
   const paths = await getPathsCookies();
   // console.log(session);
 
-  // if (!session?.user?.access_token) {
-  //   if (!request.nextUrl.pathname.startsWith("/signup") && !request.nextUrl.pathname.startsWith("/reset-password") && !request.nextUrl.pathname.startsWith("/login")) {
-  //     return Response.redirect(new URL("login/0", request.url));
-  //   }
-  // } else if (request.nextUrl.pathname !== `/home` && !request.nextUrl.pathname.startsWith("/signup") && !request.nextUrl.pathname.startsWith("/reset-password") && !request.nextUrl.pathname.startsWith("/login")) {
-  //   return NextResponse.redirect(new URL("/home", request.url));
-  // }
+  if (!session?.user?.access_token) {
+    if (!request.nextUrl.pathname.startsWith("/signup") && !request.nextUrl.pathname.startsWith("/reset-password") && !request.nextUrl.pathname.startsWith("/login")) {
+      return Response.redirect(new URL("/login/0", request.url));
+    }
+  } else if (request.nextUrl.pathname === `/`) {
+    return NextResponse.redirect(new URL("/home", request.url));
+  }
 
   // if (request.nextUrl.pathname.startsWith(`/signup`)) {
   //   if (paths?.data) {

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import SideNav from "@/components/SideNav";
 import Header from "@/components/Header";
 import { Drawer, ThemeProvider } from "@material-tailwind/react";
-import Toast from "@/components/Toast";
+import Toast from "@/components/alert/Toast";
 import { useGlobal } from "@/context/GlobalContext";
 import { apiRequest } from "@/lib/serverRequest";
 import { getSession, createSession, logout } from "@/cookies";
@@ -54,7 +54,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     const fetchUserProfile = async () => {
       const { user }: { user: cookiesType } = await getSession();
       const result = await apiRequest("profile", "GET", null, {
-        'Authorization': `Bearer ${user?.access_token}`
+        Authorization: `Bearer ${user?.access_token}`,
       });
       console.log(result);
       if (result?.error) {

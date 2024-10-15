@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useLoginContext } from "@/context/LoginContext";
@@ -13,6 +13,7 @@ import { useGlobal } from "@/context/GlobalContext";
 import { apiRequest } from "@/lib/serverRequest";
 import { createSession } from "@/cookies";
 import { useRouter } from "next/navigation";
+import ThirdPartyAuth from "../ThirdPartyAuth";
 
 export default function LoginScreen() {
   const { formData, setFormData } = useLoginContext();
@@ -87,7 +88,7 @@ export default function LoginScreen() {
     }
   };
 
-  const handleSocialsLogin = async (type: "gg" | "fb" | "tt", path: "gg_login" | "facebook_login" | "tt_login") => {
+  const handleSocialsLogin = useCallback(async (type: "gg" | "fb" | "tt", path: "gg_login" | "facebook_login" | "tt_login") => {
     setIsFetching((prev) => ({ ...prev, [type]: true }));
     const result = await apiRequest(path, "GET");
     console.log(result);
@@ -99,7 +100,7 @@ export default function LoginScreen() {
     } else {
       setToast({ open: true, state: "error", content: result?.message });
     }
-  };
+  }, []);
 
   useEffect(() => {
     // const x = async () => {
@@ -211,35 +212,7 @@ export default function LoginScreen() {
           <span className='text-gray-600 font-medium text-sm'>OR</span>
           <hr className='w-full h-[1px] bg-gray-100'></hr>
         </div>
-        <div className='w-full flex flex-col gap-y-3'>
-          <button onClick={() => handleSocialsLogin("gg", "gg_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
-            <Image src='/icons/google.svg' alt='Google' width={24} height={24} className='' />
-            <span className='text-gray-700 font-bold text-base'>Sign up with Google</span>
-            {isFetching.gg && (
-              <div className='size-4 ml-1'>
-                <Spinner className='text-gray-100' />
-              </div>
-            )}
-          </button>
-          <button onClick={() => handleSocialsLogin("fb", "facebook_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors  rounded-lg h-11 flex items-center justify-center'>
-            <Image src='/icons/facebook.svg' alt='Google' width={24} height={24} className='' />
-            <span className='text-gray-700 font-bold text-base'>Sign up with Facebook</span>
-            {isFetching.fb && (
-              <div className='size-4 ml-1'>
-                <Spinner className='text-gray-100' />
-              </div>
-            )}
-          </button>
-          <button onClick={() => handleSocialsLogin("tt", "tt_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
-            <Image src='/icons/tiktok.svg' alt='Google' width={24} height={24} className='' />
-            <span className='text-gray-700 font-bold text-base'>Sign up with Tiktok</span>
-            {isFetching.tt && (
-              <div className='size-4 ml-1'>
-                <Spinner className='text-gray-100' />
-              </div>
-            )}
-          </button>
-        </div>
+        <ThirdPartyAuth handleSocialsAuth={handleSocialsLogin} isFetching={isFetching} />
       </div>
       <div className='w-full flex justify-center gap-x-1 items-center'>
         <span className='text-gray-600 font-normal text-sm'>Don't have an account?</span>

@@ -4,13 +4,13 @@ import Task from "@/components/earn/Task";
 import { useRouter, usePathname } from "next/navigation";
 import Spinner from "@/components/loadingScreens/Spinner";
 import { earnPageDynamicPathTypes, earnPageDynamicPaths, modalTypes } from "@/types";
-import NotificationBanner from "@/components/NotificationBanner";
+import NotificationBanner from "@/components/alert/NotificationBanner";
 import { motion } from "framer-motion";
 import NoPendingTasks from "@/components/earn/NoPendingTasks";
 import { useGlobal } from "@/context/GlobalContext";
 import GeneratedTask from "@/components/earn/GeneratedTask";
 import TaskProof from "@/components/earn/TaskProof";
-import TaskSubmission from "@/components/TaskSubmission";
+import TaskSubmission from "@/components/earn/TaskSubmission";
 
 export default function Page({ params }: { params: { stage: string } }) {
   const pathname = usePathname() as earnPageDynamicPathTypes;

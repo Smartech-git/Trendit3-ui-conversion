@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@nextui-org/button";
-import SubmiteTask from "./modals/SubmitTask";
+import SubmiteTask from "../modals/SubmitTask";
 import { modalTypes } from "@/types";
 
 export default function TaskSubmission() {

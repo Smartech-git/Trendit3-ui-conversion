@@ -7,7 +7,7 @@ import { Button } from "@nextui-org/button";
 import { Earn } from "@/svgAssets";
 import { modalTypes } from "@/types";
 import { useGlobal } from "@/context/GlobalContext";
-import NotificationBanner from "../NotificationBanner";
+import NotificationBanner from "../alert/NotificationBanner";
 
 interface hero_propTypes {
   setOpenModals: React.Dispatch<SetStateAction<modalTypes>>;

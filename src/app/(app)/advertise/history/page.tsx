@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, User, Chip, Tooltip, ChipProps, getKeyValue } from "@nextui-org/react";
 import { Search } from "@/appIcons";
+import TasksTable from "@/components/tables/TasksTable";
 
 const tabs = ["Pending", "In Review", "Failed", "Completed", "Cancelled", "Drafts"] as const;
 
@@ -26,6 +27,8 @@ export default function History() {
           </div>
         </div>
       </div>
+
+      <TasksTable />
     </motion.div>
   );
 }
