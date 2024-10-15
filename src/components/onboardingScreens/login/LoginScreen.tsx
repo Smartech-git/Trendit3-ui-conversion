@@ -54,7 +54,7 @@ export default function LoginScreen() {
         email_username: formData.email,
         password: formData.password,
       });
-      console.log(result);
+      // console.log(result);
       setIsFetching((prev) => ({ ...prev, login: false }));
       if (result?.error) {
         setToast({ open: true, state: "error", content: "check your network connection" });

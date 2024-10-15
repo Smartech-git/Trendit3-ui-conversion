@@ -1,7 +1,7 @@
 "use client";
 
 import React, { Key, useState } from "react";
-import { motion} from "framer-motion";
+import { motion } from "framer-motion";
 import { Facebook, X, TikTok, Instagram, Youtube, Telegram, Google } from "@/svgAssets";
 import { ScrollShadow } from "@nextui-org/react";
 import { Wallet_02, LayersTwo_01, ChevronDown, ClockFastForward } from "@/appIcons";
@@ -123,7 +123,6 @@ export default function Tasks() {
     ]);
   };
 
-
   const router = useRouter();
 
   return (
@@ -141,9 +140,11 @@ export default function Tasks() {
               return <Tab key={tab} title={tab} />;
             })}
           </Tabs>
-          <Link href={"earn/history"} className='group flex items-center gap-x-2'>
-            <ClockFastForward className={`group-hover:opacity-70 transition-opacity`} />
-            <span className='xs:flex hidden transition-opacity group-hover:opacity-70 text-sm font-semibold text-gray-700'>History</span>
+          <Link href={"earn/history"}>
+            <div className='group flex items-center gap-x-2'>
+              <ClockFastForward className={`group-hover:opacity-70 transition-opacity`} />
+              <span className='xs:flex hidden transition-opacity group-hover:opacity-70 text-sm font-semibold text-gray-700'>History</span>
+            </div>
           </Link>
         </div>
         {activeTab === "Post advert" && (

@@ -35,37 +35,54 @@ export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
           </div>
         </div>
         <div className='w-full flex flex-col px-[10px] gap-y-1'>
-          <Link href={`/home`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/home" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <Home_line className={`stroke-gray-500 ${pathname === "/home" && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname === "/home" && "text-primary_fixed"}`}>Home</span>
+          <Link href={`/home`}>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/home" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <Home_line className={`stroke-gray-500 ${pathname === "/home" && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname === "/home" && "text-primary_fixed"}`}>Home</span>
+            </div>
           </Link>
-          <Link href={`/earn`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname.startsWith("/earn") && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <Wallet_02 className={`stroke-gray-500 ${pathname.startsWith("/earn") && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname.startsWith("/earn") && "text-primary_fixed"}`}>Earn</span>
+          <Link href={`/earn`}>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname.startsWith("/earn") && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <Wallet_02 className={`stroke-gray-500 ${pathname.startsWith("/earn") && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname.startsWith("/earn") && "text-primary_fixed"}`}>Earn</span>
+            </div>
           </Link>
-          <Link href={`/advertise`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/advertise" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <Announcement_03 className={`stroke-gray-500 ${pathname.startsWith("/advertise") && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname.startsWith("/advertise") && "text-primary_fixed"}`}>Advertise</span>
+
+          <Link href={`/advertise`}>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/advertise" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <Announcement_03 className={`stroke-gray-500 ${pathname.startsWith("/advertise") && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname.startsWith("/advertise") && "text-primary_fixed"}`}>Advertise</span>
+            </div>
           </Link>
-          <Link href={`/transactions`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/transactions" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <BarChatSquare_02 className={`stroke-gray-500 ${pathname === "/transactions" && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname === "/transactions" && "text-primary_fixed"}`}>Transactions</span>
+
+          <Link href={`/transactions`}>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/transactions" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <BarChatSquare_02 className={`stroke-gray-500 ${pathname === "/transactions" && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname === "/transactions" && "text-primary_fixed"}`}>Transactions</span>
+            </div>
           </Link>
-          <Link href={`/refer-and-earn`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/refer-and-earn" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <Gift_02 className={`stroke-gray-500 ${pathname === "/refer-and-earn" && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname === "/refer-and-earn" && "text-primary_fixed"}`}>Refer and Earn</span>
+
+          <Link href={`/refer-and-earn`}>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/refer-and-earn" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <Gift_02 className={`stroke-gray-500 ${pathname === "/refer-and-earn" && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname === "/refer-and-earn" && "text-primary_fixed"}`}>Refer and Earn</span>
+            </div>
           </Link>
         </div>
       </div>
       <div className='flex flex-col gap-y-6'>
         <div className='w-full flex flex-col px-[10px] gap-y-1'>
-          <Link href={`/support`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/support" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <LifeBuoy_01 className={`stroke-gray-500 ${pathname === "/support" && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname === "/support" && "text-primary_fixed"}`}>Support</span>
+          <Link href={`/support`}>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/support" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <LifeBuoy_01 className={`stroke-gray-500 ${pathname === "/support" && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname === "/support" && "text-primary_fixed"}`}>Support</span>
+            </div>
           </Link>
-          <Link href={`/settings`} className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/settings" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-            <Settings_01 className={`stroke-gray-500 ${pathname === "/settings" && "stroke-primary_fixed"}`} />
-            <span className={`text-gray-700 font-semibold text-base ${pathname === "/settings" && "text-primary_fixed"}`}>Settings</span>
+          <Link href={`/settings`}>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/settings" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <Settings_01 className={`stroke-gray-500 ${pathname === "/settings" && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname === "/settings" && "text-primary_fixed"}`}>Settings</span>
+            </div>
           </Link>
         </div>
         <div className='w-full px-[10px]'>
