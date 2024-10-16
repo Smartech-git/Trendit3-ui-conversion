@@ -7,7 +7,6 @@ export async function middleware(request: NextRequest) {
   await updateSession(request);
   const session = await getSession();
   const paths = await getPathsCookies();
-  console.log(session);
 
   if (!session?.user?.access_token) {
     if (!request.nextUrl.pathname.startsWith("/login")) {

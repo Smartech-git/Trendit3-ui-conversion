@@ -6,6 +6,7 @@ import Spinner from "../loadingScreens/Spinner";
 import { Facebook } from "@/svgAssets";
 import { ArrowDown } from "@/appIcons";
 import StatusChip from "../macroComponents/StatusChip";
+import { useRouter, usePathname } from "next/navigation";
 
 const rows = [
   {
@@ -79,6 +80,8 @@ export default function TasksTable({ type }: table_propsTypes) {
     column: "date",
     direction: "descending",
   });
+  const router = useRouter();
+  const pathname = usePathname();
 
   const BottomContent = useMemo(() => {
     return (
@@ -104,7 +107,7 @@ export default function TasksTable({ type }: table_propsTypes) {
         return (
           <div className='flex items-start gap-3'>
             <Facebook className='size-[20px] mt-1 flex-none' />
-            <div className='flex flex-col w-[20svw]'>
+            <div className='flex flex-col w-[15svw]'>
               <h1 className='text-sm truncate text-gray-900 font-medium'>{cellValue}</h1>
               <p className='text-sm truncate text-gray-600 font-normal'>Post adverts of various businesses and top brands on your Facebook Page and earn ₦110 per advert past.</p>
             </div>
@@ -112,8 +115,8 @@ export default function TasksTable({ type }: table_propsTypes) {
         );
       case "type":
         return (
-          <div>
-            <span className='text-sm text-gray-600 font-medium'>{cellValue}</span>
+          <div className='flex flex-col w-[15svw]'>
+            <span className='text-sm text-gray-600 truncate font-medium'>{cellValue}</span>
           </div>
         );
       case "amount":
@@ -173,7 +176,11 @@ export default function TasksTable({ type }: table_propsTypes) {
         // isLoading
         items={rows}
       >
-        {(item: any) => <TableRow key={item?.key}>{(columnKey) => <TableCell className={`${(columnKey === "amount" || columnKey === "date") && "md:table-cell hidden"}`}>{renderCell(item, columnKey, type)}</TableCell>}</TableRow>}
+        {(item: any) => (
+          <TableRow onClick={() => router.push(`${pathname}/12324fsdgsgsfh`)} key={item?.key}>
+            {(columnKey) => <TableCell className={`${(columnKey === "amount" || columnKey === "date") && "md:table-cell hidden"}`}>{renderCell(item, columnKey, type)}</TableCell>}
+          </TableRow>
+        )}
       </TableBody>
     </Table>
   );

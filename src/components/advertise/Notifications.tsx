@@ -22,26 +22,16 @@ const Not = ({ data }: any) => {
   );
 };
 
-interface notification_propTypes {
-  setOpenNot: React.Dispatch<React.SetStateAction<boolean>>;
-}
+interface notifications_propTypes {}
 
-export default function Notification({ setOpenNot }: notification_propTypes) {
+export default function Notifications({}: notifications_propTypes) {
   const [tab, setTab] = useState<"not" | "msg">("not");
   return (
-    <div className='max-h-[600px] relative h-[80svh] lg:pt-6 pt-0 pb-6 w-full flex flex-col gap-y-6'>
+    <div className='h-[570px] relative pt-0 pb-6 w-full flex flex-col gap-y-1'>
       <div className='w-full relative flex items-start px-6 flex-col gap-y-1'>
-        <div className='xs:!max-w-full xxs:max-w-[300px] max-w-[250px] overflow-x-scroll scrollbar-none h-[38px] relative gap-x-5 flex-none flex items-center'>
-          <div className='flex gap-x-3'>
-            <button onClick={() => setTab("not")} className={`outline-none text-gray-700 hover:text-black ${tab === "not" && "!text-primary_fixed hover:!text-primary_fixed"} transition-colors text-sm font-medium`}>
-              Notification
-            </button>
-            <button onClick={() => setTab("msg")} className={`outline-none text-gray-700 hover:text-black ${tab === "msg" && "!text-primary_fixed hover:!text-primary_fixed"} transition-colors text-sm font-medium`}>
-              Messages
-            </button>
-          </div>
-          <button className={`outline-none text-nowrap text-gray hover:text-gray-400 transition-colors text-sm font-medium`}>Mark as read</button>
-        </div>
+        <button onClick={() => setTab("not")} className={`outline-none text-gray-900 hover:text-black  transition-colors text-sm font-medium`}>
+          Notification
+        </button>
       </div>
 
       <ScrollShadow className='w-full h-full flex flex-col overflow-y-scroll scrollbar-none'>
@@ -58,7 +48,7 @@ export default function Notification({ setOpenNot }: notification_propTypes) {
             </div>
             <div className='size-[10px] flex-none  box-content absolute right-2 top-2 rounded-full bg-green-600 ' />
           </motion.div>
-          {new Array(5).fill("").map((item: any, index: number) => {
+          {new Array(10).fill("").map((item: any, index: number) => {
             return <Not key={index} />;
           })}
         </div>

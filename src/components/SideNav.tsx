@@ -19,8 +19,8 @@ export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
     <div className='w-full h-[100svh] flex flex-col overflow-x-hidden scrollbar-thin overflow-y-scroll justify-between gap-y-28 bg-white 2xl:py-8 sm:py-6 py-4'>
       <div className='flex flex-col gap-y-6'>
         <div className='flex items-center justify-between px-5'>
-          <div className='w-full'>
-            <Image src='/logos/logo_default.svg' alt='App Logo' width={150} height={150} className='w-[132px] h-fit' />
+          <div className='w-full h-fit'>
+            <Image src='/logos/logo_default.svg' alt='App Logo' width={132.27} height={51} />
           </div>
           <Button onClick={() => setOpenDrawer(false)} disableRipple className='bg-white outline-none !min-w-11 xl:hidden !w-11 !h-11 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>
             <XClose />

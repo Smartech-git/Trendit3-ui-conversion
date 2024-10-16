@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { User_01, LogIn_03, Settings_01, Bell_01, Menu_01, XClose, ChevronLeft, Search, FilterAlt } from "@/appIcons";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import Notification from "./header/Notification";
+import Notifications from "./Header/Notifications";
 import { earnPageDynamicPaths, advertisePageDynamicPathTypes, advertisePageDynamicPaths, cookiesType, pathsEnum } from "@/types";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -29,7 +29,7 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
   const handleLogout = async () => {
     const session: { user: cookiesType } = await getSession();
     const result = await apiRequest("logout", "DELETE", null, {
-      'Authorization': `Bearer ${session.user.access_token}`
+      Authorization: `Bearer ${session.user.access_token}`,
     });
     if (result?.error) {
       setToast({ open: true, state: "error", content: "check your network connection" });
@@ -61,16 +61,12 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
           ) : (
             <div className='h-full cursor-pointer items-center flex gap-x-3'>
               <div className='sm:size-12 size-10 relative'>
-                <div className='size-full flex items-center relative justify-center overflow-hidden rounded-full border border-black/[0.08] bg-gray-100'>
-                    {
-                      appUser?.profile_picture ? <Image src={appUser?.profile_picture} width={500} height={500} className='absolute inset-0 w-full h-full object-cover' alt='profilePicture' /> : <User_01 className='sm:size-7 size-5' />
-                    }
-                </div>
+                <div className='size-full flex items-center relative justify-center overflow-hidden rounded-full border border-black/[0.08] bg-gray-100'>{appUser?.profile_picture ? <Image src={appUser?.profile_picture} width={500} height={500} className='absolute inset-0 w-full h-full object-cover' alt='profilePicture' /> : <User_01 className='sm:size-7 size-5' />}</div>
                 <div className='sm:size-3 size-[10px]  box-content absolute right-0 bottom-0 rounded-full border-1.5 bg-green-600 border-white' />
               </div>
               <div className='sm:flex hidden flex-col'>
                 <h1 className='text-base font-semibold capitalize text-gray-700'>{appUser?.full_name}</h1>
-                  <h2 className='text-base font-normal text-gray-600'>{ appUser?.email}</h2>
+                <h2 className='text-base font-normal text-gray-600'>{appUser?.email}</h2>
               </div>
             </div>
           )}
@@ -95,10 +91,10 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
                   }
                   key='close'
                   isReadOnly
-                  className='!px-4 pt-4 data-[hover=true]:!bg-white !cursor-default !transition-none'
+                  className='!px-4 pt-4 pb-0 data-[hover=true]:!bg-white !cursor-default !transition-none'
                 ></DropdownItem>
                 <DropdownItem isReadOnly closeOnSelect={false} className='!p-0 !w-full h-fit !cursor-default data-[hover=true]:!bg-white !transition-none' key='Main'>
-                  <Notification setOpenNot={setOpenNot} />
+                  <Notifications setOpenNot={setOpenNot} />
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>

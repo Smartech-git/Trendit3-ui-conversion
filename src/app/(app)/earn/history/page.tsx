@@ -13,7 +13,8 @@ export default function History() {
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>("Pending");
 
   return (
-    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full flex p-3 pb-16  flex-col gap-y-6 rounded-xl border border-gray-200 bg-white'>
+    <div className="2xl:pt-[170px] sm:pt-[154px] pt-[130px]">
+      <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full flex p-3 pb-16  flex-col gap-y-6 rounded-xl border border-gray-200 bg-white'>
       <div className='flex lg:flex-row flex-col lg:items-center relative w-full gap-3 justify-between'>
         <Tabs onSelectionChange={setActiveTab as (key: Key) => void} classNames={{ tab: "py-3 p-2", tabList: "gap-0 p-0", tabContent: "group-data-[selected=true]:text-primary_fixed text-sm font-semibold text-gray-700 flex items-center gap-x-2", cursor: "bg-primary_fixed" }} size='sm' variant='underlined' aria-label='Tabs variants'>
           {tabs.map((tab: string) => {
@@ -30,5 +31,7 @@ export default function History() {
 
       <TasksTable />
     </motion.div>
+    </div>
+    
   );
 }

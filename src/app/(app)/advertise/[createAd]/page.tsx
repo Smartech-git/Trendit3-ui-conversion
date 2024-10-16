@@ -13,7 +13,7 @@ import { Button } from "@nextui-org/button";
 import getSymbolFromCurrency from "currency-symbol-map";
 import { useDebounce, useDebouncedCallback } from "use-debounce";
 import { Input } from "@nextui-org/input";
-import OrderSummary from "@/components/modals/OrderSummary";
+import OrderSummary_modal from "@/components/modals/OrderSummary_modal";
 import SelectPaymentMethod from "@/components/modals/SelectPaymentMethod";
 import GenericTask from "@/components/GenericTask";
 const numeral = require("numeral");
@@ -287,7 +287,7 @@ export default function Page({ params }: { params: { stage: string } }) {
                       } else return;
                     }}
                     classNames={{
-                      base: 'data-[disabled=true]:!opacity-100',
+                      base: "data-[disabled=true]:!opacity-100",
                       inputWrapper: "!h-11 !px-4 !rounded-l-lg !rounded-r-none border !border-gray-300 !transition-colors data-[hover=true]:border-gray-400 group-data-[focus=true]:!border-brand-700 group-data-[focus=true]:!border-2 !shadow-main",
                       input: "!text-base overflow-hidden placeholder:!text-gray-500 !font-bold !text-gray-500 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
                     }}
@@ -309,7 +309,7 @@ export default function Page({ params }: { params: { stage: string } }) {
       {
         // modals...
         <>
-          <OrderSummary openModals={openModals} formData={formData} setOpenModals={setOpenModals} />
+          <OrderSummary_modal openModals={openModals} formData={formData} setOpenModals={setOpenModals} />
           <SelectPaymentMethod openModals={openModals} setOpenModals={setOpenModals} action={handleContinue} />
         </>
       }

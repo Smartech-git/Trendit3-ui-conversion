@@ -12,7 +12,6 @@ module.exports = withMT({
         ...colors,
         primary_fixed: "#CB29BE",
         tertiary_fixed: "#610606",
-        error: "#FF3D00",
         scrim: "#0C111D",
         outline_varient: "#E4E7EC",
         outline: "#DADADA",
@@ -20,6 +19,13 @@ module.exports = withMT({
         pink: {
           DEFAULT: "#FFD0FE",
           200: '#FFBFFA'
+        },
+        error: {
+          DEFAULT: "#FF3D00",
+          50: '#FEF3F2',
+          200: '#FECDCA',
+          500: '#F04438',
+          900: '#B42318'
         },
         success: {
           DEFAULT: "#4CAF50",

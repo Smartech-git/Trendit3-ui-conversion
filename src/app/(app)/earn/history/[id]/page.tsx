@@ -2,14 +2,13 @@
 
 import React, { useState, Key } from "react";
 import { motion } from "framer-motion";
-
-
+import TaskSummary from "@/components/earn/TaskSummary";
+import GeneratedTask from "@/components/earn/GeneratedTask";
 export default function History() {
-
-
   return (
-    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full flex p-3 flex-col h-[500px] overflow-hidden rounded-xl border border-gray-200 bg-white'>
-      tasks
-    </motion.div>
+    <div className='2xl:pt-[112px] sm:pt-[96px] pt-[72px] flex md:flex-row flex-col w-full gap-6 relative'>
+      <TaskSummary />
+      <GeneratedTask />
+    </div>
   );
 }

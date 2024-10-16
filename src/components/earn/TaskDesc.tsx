@@ -15,7 +15,7 @@ interface task_propTypes {
   setSocialMediaHandleVerified: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function Task({ data, socialMediaHandleVerified, setSocialMediaHandleVerified }: task_propTypes) {
+export default function TaskDesc({ data, socialMediaHandleVerified, setSocialMediaHandleVerified }: task_propTypes) {
   const { setToast } = useGlobal();
   const handleOnPress = () => {
     setSocialMediaHandleVerified(true);

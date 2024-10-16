@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useContext, useState } from "react";
-import Task from "@/components/earn/Task";
+import TaskDesc from "@/components/earn/TaskDesc";
 import { useRouter, usePathname } from "next/navigation";
 import Spinner from "@/components/loadingScreens/Spinner";
 import { earnPageDynamicPathTypes, earnPageDynamicPaths, modalTypes } from "@/types";
@@ -32,7 +32,7 @@ export default function Page({ params }: { params: { stage: string } }) {
       {earnPageDynamicPaths.includes(pathname) ? (
         <motion.div layoutScroll className='w-full gap-y-6 flex flex-col h-fit'>
           {(socialMediaHandleVerified || activeTask) && <NotificationBanner />}
-          <Task socialMediaHandleVerified={socialMediaHandleVerified} setSocialMediaHandleVerified={setSocialMediaHandleVerified} />
+          <TaskDesc socialMediaHandleVerified={socialMediaHandleVerified} setSocialMediaHandleVerified={setSocialMediaHandleVerified} />
           {activeTask ? (
             <div className='flex md:flex-row flex-col w-full gap-6 relative'>
               <GeneratedTask />
