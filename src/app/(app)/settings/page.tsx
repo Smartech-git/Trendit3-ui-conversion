@@ -9,7 +9,7 @@ import { Select, SelectItem } from "@nextui-org/select";
 import { DateInput } from "@nextui-org/react";
 import { useGlobal } from "@/context/GlobalContext";
 
-export default function page() {
+export default function Profile() {
   const { appUser } = useGlobal();
   return (
     <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full h-full flex flex-col gap-y-3 rounded-xl bg-white'>

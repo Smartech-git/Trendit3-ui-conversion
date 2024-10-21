@@ -13,7 +13,7 @@ import { Facebook, SnapChat, Linkedin, TikTok } from "@/svgAssets";
 import StatusChip from "@/components/macroComponents/StatusChip";
 import LinkSocialMediaAcc from "@/components/modals/LinkSocialMediaAcc";
 
-export default function page() {
+export default function LinkedAccounts() {
   const { appUser } = useGlobal();
   const [security, setSecurity] = useState<{ emailAuth: "On" | "Off"; googleAuth: "On" | "Off" }>({
     emailAuth: "Off",

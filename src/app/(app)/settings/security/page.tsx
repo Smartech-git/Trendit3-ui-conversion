@@ -11,7 +11,7 @@ import { Select, SelectItem } from "@nextui-org/select";
 import KYCVerification from "@/components/modals/KYCVerification";
 import KYCVSuccessful from "@/components/modals/KYCSuccessful";
 
-export default function page() {
+export default function Security() {
   const { appUser } = useGlobal();
   const [security, setSecurity] = useState<{ emailAuth: "On" | "Off"; googleAuth: "On" | "Off" }>({
     emailAuth: "Off",

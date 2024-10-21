@@ -9,7 +9,7 @@ import { useGlobal } from "@/context/GlobalContext";
 import { modalTypes } from "@/types";
 import { Checkbox } from "@nextui-org/checkbox";
 
-export default function page() {
+export default function Notifications() {
   const { appUser } = useGlobal();
   const [security, setSecurity] = useState<{ emailAuth: "On" | "Off"; googleAuth: "On" | "Off" }>({
     emailAuth: "Off",

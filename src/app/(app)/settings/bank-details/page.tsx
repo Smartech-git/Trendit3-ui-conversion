@@ -10,7 +10,7 @@ import { modalTypes } from "@/types";
 import { Facebook, SnapChat, Linkedin, TikTok, AccessBank } from "@/svgAssets";
 import LinkBank from "@/components/modals/LinkBank";
 
-export default function page() {
+export default function BankDetials() {
   const { appUser } = useGlobal();
   const [security, setSecurity] = useState<{ emailAuth: "On" | "Off"; googleAuth: "On" | "Off" }>({
     emailAuth: "Off",
