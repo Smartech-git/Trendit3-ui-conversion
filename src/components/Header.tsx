@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { User_01, LogIn_03, Settings_01, Bell_01, Menu_01, XClose, ChevronLeft, Search, FilterAlt } from "@/appIcons";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import Notifications from "./header/Notifications";
+import Notifications from "./headerComponents/Notifications";
 import { earnPageDynamicPaths, advertisePageDynamicPathTypes, advertisePageDynamicPaths, cookiesType, pathsEnum } from "@/types";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
