@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { User_01, LogIn_03, Settings_01, Bell_01, Menu_01, XClose, ChevronLeft, Search, FilterAlt } from "@/appIcons";
 import { Button, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Breadcrumbs, BreadcrumbItem } from "@nextui-org/react";
-import Notifications from "./Header/Notifications";
+import Notifications from "./header/Notifications";
 import { earnPageDynamicPaths, advertisePageDynamicPathTypes, advertisePageDynamicPaths, cookiesType, pathsEnum } from "@/types";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,7 @@ import ProfileSkeletonLoader from "./loadingScreens/skeletonLoaders";
 import { apiRequest } from "@/lib/serverRequest";
 import { getSession, logout } from "@/cookies";
 import Image from "next/image";
-
+import Link from "next/link";
 interface header_types {
   openDrawer: boolean;
   setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
@@ -73,9 +73,11 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
         </div>
         <div className='h-full gap-x-4 flex items-center'>
           <div className='flex gap-x-1 h-9'>
-            <Button disableRipple className='bg-white !outline-none !min-w-fit w-10 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center p-2'>
-              <Settings_01 className='stroke-gray-500 size-5' />
-            </Button>
+            <Link href={`/settings`}>
+              <Button disableRipple className='bg-white !outline-none !min-w-fit w-10 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center p-2'>
+                <Settings_01 className='stroke-gray-500 size-5' />
+              </Button>
+            </Link>
             <Dropdown isOpen={openNot} onClose={() => setOpenNot(false)} backdrop='opaque' radius='md' classNames={{ content: "!border !border-white xs:!w-[370px] xxs:w-[340px] !w-[300px] !min-w-[300px] !p-0", backdrop: "!bg-gray-950/10" }}>
               <DropdownTrigger>
                 <Button onClick={() => setOpenNot((prev) => !prev)} disableRipple className='bg-white !outline-none !min-w-fit w-10 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center p-2'>
@@ -98,16 +100,6 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
-            {/* <Popover onClose={() => setOpenNot(false)} isOpen={openNot} backdrop='opaque' radius='md' classNames={{ content: "!border !border-white xs:!w-[370px] xxs:w-[340px] !w-[300px] !min-w-[300px] !p-0", backdrop: "!bg-gray-950/10" }} placement='bottom'>
-            <PopoverTrigger>
-              <Button onClick={() => setOpenNot((prev) => !prev)} disableRipple className='bg-white !outline-none !min-w-fit w-10 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center p-2'>
-                <Bell_01 className='stroke-gray-500 size-5' />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent>
-              <Notification setOpenNot={setOpenNot} />
-            </PopoverContent>
-          </Popover> */}
           </div>
           <Button onPress={handleLogout} disableRipple className='h-10 gap-x-[6px] !outline-none flex items-center px-[14px] py-[10px] !min-w-auto border border-gray-300 bg-white data-[hover=true]:!bg-gray-50 !opacity-100 transition-colors rounded-lg shadow-main'>
             <LogIn_03 />

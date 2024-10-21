@@ -135,7 +135,7 @@ export default function Tasks() {
           <button className='text-primary_fixed  lg:flex hidden outline-none transition-colors hover:text-brand-700 text-xs font-semibold'>View all</button>
         </div>
         <div className='flex items-center relative w-full justify-between'>
-          <Tabs onSelectionChange={setActiveTab as (key: Key) => void} classNames={{ tab: "p-3", tabList: "gap-0 p-0", tabContent: "group-data-[selected=true]:text-primary_fixed text-sm font-semibold text-gray-700 flex items-center gap-x-2", cursor: "bg-primary_fixed" }} size='sm' variant='underlined' aria-label='Tabs variants'>
+          <Tabs onSelectionChange={setActiveTab as (key: Key) => void} classNames={{ tab: "p-3 pb-5", tabList: "gap-0 p-0", tabContent: "group-data-[selected=true]:text-primary_fixed text-sm font-semibold text-gray-700 flex items-center gap-x-2", cursor: "bg-primary_fixed" }} size='sm' variant='underlined' aria-label='Tabs variants'>
             {tabs.map((tab: string) => {
               return <Tab key={tab} title={tab} />;
             })}

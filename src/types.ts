@@ -115,6 +115,13 @@ export type modalTypes = {
   generate?: boolean;
   submit?: boolean;
   orderSummary?: boolean;
+  withdraw?: boolean;
+  withdrawal_OTP?: boolean;
+  topUp?: boolean;
+  KYCVerification?: boolean;
+  KYCSuccessful?: boolean;
+  linkSocialMedia?: boolean;
+  linkBank?: boolean
 };
 
 export type createAdFormTypes = {
@@ -137,3 +144,5 @@ export type cookiesType = {
   lastname?: string | undefined;
   firstname?: string | undefined;
 };
+
+export type statusTypes = "Pending" | "Completed" | "Paid" | "Refunded" | "Cancelled" | "On-going" | "Failed" | "Verified";

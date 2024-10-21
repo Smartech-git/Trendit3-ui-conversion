@@ -14,3 +14,7 @@ export default function ProfileSkeletonLoader() {
     </div>
   );
 }
+
+export const TextLoaders = ({ className }: { className?: string }) => {
+  return <Skeleton className={`h-3 w-20 bg-gray-100 after:bg-gray-200 before:via-gray-200 rounded-lg ${className}`} />;
+};

@@ -18,12 +18,10 @@ export default function Page({ params }: { params: { stage: string } }) {
   return (
     <div className='size-fit'>
       {resetpasswordPaths.includes(pathname) ? (
-        <>
-          {pathname === "/reset-password/0" && <ResetPasswordScreen />}
-        </>
+        <>{pathname === "/reset-password/0" && <ResetPasswordScreen />}</>
       ) : (
         <div className='sm:w-[520px] w-[90vw] min-h-[300px] h-fit bg-white flex flex-col gap-y-8 items-center justify-center rounded-xl px-6 py-12'>
-          <Spinner />
+          <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
         </div>
       )}
     </div>

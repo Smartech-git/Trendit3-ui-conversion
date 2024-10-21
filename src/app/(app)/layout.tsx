@@ -7,7 +7,7 @@ import { Drawer, ThemeProvider } from "@material-tailwind/react";
 import Toast from "@/components/alert/Toast";
 import { useGlobal } from "@/context/GlobalContext";
 import { apiRequest } from "@/lib/serverRequest";
-import { getSession, createSession, logout } from "@/cookies";
+import { getSession, logout } from "@/cookies";
 import { cookiesType, pathsEnum } from "@/types";
 import { useRouter } from "next/navigation";
 

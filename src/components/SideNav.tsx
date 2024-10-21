@@ -79,9 +79,9 @@ export default function SideNav({ openDrawer, setOpenDrawer }: sideNav_types) {
             </div>
           </Link>
           <Link href={`/settings`}>
-            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname === "/settings" && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
-              <Settings_01 className={`stroke-gray-500 ${pathname === "/settings" && "stroke-primary_fixed"}`} />
-              <span className={`text-gray-700 font-semibold text-base ${pathname === "/settings" && "text-primary_fixed"}`}>Settings</span>
+            <div className={`size-full flex h-10 items-center gap-x-3 hover:bg-gray-50 ${pathname.startsWith("/settings") && "bg-gray-50"} transition-colors cursor-pointer rounded-md px-[10px]`}>
+              <Settings_01 className={`stroke-gray-500 ${pathname.startsWith("/settings") && "stroke-primary_fixed"}`} />
+              <span className={`text-gray-700 font-semibold text-base ${pathname.startsWith("/settings") && "text-primary_fixed"}`}>Settings</span>
             </div>
           </Link>
         </div>

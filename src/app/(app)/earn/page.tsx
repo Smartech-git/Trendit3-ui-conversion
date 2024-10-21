@@ -8,6 +8,7 @@ import BecomeMember from "@/components/modals/BecomeMember";
 import SelectPaymentMethod from "@/components/modals/SelectPaymentMethod";
 import Tasks from "@/components/earn/Tasks";
 import { useGlobal } from "@/context/GlobalContext";
+import { motion } from "framer-motion";
 
 export default function Earn() {
   const [openModals, setOpenModals] = useState<modalTypes>({ becomeMember: false, selectPaymentMethod: false });
@@ -25,7 +26,9 @@ export default function Earn() {
         <div className='h-full 2xl:pb-8 sm:pb-8 pb-8 overflow-y-scroll scrollbar-none flex flex-col sm:gap-6 gap-4 relative 2xl:pt-[112px] sm:pt-[96px] pt-[72px] w-full'>
           <Hero setOpenModals={setOpenModals} />
           {membershipApproved !== "false" && <Tasks />}
-          <Faq />
+          <motion.section initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} layout className='w-full p-6 rounded-xl flex flex-col items-center justify-center flex-none h-fit border gap-y-8 border-outline_varient bg-white'>
+            <Faq />
+          </motion.section>
           {
             // Mobile rendering ...
             <div className='lg:hidden flex flex-col sm:gap-6 gap-4'>

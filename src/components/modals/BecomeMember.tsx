@@ -21,7 +21,7 @@ export default function BecomeMember({ openModals, setOpenModals }: becomeMember
 
   const debounced = useDebouncedCallback((e) => {
     setMembershipFee(numeral(membershipFee).format("0,0.00"));
-  }, 500);
+  }, 1000);
 
   return (
     <Modal

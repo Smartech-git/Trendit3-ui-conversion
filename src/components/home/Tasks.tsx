@@ -25,7 +25,7 @@ const socials = [
 const Task = ({ data }: { data: any }) => {
   return (
     <Link href={`/earn/create-facebook`}>
-      <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full p-4 cursor-pointer gap-x-4 flex items-start rounded border border-neutral-100 shadow-main hover:bg-gray-50 transition-colors'>
+      <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full p-4 cursor-pointer gap-x-4 flex items-start rounded border border-outline_varient shadow-main hover:bg-gray-50 transition-colors'>
         <div className='w-12 h-full flex-none relative flex items-center flex-col'>
           <div className='size-fit flex-none'>{socials?.find((item: any) => item?.name === data?.social)?.svg}</div>
         </div>

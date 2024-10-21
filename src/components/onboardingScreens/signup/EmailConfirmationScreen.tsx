@@ -115,7 +115,7 @@ export default function EmailConFrimationScreen() {
                   endContent={
                     isFetching && (
                       <div className='size-5'>
-                        <Spinner className='text-gray-100' />
+                        <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
                       </div>
                     )
                   }

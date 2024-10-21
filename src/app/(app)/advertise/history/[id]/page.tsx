@@ -6,8 +6,12 @@ import TaskStats from "@/components/stats/TaskStats";
 import OrderSummary from "@/components/advertise/OrderSummary";
 import Notifications from "@/components/advertise/Notifications";
 import { ScrollShadow } from "@nextui-org/react";
+import AdTasksTable from "@/components/tables/AdTasksTable";
+import Notice from "@/components/alert/advert/Notice";
 
 export default function History() {
+  const [openNot, setOpenNot] = useState(true);
+
   return (
     <div className='2xl:pt-[112px] sm:pt-[96px] flex flex-col gap-6 pt-[72px]'>
       <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full flex p-3 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white'>
@@ -24,6 +28,13 @@ export default function History() {
           <Notifications />
         </div>
       </motion.div>
+      <AdTasksTable />
+
+      {
+        //
+
+        <Notice openNot={openNot} setOpenNot={setOpenNot} />
+      }
     </div>
   );
 }

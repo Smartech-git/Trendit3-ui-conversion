@@ -8,7 +8,7 @@ import Spinner from "@/components/loadingScreens/Spinner";
 import { loginPaths, loginPathTypes } from "@/types";
 
 export default function Page({ params }: { params: { stage: string } }) {
-  const pathname = usePathname() as loginPathTypes ;
+  const pathname = usePathname() as loginPathTypes;
 
   useEffect(() => {
     window.scrollTo({
@@ -22,12 +22,12 @@ export default function Page({ params }: { params: { stage: string } }) {
       {loginPaths.includes(pathname) ? (
         <>
           {pathname === "/login/0" && <LoginScreen />}
-          {pathname === "/login/1" && <LoginScreen1/>}
-          {pathname === '/login/verification' && <VerificationScreen/>}
+          {pathname === "/login/1" && <LoginScreen1 />}
+          {pathname === "/login/verification" && <VerificationScreen />}
         </>
       ) : (
         <div className='sm:w-[520px] w-[90vw] min-h-[300px] h-fit bg-white flex flex-col gap-y-8 items-center justify-center rounded-xl px-6 py-12'>
-          <Spinner />
+          <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
         </div>
       )}
     </div>

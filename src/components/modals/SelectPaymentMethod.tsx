@@ -9,12 +9,8 @@ import { RadioGroup, Radio } from "@nextui-org/react";
 import getSymbolFromCurrency from "currency-symbol-map";
 import { useGlobal } from "@/context/GlobalContext";
 const numeral = require("numeral");
+import { paymentMethods } from "@/lib/constants";
 
-const paymentMethods = [
-  { method: "3rdParty", label: "100% Secure payment", desc: "Pay through our highly secured online payment partner using your VISA/Mastercard/Verve card. Or Bank transfer via USSD or internet Bank Transfer." },
-  { method: "wallet", label: "Pay from your Trendit Wallet", desc: "Wallet Balance:" },
-  { method: "crypto", label: "Pay with CryptoPay", desc: "Pay with USDT (BEP 20)  to our wallet address" },
-];
 
 interface selectPaymentMethod_propTypes {
   setOpenModals: Dispatch<SetStateAction<modalTypes>>;
@@ -73,9 +69,9 @@ export default function SelectPaymentMethod({ openModals, setOpenModals, action 
                         key={index}
                         classNames={{
                           label: "!text-gray-700 font-medium text-base",
-                          wrapper: "!size-[24px] rounded-full !mt-1 !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-brand-700",
+                          wrapper: "!size-[24px] rounded-full !mt-1 !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-brand-700 group-data-[selected=true]:!bg-brand-700",
                           base: "flex gap-x-3 -m-0 p-0 !items-start",
-                          control: "!size-[12px] flex-none rounded-full !bg-brand-700",
+                          control: "!size-[12px] flex-none rounded-full !bg-white",
                           description: "!text-gray-600 !font-normal text-base",
                         }}
                         value={item.method}

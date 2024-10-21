@@ -43,9 +43,9 @@ export default function ReferalScreen0() {
                 key={index}
                 classNames={{
                   label: "!text-gray-700 font-medium text-base",
-                  wrapper: "!size-[24px] flex flex-none !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-brand-700",
+                  wrapper: "!size-[24px] flex flex-none !outline-none group-data-[hover-unselected=true]:!bg-gray-50 !border border-gray-300 group-data-[selected=true]:!border-brand-700 group-data-[selected=true]:!bg-brand-700",
                   base: "flex gap-x-3 -m-0 p-0",
-                  control: "!size-[12px] !bg-brand-700",
+                  control: "!size-[12px] !bg-white",
                 }}
                 value={item}
               >

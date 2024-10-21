@@ -171,9 +171,9 @@ export default function ProfileSetupScreen() {
         const navigate = async () => {
           router.push(pathsEnum.referal);
         };
-        navigate()
+        navigate();
       } else {
-        setToast({ open: true, state: "error", content: 'Something went wrong' });
+        setToast({ open: true, state: "error", content: "Something went wrong" });
       }
 
       setIsFetching(false);
@@ -205,7 +205,7 @@ export default function ProfileSetupScreen() {
                   classNames={{
                     trigger: "!h-11 !px-4 !rounded-lg border border-gray-300 data-[focus=true]:border-gray-300 data-[hover=true]:border-gray-300 data-[invalid=true]:border-error data-[open=true]:!border-brand-700 data-[open=true]:!border-2  !shadow-main",
                     value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black",
-                    selectorIcon: "stroke-gray-400 size-5",
+                    selectorIcon: "stroke-gray-500 size-5",
                   }}
                   variant='bordered'
                   placeholder='Gender'
@@ -254,7 +254,7 @@ export default function ProfileSetupScreen() {
                   classNames={{
                     trigger: "!h-11 !px-4 !rounded-lg border border-gray-300 data-[focus=true]:border-gray-300 data-[hover=true]:border-gray-300 data-[invalid=true]:border-error data-[open=true]:!border-brand-700 data-[open=true]:!border-2  !shadow-main",
                     value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black",
-                    selectorIcon: "stroke-gray-400 size-5",
+                    selectorIcon: "stroke-gray-500 size-5",
                     popoverContent: "!min-h-[200px] !max-h-[70svh] justify-start",
                   }}
                   variant='bordered'
@@ -271,7 +271,7 @@ export default function ProfileSetupScreen() {
                     })
                   ) : (
                     <SelectItem isReadOnly hideSelectedIcon classNames={{ base: "data-[hover=true]:!bg-gray-50 !bg-white !outline-none data-[selected=true]:!text-primary_fixed flex h-[200px] items-center justify-center", title: "text-base" }} key=''>
-                      <Spinner className='!text-gray-100' />
+                      <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
                     </SelectItem>
                   )}
                 </Select>
@@ -287,7 +287,7 @@ export default function ProfileSetupScreen() {
                     classNames={{
                       trigger: "!h-11 !px-4 !rounded-lg border border-gray-300 data-[focus=true]:border-gray-300 data-[hover=true]:border-gray-300 data-[invalid=true]:border-error data-[open=true]:!border-brand-700 data-[open=true]:!border-2  !shadow-main",
                       value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black",
-                      selectorIcon: "stroke-gray-400 size-5",
+                      selectorIcon: "stroke-gray-500 size-5",
                       popoverContent: "!min-w-[250px] min-h-[200px] !max-h-[70svh] justify-start",
                     }}
                     isDisabled={formData?.country ? false : true}
@@ -305,7 +305,7 @@ export default function ProfileSetupScreen() {
                       })
                     ) : (
                       <SelectItem isReadOnly hideSelectedIcon classNames={{ base: "data-[hover=true]:!bg-gray-50 !bg-white !outline-none data-[selected=true]:!text-primary_fixed flex h-[200px] items-center justify-center", title: "text-base" }} key=''>
-                        <Spinner className='!text-gray-100' />
+                        <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
                       </SelectItem>
                     )}
                   </Select>
@@ -324,7 +324,7 @@ export default function ProfileSetupScreen() {
                     classNames={{
                       trigger: "!h-11 !px-4 !rounded-lg border border-gray-300 data-[focus=true]:border-gray-300 data-[hover=true]:border-gray-300 data-[invalid=true]:border-error data-[open=true]:!border-brand-700 data-[open=true]:!border-2  !shadow-main",
                       value: "!text-base !text-gray-500 group-data-[has-value=true]:!font-medium group-data-[has-value=true]:!text-black",
-                      selectorIcon: "stroke-gray-400 size-5 ",
+                      selectorIcon: "stroke-gray-500 size-5 ",
                       popoverContent: "!min-w-[250px] relative sm:!right-0 xs:!right-[60px] xxs:!right-[100px] !right-[130px]",
                       base: "",
                     }}
@@ -342,7 +342,7 @@ export default function ProfileSetupScreen() {
                       })
                     ) : (
                       <SelectItem isReadOnly hideSelectedIcon classNames={{ base: "data-[hover=true]:!bg-gray-50 !bg-white !outline-none data-[selected=true]:!text-primary_fixed flex h-[200px] items-center justify-center", title: "text-base" }} key=''>
-                        <Spinner className='!text-gray-100' />
+                        <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
                       </SelectItem>
                     )}
                   </Select>
@@ -353,7 +353,7 @@ export default function ProfileSetupScreen() {
           <Button
             spinner={
               <div className='size-5'>
-                <Spinner className='text-white' />
+                <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
               </div>
             }
             isLoading={isFetching}
@@ -372,7 +372,7 @@ export default function ProfileSetupScreen() {
         </motion.div>
       ) : (
         <div className='sm:w-[520px] w-[90vw] min-h-[300px] h-fit bg-white flex flex-col gap-y-8 items-center justify-center rounded-xl px-6 py-12'>
-          <Spinner />
+          <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
         </div>
       )}
     </>

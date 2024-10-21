@@ -115,7 +115,7 @@ export default function TasksTable({ type }: table_propsTypes) {
         );
       case "type":
         return (
-          <div className='flex flex-col w-[15svw]'>
+          <div className='flex flex-col max-w-[15svw]'>
             <span className='text-sm text-gray-600 truncate font-medium'>{cellValue}</span>
           </div>
         );
