@@ -22,7 +22,7 @@ export default function TaskStats() {
   const [stats, setStats] = useState<Array<{ type: string; number: number; trend: "up" | "down"; percentage: number }>>([
     {
       type: "Total Allocated",
-      number: 85000,
+      number: 95000,
       trend: "up",
       percentage: 8,
     },
