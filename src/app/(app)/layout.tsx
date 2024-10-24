@@ -13,7 +13,7 @@ import { useRouter } from "next/navigation";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { setAppUser } = useGlobal();
+  const { setAppUser, setDashBoardStats } = useGlobal();
   const router = useRouter();
   // const handleLogin = async () => {
   //   const session = await getSession()
@@ -51,14 +51,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   // };
 
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      const { user }: { user: cookiesType } = await getSession();
+    const fetchUserProfile = async (user: cookiesType) => {
       const result = await apiRequest("profile", "GET", null, {
         Authorization: `Bearer ${user?.access_token}`,
       });
-      console.log(result);
+      // console.log(result);
       if (result?.error) {
-        fetchUserProfile();
+        fetchUserProfile(user);
         return;
       } else if (result?.status === "success") {
         setAppUser(result?.user_profile);
@@ -68,7 +67,28 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       }
     };
 
-    fetchUserProfile();
+    const fetchDashBoardStats = async (user: cookiesType) => {
+      const result = await apiRequest("stats", "GET", null, {
+        Authorization: `Bearer ${user?.access_token}`,
+      });
+      console.log(result);
+      if (result?.error) {
+        fetchDashBoardStats(user);
+        return;
+      } else if (result?.status === "success") {
+        setDashBoardStats(result?.metrics)
+      } else {
+        await logout();
+        router.replace(pathsEnum.login);
+      }
+    };
+
+    const prep = async () => {
+      const session = await getSession();
+      fetchUserProfile(session?.user);
+      fetchDashBoardStats(session?.user);
+    };
+    prep();
   }, []);
 
   return (

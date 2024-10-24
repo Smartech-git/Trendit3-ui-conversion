@@ -96,7 +96,13 @@ export default function LoginScreen() {
     if (result?.error) {
       setToast({ open: true, state: "error", content: "check your network connection" });
     } else if (result?.status === "success") {
-      window.open(result.authorization_url, "_blank");
+      const modifyAuthUrl = (authUrl: string, newRedirectUri: string) => {
+        const url = new URL(authUrl);
+        url.searchParams.set("redirect_uri", newRedirectUri);
+        return url.toString();
+      };
+      // console.log(modifyAuthUrl(result.authorization_url, "http://localhost:5000/login"));
+      window.open(result.authorization_url);
     } else {
       setToast({ open: true, state: "error", content: result?.message });
     }

@@ -6,9 +6,14 @@ import { modalTypes } from "@/types";
 import Wiithdraw from "./modals/Withdraw";
 import WiithdrawalOTP from "./modals/WithdrawalOTP";
 import Topup from "./modals/Topup";
+import { useGlobal } from "@/context/GlobalContext";
+import { TextLoaders } from "./loadingScreens/skeletonLoaders";
+import getSymbolFromCurrency from "currency-symbol-map";
+const numeral = require("numeral");
 
 export default function Wallet() {
   const [openModals, setOpenModals] = useState<modalTypes>({ withdraw: false, withdrawal_OTP: false, topUp: false });
+  const { dashBoardStats } = useGlobal();
 
   return (
     <>
@@ -16,10 +21,15 @@ export default function Wallet() {
         <div className='flex w-full items-center sm:justify-normal justify-between gap-x-12'>
           <div className='flex flex-col gap-y-3'>
             <h1 className='font-medium text-sm leading-none text-illustration'>Wallet bal:</h1>
-            <p className='font-normal text-3xl leading-none text-black'>
-              {`₦3,321`}
-              <span className='text-gray'>{`.09`}</span>
-            </p>
+            {dashBoardStats ? (
+              <p className='font-normal text-3xl leading-none text-black'>
+                {getSymbolFromCurrency("NGN")}
+                {numeral(dashBoardStats.wallet_balance.split(".")[0]).format("0,0")}
+                <span className='text-gray'>{`.${dashBoardStats.wallet_balance.split(".")[1]}`}</span>
+              </p>
+            ) : (
+              <TextLoaders className='h-9 w-28' />
+            )}
             <span className='text-gray-500 leading-none text-xs font-normal'>Available for payout</span>
           </div>
 

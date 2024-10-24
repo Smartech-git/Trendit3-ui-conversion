@@ -26,7 +26,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
           <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full relative border-gray-200 sm:px-6 py-6 px-3 flex flex-col items-end gap-4 border rounded-xl bg-white'>
             <Dropdown placement="bottom-end"  backdrop='opaque' radius='md' classNames={{ content: "!border !border-white xs:!w-[370px] xxs:w-[340px] !w-[300px] !min-w-[300px] !p-0", backdrop: "!bg-gray-950/10" }}>
               <DropdownTrigger>
-                <Button disableRipple className='h-fit w-fit gap-x-[6px] lg:hidden p-0 !outline-none flex items-center justify-center !min-w-fit rounded-full border-none bg-white data-[hover=true]:!bg-gray-50 !opacity-100 transition-colors shadow-none'>
+                <Button disableRipple className='h-fit w-fit gap-x-[6px] lg:hidden p-0 !outline-none flex items-center justify-center !min-w-fit rounded-full border-none bg-white data-[hover=true]:!bg-white !opacity-100 transition-colors shadow-none'>
                   <DotsVertical className='stroke-gray-700' />
                 </Button>
               </DropdownTrigger>

@@ -5,9 +5,10 @@ import Image from "next/image";
 interface thirdPartyAuth_propTypes {
   handleSocialsAuth: (type: "gg" | "fb" | "tt", path: "gg_login" | "facebook_login" | "tt_login") => void;
   isFetching: { gg: boolean; fb: boolean; tt: boolean; login: boolean };
+  type?: 'login' | 'signup'
 }
 
-export default function ThirdPartyAuth({ handleSocialsAuth, isFetching }: thirdPartyAuth_propTypes) {
+export default function ThirdPartyAuth({ handleSocialsAuth, isFetching, type }: thirdPartyAuth_propTypes) {
   return (
     <div className='w-full flex flex-col gap-y-3'>
       <button onClick={() => handleSocialsAuth("gg", "gg_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors rounded-lg h-11 flex items-center justify-center'>
@@ -21,7 +22,7 @@ export default function ThirdPartyAuth({ handleSocialsAuth, isFetching }: thirdP
       </button>
       <button onClick={() => handleSocialsAuth("fb", "facebook_login")} className='w-full border shadow-main gap-x-4 border-gray-300 hover:bg-gray-50 transition-colors  rounded-lg h-11 flex items-center justify-center'>
         <Image src='/icons/facebook.svg' alt='Google' width={24} height={24} className='' />
-        <span className='text-gray-700 font-bold text-base'>Sign up with Facebook</span>
+        <span className='text-gray-700 font-bold text-base'>{`Sign up with Facebook`}</span>
         {isFetching.fb && (
           <div className='size-4 ml-1'>
             <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />

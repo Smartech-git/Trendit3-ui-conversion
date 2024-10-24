@@ -19,6 +19,8 @@ const GlobalContext = createContext<GlobalContextTypes>({
   setTaskTimerActive: () => { },
   notificationBanner: default_notoficationBannerProps,
   setNotificationBanner: () => { },
+  dashBoardStats: undefined,
+  setDashBoardStats: () => {},
 });
 
 export default function AppProvider({ children }: any) {
@@ -29,6 +31,7 @@ export default function AppProvider({ children }: any) {
   const [activeTask, setActiveTask] = useState(false)
   const [taskTimerActive, setTaskTimerActive] = useState(false)
   const [notificationBanner, setNotificationBanner] = useState<notificationBannerTypes>(default_notoficationBannerProps)
+  const [dashBoardStats,  setDashBoardStats] = useState<any>(undefined)
 
   return (
     <GlobalContext.Provider
@@ -43,7 +46,8 @@ export default function AppProvider({ children }: any) {
         setMembershipApproved,
         activeTask, setActiveTask,
         taskTimerActive, setTaskTimerActive,
-        notificationBanner, setNotificationBanner
+        notificationBanner, setNotificationBanner,
+        dashBoardStats, setDashBoardStats
       }}
     >
       {children}

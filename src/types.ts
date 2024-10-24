@@ -64,6 +64,8 @@ export type GlobalContextTypes = {
   setTaskTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
   notificationBanner: notificationBannerTypes;
   setNotificationBanner: React.Dispatch<React.SetStateAction<notificationBannerTypes>>;
+  dashBoardStats: any,
+  setDashBoardStats: React.Dispatch<React.SetStateAction<any>>;
 };
 
 export type signupFormTypes = {

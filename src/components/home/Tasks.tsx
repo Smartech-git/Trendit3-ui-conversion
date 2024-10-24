@@ -71,13 +71,7 @@ export default function Tasks() {
       social: "TikTok",
     },
     {
-      social: "Youtube",
-    },
-    {
       social: "Instagram",
-    },
-    {
-      social: "Facebook",
     },
   ]);
   const [taskMobile, setTaskMobile] = useState([
@@ -86,6 +80,9 @@ export default function Tasks() {
     },
     {
       social: "Facebook",
+    },
+    {
+      social: "Youtube",
     },
   ]);
   const { setNotificationBanner } = useGlobal();
@@ -104,13 +101,16 @@ export default function Tasks() {
     setTaskMobile((prev: any) => [
       ...prev,
       {
-        social: "Facebook",
-      },
-      {
-        social: "Youtube",
-      },
-      {
         social: "X",
+      },
+      {
+        social: "Telegram",
+      },
+      {
+        social: "TikTok",
+      },
+      {
+        social: "Instagram",
       },
     ]);
   };
