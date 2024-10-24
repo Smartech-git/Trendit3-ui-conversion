@@ -10,6 +10,7 @@ import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { Copy_01 } from "@/appIcons";
 import ReferalTable from "@/components/tables/ReferalTable";
+import getSymbolFromCurrency from "currency-symbol-map";
 
 export default function ReferAndEarn() {
   return (
@@ -22,7 +23,7 @@ export default function ReferAndEarn() {
           </div>
           <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full border-gray-200 sm:px-6 py-6 px-3 flex flex-col gap-y-3 border rounded-xl bg-white'>
             <div className='w-full sm:flex-row flex-col flex relative gap-3 items-center justify-between'>
-              <h1 className='text-gray-900 md:text-5xl sm:!text-left text-center text-3xl font-bold'>Invite and Get N1000</h1>
+              <h1 className='text-gray-900 md:text-5xl sm:!text-left text-center text-3xl font-bold'>{`Invite and Get ${getSymbolFromCurrency("NGN")}500`}</h1>
               <Earn className='w-[197px] h-fit' />
             </div>
             <div className='w-full flex flex-col gap-y-[6px]'>
@@ -51,13 +52,13 @@ export default function ReferAndEarn() {
                 <div className='flex items-center gap-x-6'>
                   <TikTok className='size-[32px] cursor-pointer' />
                   <Facebook className='size-[32px] cursor-pointer' />
-                  <Whatsapp className="cursor-pointer"/>
+                  <Whatsapp className='cursor-pointer' />
                   <Telegram className='size-[32px] cursor-pointer' />
                 </div>
               </div>
             </div>
           </motion.div>
-          <ReferalTable/>
+          <ReferalTable />
         </div>
       </div>
     </div>
