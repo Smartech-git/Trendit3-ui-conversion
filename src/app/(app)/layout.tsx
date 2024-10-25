@@ -8,12 +8,12 @@ import Toast from "@/components/alert/Toast";
 import { useGlobal } from "@/context/GlobalContext";
 import { apiRequest } from "@/lib/serverRequest";
 import { getSession, logout } from "@/cookies";
-import { cookiesType, pathsEnum } from "@/types";
+import { cookiesType, pathsEnum, taskTypes } from "@/types";
 import { useRouter } from "next/navigation";
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { setAppUser, setDashBoardStats } = useGlobal();
+  const { setAppUser, setDashBoardStats, setEarnersTask, setSocialMediaPlatforms } = useGlobal();
   const router = useRouter();
   // const handleLogin = async () => {
   //   const session = await getSession()
@@ -71,22 +71,48 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       const result = await apiRequest("stats", "GET", null, {
         Authorization: `Bearer ${user?.access_token}`,
       });
-      console.log(result);
+      // console.log(result);
       if (result?.error) {
         fetchDashBoardStats(user);
         return;
       } else if (result?.status === "success") {
-        setDashBoardStats(result?.metrics)
-      } else {
-        await logout();
-        router.replace(pathsEnum.login);
+        setDashBoardStats(result?.metrics);
       }
     };
 
+    const fetchAdvertTasks = async (user: cookiesType) => {
+      const result = await apiRequest("task_options?user_type=earner&task_type=advert", "GET", null, {
+        Authorization: `Bearer ${user?.access_token}`,
+      });
+      // console.log(result);
+      if (result?.error) {
+        fetchAdvertTasks(user);
+        return;
+      } else if (result?.status === "success") {
+        setEarnersTask((prev: taskTypes) => ({
+          ...prev,
+          advert: result?.options,
+        }));
+      }
+    };
+
+    const fetchSocialMediaPlatforms = async () => {
+      const result = await apiRequest("social-platforms", "GET");
+      // console.log(result);
+      if (result?.error) {
+        fetchSocialMediaPlatforms();
+        return;
+      } else if (result?.status === "success") {
+        setSocialMediaPlatforms(result?.platforms);
+      }
+    };
+
+    fetchSocialMediaPlatforms();
     const prep = async () => {
       const session = await getSession();
       fetchUserProfile(session?.user);
       fetchDashBoardStats(session?.user);
+      fetchAdvertTasks(session?.user);
     };
     prep();
   }, []);

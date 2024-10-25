@@ -29,25 +29,25 @@ export default function Page({ params }: { params: { stage: string } }) {
 
   return (
     <>
-      {earnPageDynamicPaths.includes(pathname) ? (
-        <motion.div layoutScroll className='w-full gap-y-6 flex flex-col h-fit'>
-          {(socialMediaHandleVerified || activeTask) && <NotificationBanner />}
-          <TaskDesc socialMediaHandleVerified={socialMediaHandleVerified} setSocialMediaHandleVerified={setSocialMediaHandleVerified} />
-          {activeTask ? (
-            <div className='flex md:flex-row flex-col w-full gap-6 relative'>
-              <GeneratedTask />
-              <TaskProof />
-            </div>
-          ) : (
-            <NoPendingTasks openModals={openModals} setOpenModals={setOpenModals} socialMediaHandleVerified={socialMediaHandleVerified} />
-          )}
-          {activeTask && <TaskSubmission />}
-        </motion.div>
-      ) : (
-        <div className='w-full sm:px-6 py-6 px-3 gap-y-6 rounded-xl flex flex-col items-center justify-center flex-none h-[80svh] border border-outline_varient bg-white'>
-          <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
-        </div>
-      )}
+      {/* {earnPageDynamicPaths.includes(pathname) ? ( */}
+      <motion.div layoutScroll className='w-full gap-y-6 flex flex-col h-fit'>
+        {(socialMediaHandleVerified || activeTask) && <NotificationBanner />}
+        <TaskDesc socialMediaHandleVerified={socialMediaHandleVerified} setSocialMediaHandleVerified={setSocialMediaHandleVerified} />
+        {activeTask ? (
+          <div className='flex md:flex-row flex-col w-full gap-6 relative'>
+            <GeneratedTask />
+            <TaskProof />
+          </div>
+        ) : (
+          <NoPendingTasks openModals={openModals} setOpenModals={setOpenModals} socialMediaHandleVerified={socialMediaHandleVerified} />
+        )}
+        {activeTask && <TaskSubmission />}
+      </motion.div>
+      {/* // ) : (
+      //   <div className='w-full sm:px-6 py-6 px-3 gap-y-6 rounded-xl flex flex-col items-center justify-center flex-none h-[80svh] border border-outline_varient bg-white'>
+      //     <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
+      //   </div>
+      // )} */}
     </>
   );
 }

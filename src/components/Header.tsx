@@ -50,7 +50,7 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
   };
 
   return (
-    <header className={`${subHeadingBreadCrumbRootPaths.includes(pathname) && "!pb-0"} w-full flex flex-col gap-y-3 absolute z-50 backdrop-blur-lg backdrop-saturate-150 bg-neutral-100/70 top-0 2xl:px-8 sm:px-6 2xl:py-8 sm:py-6 px-4 py-4`}>
+    <header className={`${pathnameSegments[1]?.length > 0 && "!pb-0"} w-full flex flex-col gap-y-3 absolute z-50 backdrop-blur-lg backdrop-saturate-150 bg-neutral-100/70 top-0 2xl:px-8 sm:px-6 2xl:py-8 sm:py-6 px-4 py-4`}>
       <div className='w-full flex justify-between items-center'>
         <div className='h-full items-center flex gap-x-4'>
           <div onClick={() => setOpenDrawer(true)} className='xl:hidden cursor-pointer flex'>
@@ -107,7 +107,7 @@ export default function Header({ openDrawer, setOpenDrawer }: header_types) {
           </Button>
         </div>
       </div>
-      {subHeadingBreadCrumbRootPaths.includes(pathname) && (
+      {pathnameSegments[1]?.length > 0 && (
         <div className='w-full relative h-[46px] sm:px-9 px-0 flex items-center justify-between py-1'>
           <div className='flex h-full relative items-center gap-x-6'>
             <button onClick={() => router.back()} className='outline-none sm:flex hidden group items-center gap-x-2'>

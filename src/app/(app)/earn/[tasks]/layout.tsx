@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (![...earnPageDynamicPaths].includes(pathname)) {
-      router.back();
+      // router.back();
     }
   }, [pathname]);
 

@@ -1,14 +1,19 @@
 "use client";
 
-import React, { Key, useState } from "react";
+import React, { Key, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Facebook, X, TikTok, Instagram, Youtube, Telegram, Google } from "@/svgAssets";
 import { ScrollShadow } from "@nextui-org/react";
 import { Wallet_02, LayersTwo_01, ChevronDown, ClockFastForward } from "@/appIcons";
-import EngagementTask from "../EngagementTask";
+import AdvertTask from "../Tasks/AdvertTask";
+import EngagementTask from "../Tasks/EngagementTasks";
 import { Tabs, Tab } from "@nextui-org/tabs";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { cookiesType, taskTypes } from "@/types";
+import { apiRequest } from "@/lib/serverRequest";
+import { useGlobal } from "@/context/GlobalContext";
+import { getSession } from "@/cookies";
+import { TaskLoader } from "../loadingScreens/skeletonLoaders";
 
 const socials = [
   { name: "Facebook", svg: <Facebook className='size-10' /> },
@@ -87,39 +92,49 @@ export default function Tasks() {
       type: "share",
     },
   ]);
-
-  const [taskMobile, setTaskMobile] = useState([
-    {
-      social: "Instagram",
-    },
-    {
-      social: "Facebook",
-    },
-    {
-      social: "Google",
-    },
-    {
-      social: "Facebook",
-    },
-  ]);
   const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>("Post advert");
+  const { setAdvertTask, advertTask } = useGlobal();
 
-  const onViewMore = () => {
-    setTaskMobile((prev: any) => [
-      ...prev,
-      {
-        social: "Facebook",
-      },
-      {
-        social: "Youtube",
-      },
-      {
-        social: "X",
-      },
-    ]);
-  };
+  useEffect(() => {
+    const fetchEngagementTasks = async (user: cookiesType) => {
+      const result = await apiRequest("task_options?user_type=advertiser&task_type=engagement ", "GET", null, {
+        Authorization: `Bearer ${user?.access_token}`,
+      });
+      console.log(result);
+      if (result?.error) {
+        fetchEngagementTasks(user);
+        return;
+      } else if (result?.status === "success") {
+        setAdvertTask((prev: taskTypes) => ({
+          ...prev,
+          engagement: result?.options,
+        }));
+      }
+    };
 
-  const router = useRouter();
+    const fetchAdvertTasks = async (user: cookiesType) => {
+      const result = await apiRequest("task_options?user_type=advertiser&task_type=advert", "GET", null, {
+        Authorization: `Bearer ${user?.access_token}`,
+      });
+      console.log(result);
+      if (result?.error) {
+        fetchEngagementTasks(user);
+        return;
+      } else if (result?.status === "success") {
+        setAdvertTask((prev: taskTypes) => ({
+          ...prev,
+          advert: result?.options,
+        }));
+      }
+    };
+
+    const prep = async () => {
+      const session = await getSession();
+      fetchEngagementTasks(session?.user);
+      fetchAdvertTasks(session?.user);
+    };
+    prep();
+  }, []);
 
   return (
     <>
@@ -143,18 +158,26 @@ export default function Tasks() {
         {activeTab === "Post advert" && (
           <ScrollShadow className='w-full min-h-[300px] h-fit overflow-y-scroll scrollbar-none flex gap-y-3 flex-col'>
             <div className='w-full grid sm:grid-cols-2 grid-cols-1 gap-3'>
-              {tasks.map((item: any, index: number) => {
-                return <Task key={index} data={item} />;
-              })}
+              {advertTask?.advert?.length > 0
+                ? advertTask?.advert?.map((data: any, index: number) => {
+                    return <AdvertTask key={data?.key} data={data} />;
+                  })
+                : new Array(4).fill("").map((item, idx: number) => {
+                    return <TaskLoader key={idx} />;
+                  })}
             </div>
           </ScrollShadow>
         )}
         {activeTab === "Engagement task" && (
           <ScrollShadow className='w-full min-h-[300px] h-fit overflow-y-scroll scrollbar-none flex gap-y-3 flex-col'>
             <div className='w-full grid sm:grid-cols-2 grid-cols-1 gap-3'>
-              {engagementTask.map((item: any, index: number) => {
-                return <EngagementTask key={index} data={item} />;
-              })}
+              {advertTask?.engagement?.length > 0
+                ? advertTask?.engagement?.map((data: any, index: number) => {
+                    return <EngagementTask key={data?.key} data={data} />;
+                  })
+                : new Array(4).fill("").map((item, idx: number) => {
+                    return <TaskLoader key={idx} />;
+                  })}
             </div>
           </ScrollShadow>
         )}

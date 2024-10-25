@@ -1,4 +1,5 @@
 import { DateValue } from "@nextui-org/react";
+import { AnySoaRecord } from "dns";
 
 export const signupPaths: Array<string> = ["/signup/email", "/signup/email-confirmation", "/signup/about", "/signup/profile-setup", "/signup/referal", "/signup/use-case"] as const;
 export type signupPathTypes = (typeof signupPaths)[number];
@@ -6,7 +7,7 @@ export type signupPathTypes = (typeof signupPaths)[number];
 export enum pathsEnum {
   login = "/login/0",
   verification = "/login/verification",
-  resetPassword = "/login/1",
+  resetPassword = "/reset-password/0",
   email = "/signup/email",
   emailConfirmation = "/signup/email-confirmation",
   about = "/signup/about",
@@ -30,6 +31,8 @@ export type advertisePageDynamicPathTypes = (typeof earnPageDynamicPaths)[number
 export type toastTypes = { open: boolean; state: undefined | "success" | "error"; content: undefined | string | number };
 
 export type membershipApprovalTypes = "approved" | "pending" | "false";
+
+export type taskTypes = { advert: any; engagement: any };
 
 export const default_notoficationBannerProps = {
   open: false,
@@ -64,8 +67,15 @@ export type GlobalContextTypes = {
   setTaskTimerActive: React.Dispatch<React.SetStateAction<boolean>>;
   notificationBanner: notificationBannerTypes;
   setNotificationBanner: React.Dispatch<React.SetStateAction<notificationBannerTypes>>;
-  dashBoardStats: any,
+
+  dashBoardStats: any;
   setDashBoardStats: React.Dispatch<React.SetStateAction<any>>;
+  earnersTask: taskTypes;
+  setEarnersTask: React.Dispatch<React.SetStateAction<any>>;
+  advertTask: taskTypes;
+  setAdvertTask: React.Dispatch<React.SetStateAction<any>>;
+  socialMediaPlatforms: any;
+  setSocialMediaPlatforms: React.Dispatch<React.SetStateAction<any>>;
 };
 
 export type signupFormTypes = {
@@ -123,7 +133,7 @@ export type modalTypes = {
   KYCVerification?: boolean;
   KYCSuccessful?: boolean;
   linkSocialMedia?: boolean;
-  linkBank?: boolean
+  linkBank?: boolean;
 };
 
 export type createAdFormTypes = {

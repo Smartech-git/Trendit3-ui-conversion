@@ -52,7 +52,7 @@ export default function ReferAndEarn() {
                 <div className='flex items-center gap-x-6'>
                   <TikTok className='size-[32px] cursor-pointer' />
                   <Facebook className='size-[32px] cursor-pointer' />
-                  <Whatsapp className='cursor-pointer' />
+                  <Whatsapp className='cursor-pointer size-[32px]' />
                   <Telegram className='size-[32px] cursor-pointer' />
                 </div>
               </div>

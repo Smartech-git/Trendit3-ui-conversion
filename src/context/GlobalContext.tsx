@@ -1,7 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState } from "react";
-import { GlobalContextTypes, toastTypes, membershipApprovalTypes, notificationBannerTypes, default_notoficationBannerProps } from "@/types";
+import { GlobalContextTypes, toastTypes, membershipApprovalTypes, notificationBannerTypes, default_notoficationBannerProps, taskTypes } from "@/types";
 import { useSearchParams } from "next/navigation";
 
 const GlobalContext = createContext<GlobalContextTypes>({
@@ -11,27 +11,36 @@ const GlobalContext = createContext<GlobalContextTypes>({
   setToast: () => {},
   member: false,
   setMember: () => {},
-  membershipApproved: 'false',
-  setMembershipApproved: () => { },
+  membershipApproved: "false",
+  setMembershipApproved: () => {},
   activeTask: false,
-  setActiveTask: () => { },
-  taskTimerActive: false, 
-  setTaskTimerActive: () => { },
+  setActiveTask: () => {},
+  taskTimerActive: false,
+  setTaskTimerActive: () => {},
   notificationBanner: default_notoficationBannerProps,
-  setNotificationBanner: () => { },
+  setNotificationBanner: () => {},
   dashBoardStats: undefined,
   setDashBoardStats: () => {},
+  earnersTask: { advert: undefined, engagement: undefined },
+  setEarnersTask: () => { },
+  advertTask: { advert: undefined, engagement: undefined },
+  setAdvertTask: () => {},
+  socialMediaPlatforms: undefined,
+  setSocialMediaPlatforms: () => {},
 });
 
 export default function AppProvider({ children }: any) {
   const [appUser, setAppUser] = useState(undefined);
   const [toast, setToast] = useState<toastTypes>({ open: false, state: undefined, content: undefined });
   const [member, setMember] = useState(false);
-  const [membershipApproved, setMembershipApproved] = useState<membershipApprovalTypes>('pending');
-  const [activeTask, setActiveTask] = useState(false)
-  const [taskTimerActive, setTaskTimerActive] = useState(false)
-  const [notificationBanner, setNotificationBanner] = useState<notificationBannerTypes>(default_notoficationBannerProps)
-  const [dashBoardStats,  setDashBoardStats] = useState<any>(undefined)
+  const [membershipApproved, setMembershipApproved] = useState<membershipApprovalTypes>("pending");
+  const [activeTask, setActiveTask] = useState(false);
+  const [taskTimerActive, setTaskTimerActive] = useState(false);
+  const [notificationBanner, setNotificationBanner] = useState<notificationBannerTypes>(default_notoficationBannerProps);
+  const [dashBoardStats, setDashBoardStats] = useState<any>(undefined);
+  const [earnersTask, setEarnersTask] = useState<taskTypes>({ advert: undefined, engagement: undefined });
+  const [advertTask, setAdvertTask] = useState<taskTypes>({ advert: undefined, engagement: undefined });
+  const [socialMediaPlatforms, setSocialMediaPlatforms] = useState<any>(undefined);
 
   return (
     <GlobalContext.Provider
@@ -44,10 +53,20 @@ export default function AppProvider({ children }: any) {
         setMember,
         membershipApproved,
         setMembershipApproved,
-        activeTask, setActiveTask,
-        taskTimerActive, setTaskTimerActive,
-        notificationBanner, setNotificationBanner,
-        dashBoardStats, setDashBoardStats
+        activeTask,
+        setActiveTask,
+        taskTimerActive,
+        setTaskTimerActive,
+        notificationBanner,
+        setNotificationBanner,
+        dashBoardStats,
+        setDashBoardStats,
+        earnersTask,
+        setEarnersTask,
+        advertTask,
+        setAdvertTask,
+        socialMediaPlatforms,
+        setSocialMediaPlatforms,
       }}
     >
       {children}

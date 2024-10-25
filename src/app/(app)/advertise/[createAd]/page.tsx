@@ -69,7 +69,7 @@ export default function Page({ params }: { params: { stage: string } }) {
 
   return (
     <>
-      {advertisePageDynamicPaths.includes(pathname) ? (
+      {/* {advertisePageDynamicPaths.includes(pathname) ? ( */}
         <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} layout className='w-full flex sm:p-8 p-4 flex-col h-fit items-center rounded-xl border border-gray-200 bg-white'>
           <div className='flex flex-col h-fit items-center max-w-[510px] gap-y-6'>
             <GenericTask />
@@ -300,11 +300,11 @@ export default function Page({ params }: { params: { stage: string } }) {
             </div>
           </div>
         </motion.div>
-      ) : (
+      {/* ) : (
         <div className='w-full sm:px-6 py-6 px-3 gap-y-6 rounded-xl flex flex-col items-center justify-center flex-none h-[80svh] border border-outline_varient bg-white'>
           <Spinner />
         </div>
-      )}
+      )} */}
 
       {
         // modals...

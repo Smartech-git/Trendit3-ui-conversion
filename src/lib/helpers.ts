@@ -36,3 +36,17 @@ export const getRequiredErrorMessage = (key: requiredErrorMessage_types): string
     return "LGA is required";
   }
 };
+
+export const getEngagementSubPath = (data: string) => {
+  if (data.startsWith("Follow social") || data.startsWith("Get Genuine People to Follow")) {
+    return "Follow social";
+  } else if (data.startsWith("Like social") || data.startsWith("Get Genuine People to Like")) {
+    return "Like social";
+  } else if (data.startsWith("Like and follow") || data.startsWith("Get Real People to Like and Follow")) {
+    return "Like and follow";
+  } else if (data.startsWith("Post Comments") || data.startsWith("Get Genuine People to Comment")) {
+    return "Post comments";
+  } else {
+    return "Like social";
+  }
+};

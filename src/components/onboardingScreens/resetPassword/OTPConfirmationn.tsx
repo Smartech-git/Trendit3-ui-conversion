@@ -11,7 +11,7 @@ import Spinner from "@/components/loadingScreens/Spinner";
 import { apiRequest } from "@/lib/serverRequest";
 import { useRouter } from "next/navigation";
 
-export default function ResetPasswordScreen() {
+export default function OTPConfirmation() {
   const { formData, setFormData } = useResetPasswordContext();
   const { setToast } = useGlobal();
   const [isFetching, setIsFetching] = useState(false);
@@ -42,9 +42,9 @@ export default function ResetPasswordScreen() {
     } else if ([error.email].every((value) => value === undefined)) {
       setIsFetching(true);
       const result = await apiRequest("forgot-password", "POST", {
-        email_username: formData.email,
+        email: formData.email,
       });
-      console.log(result);
+      console.log(result)
       setIsFetching(false);
       if (result?.error) {
         setToast({ open: true, state: "error", content: "check your network connection" });
@@ -64,7 +64,7 @@ export default function ResetPasswordScreen() {
     <motion.div layout initial={{ opacity: 0, x: 4 }} animate={{ opacity: 1, x: 0 }} transition={{ type: "spring" }} className='sm:w-[520px] w-[90vw] h-fit bg-white flex flex-col gap-y-8 items-center rounded-xl px-6 py-12'>
       <div className='flex flex-col relative w-full gap-y-1 items-center'>
         <h1 className='text-2xl font-bold text-gray-900'>{`Reset password`}</h1>
-        {/* <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>We have sent an email with a code to adedamolamoses@gmail.com, please enter it below to reset your password. </p> */}
+        <p className='text-center w-[95%] max-w-[95%] text-base text-gray-600'>We have sent an email with a code to adedamolamoses@gmail.com, please enter it below to reset your password. </p>
       </div>
       <div className='w-full flex flex-col relative gap-y-6 items-center'>
         <form action={() => {}} className='w-full flex relative items-center flex-col gap-y-4'>
