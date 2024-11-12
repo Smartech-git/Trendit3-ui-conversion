@@ -201,7 +201,7 @@ export default function TransactionsTable({ type }: table_propsTypes) {
         <TableBody
           loadingContent={
             <div className='size-12'>
-              <Spinner className='text-white' />
+              <Spinner pathClassName='!text-gray-300' className='!fill-primary_fixed' />
             </div>
           }
           // isLoading
