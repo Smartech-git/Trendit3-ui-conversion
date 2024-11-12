@@ -75,8 +75,9 @@ export default function EmailConFrimationScreen() {
         setToast({ open: true, state: "error", content: "check your network connection" });
       } else if (result?.status === "success") {
         setToast({ open: true, state: "success", content: result?.message });
-        createSession(result?.user_data);
+       
         const navigate = async () => {
+          await createSession(result?.user_data);
           router.push(pathsEnum.about);
         };
         navigate();
@@ -115,7 +116,7 @@ export default function EmailConFrimationScreen() {
                   endContent={
                     isFetching && (
                       <div className='size-5'>
-                        <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
+                        <Spinner pathClassName='!text-gray-300' className='!fill-primary_fixed' />
                       </div>
                     )
                   }
@@ -138,7 +139,7 @@ export default function EmailConFrimationScreen() {
             </span>
             {isFetchingNewOTP && (
               <div className='size-4 ml-1'>
-                <Spinner className='text-gray-100' />
+                <Spinner pathClassName='!text-gray-300' className='!fill-primary_fixed' />
               </div>
             )}
           </div>

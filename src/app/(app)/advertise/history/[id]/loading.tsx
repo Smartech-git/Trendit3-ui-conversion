@@ -9,7 +9,7 @@ export default function loading() {
       <div className='absolute z-10 animate-pulse overflow-hidden inset-0 bg-neutral-100 size-full'>
         <OnPageLoad className=' !h-[100svh] !w-fit' />
       </div>
-      <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed z-20' />
+      <Spinner pathClassName='!text-gray-300' className='!fill-primary_fixed z-20' />
     </div>
   );
 }

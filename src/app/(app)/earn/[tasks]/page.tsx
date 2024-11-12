@@ -45,7 +45,7 @@ export default function Page({ params }: { params: { stage: string } }) {
       </motion.div>
       {/* // ) : (
       //   <div className='w-full sm:px-6 py-6 px-3 gap-y-6 rounded-xl flex flex-col items-center justify-center flex-none h-[80svh] border border-outline_varient bg-white'>
-      //     <Spinner pathClassName='!text-gray-300' className='!text-primary_fixed' />
+      //     <Spinner pathClassName='!text-gray-300' className='!fill-primary_fixed' />
       //   </div>
       // )} */}
     </>
