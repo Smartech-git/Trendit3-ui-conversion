@@ -88,8 +88,9 @@ export default function EmailScreen() {
           signup_token: result?.signup_token,
           email: formData?.email,
         };
-        createSession(session);
+        
         const navigate = async () => {
+          await createSession(session);
           router.push(pathsEnum.emailConfirmation);
         };
         navigate();
