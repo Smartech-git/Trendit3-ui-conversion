@@ -9,9 +9,9 @@ export default function LoginOnboardinglayout({ children }: { children: React.Re
   const router = useRouter();
 
   useEffect(() => {
-    if (!loginPaths.includes(pathname)) {
-      router.back();
-    }
+    // if (!loginPaths.includes(pathname)) {
+    //   router.back();
+    // }
   }, [pathname]);
 
   return <LoginProvider>{children}</LoginProvider>;

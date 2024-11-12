@@ -12,9 +12,10 @@ export default function SignupOnboardinglayout({ children }: { children: React.R
   const router = useRouter();
 
   useEffect(() => {
-    if (!signupPaths.includes(pathname)) {
-      router.back();
-    }
+    // console.log(pathname)
+    // if (!signupPaths.includes(pathname)) {
+    //   router.back();
+    // }
   }, [pathname]);
 
   return <SignupProvider>{children}</SignupProvider>;
