@@ -13,9 +13,9 @@ export default function SignupOnboardinglayout({ children }: { children: React.R
 
   useEffect(() => {
     // console.log(pathname)
-    // if (!signupPaths.includes(pathname)) {
-    //   router.back();
-    // }
+    if (!signupPaths.includes(pathname)) {
+      router.back();
+    }
   }, [pathname]);
 
   return <SignupProvider>{children}</SignupProvider>;

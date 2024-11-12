@@ -29,7 +29,7 @@ export default function EmailConFrimationScreen() {
           email: session.user.email,
         }));
       } else {
-        // router.replace(pathsEnum.email);
+        router.replace(pathsEnum.email);
       }
     };
     getUserSession();
