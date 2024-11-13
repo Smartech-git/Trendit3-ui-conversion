@@ -57,7 +57,7 @@ export default function EmailScreen() {
         };
       });
     }
-  }, 1000);
+  }, 2000);
 
   const handleGetStarted = async () => {
     if ([formData.email].some((value) => !value?.length)) {

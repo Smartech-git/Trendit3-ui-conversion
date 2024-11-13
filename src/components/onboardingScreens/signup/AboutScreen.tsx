@@ -127,8 +127,8 @@ export default function AboutScreen() {
           lastname: result?.user_data?.lastname,
         };
         setAppUser(result?.user_data);
-        createSession(session);
         const navigate = async () => {
+          await createSession(session);
           router.replace(pathsEnum.profileSetup);
         };
         navigate();

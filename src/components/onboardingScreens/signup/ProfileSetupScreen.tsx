@@ -160,11 +160,13 @@ export default function ProfileSetupScreen() {
       formData.state && form.append("state", formData.state);
       formData.LGA && form.append("local_government", formData.LGA);
       setIsFetching(true);
+      console.log(session)
       const result = await apiRequestAxios("profile/edit", "POST", form, {
         Authorization: `Bearer ${session?.access_token}`,
       });
+      console.log(result)
       if (result?.error) {
-        setToast({ open: true, state: "error", content: "check your network connection" });
+        setToast({ open: true, state: "error", content: result?.error });
       } else if (result?.status === "success") {
         setToast({ open: true, state: "success", content: result?.message });
         setAppUser(result?.user_data);
@@ -353,7 +355,7 @@ export default function ProfileSetupScreen() {
           <Button
             spinner={
               <div className='size-5'>
-                <Spinner pathClassName='!text-gray-300' className='!fill-primary_fixed' />
+                <Spinner pathClassName='!text-gray-300' className='!fill-white' />
               </div>
             }
             isLoading={isFetching}
