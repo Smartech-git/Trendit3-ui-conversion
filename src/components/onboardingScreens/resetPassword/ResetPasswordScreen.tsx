@@ -18,10 +18,6 @@ export default function ResetPasswordScreen() {
   const [error, setError] = useState<{ email: string | undefined }>({ email: undefined });
   const router = useRouter();
 
-  useEffect(() => {
-    setToast({ open: true, state: "success", content: "OTP Sent" });
-  }, []);
-
   const handleOnChange = (e: any) => {
     setFormData((prev: resetPasswordFormTypes) => ({
       ...prev,

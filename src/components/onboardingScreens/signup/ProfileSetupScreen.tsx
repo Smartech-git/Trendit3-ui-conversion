@@ -33,10 +33,9 @@ export default function ProfileSetupScreen() {
   const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
-    router.prefetch(pathsEnum.home);
-    router.prefetch(pathsEnum.referal);
     const getUserSession = async () => {
       const session = await getSession();
+      console.log(session);
       if (session) {
         setSession(session.user);
       } else {
@@ -59,6 +58,8 @@ export default function ProfileSetupScreen() {
     };
     fetchCountries();
     getUserSession();
+    router.prefetch(pathsEnum.home);
+    router.prefetch(pathsEnum.referal);
   }, []);
 
   const handleOnChange = (e?: any, value?: any) => {
@@ -160,11 +161,11 @@ export default function ProfileSetupScreen() {
       formData.state && form.append("state", formData.state);
       formData.LGA && form.append("local_government", formData.LGA);
       setIsFetching(true);
-      console.log(session)
+      console.log(session);
       const result = await apiRequestAxios("profile/edit", "POST", form, {
         Authorization: `Bearer ${session?.access_token}`,
       });
-      console.log(result)
+      console.log(result);
       if (result?.error) {
         setToast({ open: true, state: "error", content: result?.error });
       } else if (result?.status === "success") {
@@ -219,7 +220,7 @@ export default function ProfileSetupScreen() {
                   <SelectItem classNames={{ base: "data-[hover=true]:!bg-gray-50 !bg-white !outline-none data-[selected=true]:!text-primary_fixed", title: "text-base" }} key='Female'>{`Female`}</SelectItem>
                 </Select>
               </div>
-              <div className='w-full flex flex-col'>
+              <div className='w-full flex  flex-col'>
                 <div className='w-full flex relative'>
                   <DateInput
                     onChange={(value) => {

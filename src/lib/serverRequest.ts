@@ -1,12 +1,15 @@
 "use server";
+import { getSession } from "@/cookies";
 import axios, { InternalAxiosRequestConfig, Method } from "axios";
 
 const baseUrl = process.env.BASE_URL;
 
 export async function apiRequest(endPoint: string, method: Method = "GET", data: any = null, customHeaders: HeadersInit = {}) {
+  const session = await getSession();
   try {
     const headers = {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${session?.user?.access_token}`,
       ...customHeaders,
     };
     const options: RequestInit = {

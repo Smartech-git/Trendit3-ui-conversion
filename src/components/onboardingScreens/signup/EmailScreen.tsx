@@ -42,7 +42,7 @@ export default function EmailScreen() {
         email: e.target.value,
       });
       if (result?.error) {
-        setToast({ open: true, state: "error", content: "check your network connection" });
+        setToast({ open: true, state: "error", content: "Check your network connection" });
       } else if (result?.status === "failed") {
         setError((prev) => ({
           ...prev,
@@ -81,7 +81,7 @@ export default function EmailScreen() {
       );
       setIsFetching(false);
       if (result?.error) {
-        setToast({ open: true, state: "error", content: "check your network connection" });
+        setToast({ open: true, state: "error", content: "Check your network connection" });
       } else if (result?.status === "success") {
         setToast({ open: true, state: "success", content: result?.message });
         const session: cookiesType = {
