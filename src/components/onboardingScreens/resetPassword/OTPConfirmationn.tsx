@@ -44,7 +44,7 @@ export default function OTPConfirmation() {
       const result = await apiRequest("forgot-password", "POST", {
         email: formData.email,
       });
-      console.log(result)
+      //console.log(result)
       setIsFetching(false);
       if (result?.error) {
         setToast({ open: true, state: "error", content: "check your network connection" });

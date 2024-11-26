@@ -77,7 +77,7 @@ export default function SelectPaymentMethod({ openModals, setOpenModals, action 
                         value={item.method}
                         description={
                           <>
-                            {item.desc} {item.method === "wallet" && <span className='text-primary_fixed'>{`${getSymbolFromCurrency("NGN")} ${numeral(walletBal).format("0,0.00")}`}</span>}
+                            {item.desc} {item.method === "wallet" && <span className='text-primary_fixed font-semibold'>{`${getSymbolFromCurrency("NGN")} ${numeral(walletBal).format("0,0.00")}`}</span>}
                           </>
                         }
                       >

@@ -13,7 +13,7 @@ export default function ReferalScreen0() {
   const { formData, setFormData } = useSignupContext();
 
   useEffect(() => {
-    console.log(formData);
+    //console.log(formData);
   }, [formData]);
 
   const handleOnSelect = (value: string) => {
@@ -55,7 +55,7 @@ export default function ReferalScreen0() {
           })}
         </RadioGroup>
       </div>
-      <Link href='/signup/use-case' className="w-full">
+      <Link href='/signup/use-case' className='w-full'>
         <Button
           // spinner={
           //   <div className='size-5'>

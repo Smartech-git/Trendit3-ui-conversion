@@ -35,7 +35,7 @@ export default function ProfileSetupScreen() {
   useEffect(() => {
     const getUserSession = async () => {
       const session = await getSession();
-      console.log(session);
+      //console.log(session);
       if (session) {
         setSession(session.user);
       } else {
@@ -161,11 +161,11 @@ export default function ProfileSetupScreen() {
       formData.state && form.append("state", formData.state);
       formData.LGA && form.append("local_government", formData.LGA);
       setIsFetching(true);
-      console.log(session);
+      //console.log(session);
       const result = await apiRequestAxios("profile/edit", "POST", form, {
         Authorization: `Bearer ${session?.access_token}`,
       });
-      console.log(result);
+      //console.log(result);
       if (result?.error) {
         setToast({ open: true, state: "error", content: result?.error });
       } else if (result?.status === "success") {

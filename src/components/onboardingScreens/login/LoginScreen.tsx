@@ -54,7 +54,7 @@ export default function LoginScreen() {
         email_username: formData.email,
         password: formData.password,
       });
-      // console.log(result);
+      // //console.log(result);
       setIsFetching((prev) => ({ ...prev, login: false }));
       if (result?.error) {
         setToast({ open: true, state: "error", content: "check your network connection" });
@@ -91,7 +91,7 @@ export default function LoginScreen() {
   const handleSocialsLogin = useCallback(async (type: "gg" | "fb" | "tt", path: "gg_login" | "facebook_login" | "tt_login") => {
     setIsFetching((prev) => ({ ...prev, [type]: true }));
     const result = await apiRequest(path, "GET");
-    console.log(result);
+    //console.log(result);
     setIsFetching((prev) => ({ ...prev, [type]: false }));
     if (result?.error) {
       setToast({ open: true, state: "error", content: "check your network connection" });
@@ -101,7 +101,7 @@ export default function LoginScreen() {
         url.searchParams.set("redirect_uri", newRedirectUri);
         return url.toString();
       };
-      // console.log(modifyAuthUrl(result.authorization_url, "http://localhost:5000/login"));
+      // //console.log(modifyAuthUrl(result.authorization_url, "http://localhost:5000/login"));
       window.open(result.authorization_url);
     } else {
       setToast({ open: true, state: "error", content: result?.message });
@@ -111,7 +111,7 @@ export default function LoginScreen() {
   useEffect(() => {
     // const x = async () => {
     //   const result = await apiRequest('gg_login_callback', "GET");
-    //   console.log(result);
+    //   //console.log(result);
     // };
     // x();
   }, []);

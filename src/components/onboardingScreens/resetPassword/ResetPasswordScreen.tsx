@@ -40,7 +40,7 @@ export default function ResetPasswordScreen() {
       const result = await apiRequest("forgot-password", "POST", {
         email_username: formData.email,
       });
-      console.log(result);
+      //console.log(result);
       setIsFetching(false);
       if (result?.error) {
         setToast({ open: true, state: "error", content: "check your network connection" });

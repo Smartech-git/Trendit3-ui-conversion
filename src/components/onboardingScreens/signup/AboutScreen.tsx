@@ -57,7 +57,7 @@ export default function AboutScreen() {
       const result = await apiRequest("check-username", "POST", {
         username: e.target.value,
       });
-      console.log(result);
+      //console.log(result);
       if (result?.error) {
         setToast({ open: true, state: "error", content: "check your network connection" });
       } else if (result?.status === "failed") {

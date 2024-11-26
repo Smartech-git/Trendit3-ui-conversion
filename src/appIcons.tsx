@@ -46,6 +46,28 @@ export const User_01 = ({ className }: { className?: string }) => {
   );
 };
 
+export const User_Circle = ({ className, pathClassName }: { className?: string; pathClassName?: string }) => {
+  return (
+    <svg className={className} width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <g clip-path='url(#clip0_3828_57543)'>
+        <path
+          className={pathClassName}
+          d='M4.43024 16.198C4.93717 15.0037 6.12076 14.166 7.49999 14.166H12.5C13.8792 14.166 15.0628 15.0037 15.5697 16.198M13.3333 7.91602C13.3333 9.75697 11.8409 11.2493 9.99999 11.2493C8.15904 11.2493 6.66666 9.75697 6.66666 7.91602C6.66666 6.07507 8.15904 4.58268 9.99999 4.58268C11.8409 4.58268 13.3333 6.07507 13.3333 7.91602ZM18.3333 9.99935C18.3333 14.6017 14.6024 18.3327 9.99999 18.3327C5.39762 18.3327 1.66666 14.6017 1.66666 9.99935C1.66666 5.39698 5.39762 1.66602 9.99999 1.66602C14.6024 1.66602 18.3333 5.39698 18.3333 9.99935Z'
+          stroke='#98A2B3'
+          stroke-width='1.66667'
+          stroke-linecap='round'
+          stroke-linejoin='round'
+        />
+      </g>
+      <defs>
+        <clipPath id='clip0_3828_57543'>
+          <rect width='20' height='20' fill='white' />
+        </clipPath>
+      </defs>
+    </svg>
+  );
+};
+
 export const ChevronDown = ({ className }: { className?: string }) => {
   return (
     <svg className={className} xmlns='http://www.w3.org/2000/svg' width='20' height='21' viewBox='0 0 20 21' fill='none'>
@@ -707,6 +729,14 @@ export const DotsVertical = ({ className }: { className?: string }) => {
       <path d='M10 11.8125C10.4602 11.8125 10.8333 11.4394 10.8333 10.9792C10.8333 10.5189 10.4602 10.1458 10 10.1458C9.53976 10.1458 9.16667 10.5189 9.16667 10.9792C9.16667 11.4394 9.53976 11.8125 10 11.8125Z' stroke='#98A2B3' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round' className={className} />
       <path d='M10 5.97917C10.4602 5.97917 10.8333 5.60607 10.8333 5.14583C10.8333 4.6856 10.4602 4.3125 10 4.3125C9.53976 4.3125 9.16667 4.6856 9.16667 5.14583C9.16667 5.60607 9.53976 5.97917 10 5.97917Z' stroke='#98A2B3' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round' className={className} />
       <path d='M10 17.6458C10.4602 17.6458 10.8333 17.2727 10.8333 16.8125C10.8333 16.3523 10.4602 15.9792 10 15.9792C9.53976 15.9792 9.16667 16.3523 9.16667 16.8125C9.16667 17.2727 9.53976 17.6458 10 17.6458Z' stroke='#98A2B3' stroke-width='1.66667' stroke-linecap='round' stroke-linejoin='round' className={className} />
+    </svg>
+  );
+};
+
+export const FilterLines = ({ className, pathClassName }: { className?: string; pathClassName?: string }) => {
+  return (
+    <svg className={className} width='18' height='18' viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path className={pathClassName} d='M4.5 9H13.5M2.25 4.5H15.75M6.75 13.5H11.25' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' />
     </svg>
   );
 };

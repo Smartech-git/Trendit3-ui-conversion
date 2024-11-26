@@ -18,30 +18,33 @@ module.exports = withMT({
         illustration: "#1E1E1E",
         pink: {
           DEFAULT: "#FFD0FE",
-          200: '#FFBFFA'
+          200: "#FFBFFA",
+        },
+        surface: {
+          success: "#D2EBD3",
         },
         error: {
           DEFAULT: "#FF3D00",
-          50: '#FEF3F2',
-          200: '#FECDCA',
-          500: '#F04438',
-          900: '#B42318'
+          50: "#FEF3F2",
+          200: "#FECDCA",
+          500: "#F04438",
+          900: "#B42318",
         },
         success: {
           DEFAULT: "#4CAF50",
-          50: '#ECFDF3',
-          200: '#ABEFC6',
-          600: '#079455',
-          500: '#17B26A',
-          900: '#067647'
+          50: "#ECFDF3",
+          200: "#ABEFC6",
+          600: "#079455",
+          500: "#17B26A",
+          900: "#067647",
         },
         brand: {
-          30: '#D2EBD34D',
+          30: "#D2EBD34D",
           50: "#F9F5FF",
           200: "#E9D7FE",
           300: "#D6BBFB",
           500: "#9E77ED",
-          600: '#419544',
+          600: "#419544",
           700: "#6941C6",
         },
         blue: {
@@ -52,7 +55,7 @@ module.exports = withMT({
           700: "#175CD3",
         },
         link: {
-          DEFAULT: '#1465CE'
+          DEFAULT: "#1465CE",
         },
         gray: {
           DEFAULT: "#B1B1B1",
@@ -64,22 +67,22 @@ module.exports = withMT({
           400: "#98A2B3",
           500: "#667085",
           600: "#475467",
-          800: '#182230',
+          800: "#182230",
           700: "#344054",
           900: "#101828",
           950: "#0C111D",
         },
         warning: {
-          DEFAULT: '#FF3D00',
-          50: '#FFFAEB',
-          100: '#FEF0C7',
-          200:'#FEDF89',
-          600: '#DC6803',
-          700: '#B54708'
+          DEFAULT: "#FF3D00",
+          50: "#FFFAEB",
+          100: "#FEF0C7",
+          200: "#FEDF89",
+          600: "#DC6803",
+          700: "#B54708",
         },
         green: {
-          DEFAULT: '#4CAF50'
-        }
+          DEFAULT: "#4CAF50",
+        },
       },
       fontSize: {
         xxs: "9px",

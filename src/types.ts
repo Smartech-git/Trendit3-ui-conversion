@@ -134,6 +134,11 @@ export type modalTypes = {
   KYCSuccessful?: boolean;
   linkSocialMedia?: boolean;
   linkBank?: boolean;
+  airtime?: boolean;
+  data?: boolean;
+  orderSummaryAirtime?: boolean;
+  electricity?: boolean;
+  betting?: boolean;
 };
 
 export type createAdFormTypes = {

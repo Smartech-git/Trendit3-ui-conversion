@@ -70,12 +70,12 @@ export default function EmailConFrimationScreen() {
         signup_token: session?.signup_token,
       });
       setIsFetching(false);
-      console.log(result);
+      //console.log(result);
       if (result?.error) {
         setToast({ open: true, state: "error", content: "Check your network connection" });
       } else if (result?.status === "success") {
         setToast({ open: true, state: "success", content: result?.message });
-       
+
         const navigate = async () => {
           await createSession(result?.user_data);
           router.push(pathsEnum.about);

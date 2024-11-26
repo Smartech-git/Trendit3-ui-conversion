@@ -37,7 +37,7 @@ export default function Tasks() {
       const result = await apiRequest("task_options?user_type=earner&task_type=engagement ", "GET", null, {
         Authorization: `Bearer ${user?.access_token}`,
       });
-      console.log(result);
+      //console.log(result);
       if (result?.error) {
         fetchEngagementTasks(user);
         return;

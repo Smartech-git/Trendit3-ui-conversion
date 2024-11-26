@@ -55,7 +55,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       const result = await apiRequest("profile", "GET", null, {
         Authorization: `Bearer ${user?.access_token}`,
       });
-      // console.log(result);
+      // //console.log(result);
       if (result?.error) {
         fetchUserProfile(user);
         return;
@@ -71,7 +71,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       const result = await apiRequest("stats", "GET", null, {
         Authorization: `Bearer ${user?.access_token}`,
       });
-      // console.log(result);
+      // //console.log(result);
       if (result?.error) {
         fetchDashBoardStats(user);
         return;
@@ -84,7 +84,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       const result = await apiRequest("task_options?user_type=earner&task_type=advert", "GET", null, {
         Authorization: `Bearer ${user?.access_token}`,
       });
-      // console.log(result);
+      // //console.log(result);
       if (result?.error) {
         fetchAdvertTasks(user);
         return;
@@ -98,7 +98,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
     const fetchSocialMediaPlatforms = async () => {
       const result = await apiRequest("social-platforms", "GET");
-      // console.log(result);
+      // //console.log(result);
       if (result?.error) {
         fetchSocialMediaPlatforms();
         return;

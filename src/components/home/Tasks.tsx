@@ -19,7 +19,7 @@ export default function Tasks() {
   const [earnerTaskPrev, setEarnersTaskPrev] = useState<any>(undefined);
 
   useEffect(() => {
-    console.log(earnersTask);
+    //console.log(earnersTask);
     setEarnersTaskPrev(earnersTask?.advert?.filter((x: any, idx: number) => idx <= 2));
   }, [earnersTask]);
 
