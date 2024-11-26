@@ -126,7 +126,7 @@ export default function Data({ openModals, setOpenModals, action, setOrderSummar
                 <div className='w-full gap-4 grid sm:!grid-cols-4 [@media(min-width:350px)]:grid-cols-3 grid-cols-2'>
                   {new Array(8).fill("").map((_, idx: number) => {
                     return (
-                      <div className='h-[88px] cursor-pointer w-full flex flex-col rounded-xl overflow-hidden'>
+                      <div key={idx} className='h-[88px] cursor-pointer w-full flex flex-col rounded-xl overflow-hidden'>
                         <div className='w-full flex-none h-3 bg-success items-center py-0.5 px-1 flex justify-center'>
                           <span className='text-[8px] font-bold text-surface-success '>NGN 100 Cashback</span>
                         </div>
