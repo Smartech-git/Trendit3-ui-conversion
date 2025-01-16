@@ -37,7 +37,7 @@ export default function OrderSummary_modal({ openModals, setOpenModals }: become
         closeButton: "data-[hover=true]:!bg-gray-50 !opacity-100 !p-0 right-2 top-2 !outline-none size-fit bg-white !min-w-10 !h-10 !p-0 !rounded-md",
         footer: `shadow-none bg-whit rounded-b-xl px-8  pb-8 flex flex-col pt-3`,
         header: "pb-6",
-        body: '!p-0 px-8'
+        body: 'py-0 px-8'
       }}
       closeButton={
         <Button disableRipple className='bg-white outline-none !min-w-11 !w-11 !h-11 rounded-md hover:bg-gray-50 transition-colors flex data-[hover=true]:!bg-gray-50 !opacity-100 items-center justify-center !p-0'>

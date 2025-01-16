@@ -7,7 +7,7 @@ const red_Hat_Display = Red_Hat_Display({ weight: ["300", "400", "500", "600", "
 
 export const metadata: Metadata = {
   title: "Trendit³",
-  description: "www.trendit3.com",
+  description: "Earn Daily Income for Posting Ads and Completing Simple Social Tasks for Individuals, Businesses, and Brands on Your Social Media Account.",
 };
 
 export default function RootLayout({

@@ -13,7 +13,7 @@ export default function History() {
   const [openNot, setOpenNot] = useState(true);
 
   return (
-    <div className='2xl:pt-[112px] sm:pt-[96px] flex flex-col gap-6 pt-[72px]'>
+    <div className='2xl:pt-[170px] sm:pt-[154px] pt-[130px] flex flex-col gap-6'>
       <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full flex p-3 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white'>
         <TaskStats />
       </motion.div>

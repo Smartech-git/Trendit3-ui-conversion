@@ -13,7 +13,7 @@ export default function AdvertTask({ data, type }: { data?: any; type?: "createA
   const [_, root, ...segments] = pathname.split("/");
 
   return (
-    <Link href={`/${root}/create-${data?.platform?.toLowerCase()}?key=${data?.key}`}>
+    <Link href={`/${root === "home" ? "earn" : root}/create-${data?.platform?.toLowerCase()}?key=${data?.key}`}>
       <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring" }} className='w-full h-full flex flex-col overflow-hidden rounded shadow-main border border-neutral-100 bg-white'>
         <div className='w-full px-3 py-4 gap-x-4 flex items-start'>
           <div className='w-12 h-full flex-none relative flex items-center flex-col'>
